@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import cslmusicmod.stationeditor.controls.NameEditor?>
+<?import cslmusicmod.stationeditor.controls.ThumbnailEditor?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import cslmusicmod.stationeditor.controls.ScheduleEditor?>
+<VBox prefHeight="400.0" prefWidth="600.0" stylesheets="/cslmusicmod/stationeditor/MainWindow.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cslmusicmod.stationeditor.MainWindow">
+   <children>
+      <MenuBar prefHeight="29.0" prefWidth="600.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="Open ..." />
+                  <MenuItem mnemonicParsing="false" text="Save" />
+              <MenuItem mnemonicParsing="false" text="Exit" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="Report issue" />
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TabPane layoutY="29.0" prefHeight="372.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+        <tabs>
+          <Tab text="General">
+            <content>
+                  <VBox>
+                     <children>
+                        <GridPane hgap="8.0" vgap="8.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="NEVER" minWidth="10.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="64.0" valignment="TOP" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Name" />
+                              <Label text="Thumbnail" GridPane.rowIndex="1" />
+                              <NameEditor GridPane.columnIndex="1" fx:id="nameEditor"/>
+                              <ThumbnailEditor GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="thumbnailEditor" />
+                           </children>
+                        </GridPane>
+                     </children>
+                     <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </padding>
+                  </VBox>
+            </content>
+          </Tab>
+          <Tab text="Collections">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+            <Tab text="Schedule">
+              <content>
+                  <ScheduleEditor fx:id="scheduleEditor"  BorderPane.alignment="CENTER"/>
+              </content>
+            </Tab>
+            <Tab text="Filters">
+              <content>
+                <StackPane>
+                    <children>
+                        <TextArea />
+                    </children>
+                </StackPane>
+              </content>
+            </Tab>
+            <Tab text="Contexts">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</VBox>

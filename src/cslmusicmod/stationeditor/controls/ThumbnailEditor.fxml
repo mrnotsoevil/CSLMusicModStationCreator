@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import cslmusicmod.stationeditor.controls.FilePicker?>
+<?import javafx.geometry.Insets?>
+
+<fx:root xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml"
+         prefHeight="400.0" prefWidth="600.0" type="javafx.scene.layout.HBox">
+    <children>
+        <ImageView fx:id="thumbnailImage" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true">
+        </ImageView>
+        <FilePicker fx:id="thumbnailFile" alignment="BOTTOM_LEFT" HBox.hgrow="ALWAYS">
+            <HBox.margin>
+                <Insets left="8.0" />
+            </HBox.margin>
+        </FilePicker>
+    </children>
+</fx:root>

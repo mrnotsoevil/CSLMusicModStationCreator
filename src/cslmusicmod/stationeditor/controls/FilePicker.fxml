@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+
+<fx:root prefHeight="25" prefWidth="300" type="javafx.scene.layout.HBox" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="path" HBox.hgrow="ALWAYS">
+         <HBox.margin>
+            <Insets right="8.0" />
+         </HBox.margin></TextField>
+      <Button fx:id="pick" mnemonicParsing="false" onAction="#pickFile" text="..." GridPane.columnIndex="1" />
+   </children>
+</fx:root>

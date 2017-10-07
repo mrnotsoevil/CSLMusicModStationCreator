@@ -1,78 +1,46 @@
 package cslmusicmod.stationeditor;
 
 import com.google.gson.Gson;
+import cslmusicmod.stationeditor.controls.FilePicker;
+import cslmusicmod.stationeditor.controls.NameEditor;
+import cslmusicmod.stationeditor.controls.ScheduleEditor;
+import cslmusicmod.stationeditor.controls.ThumbnailEditor;
 import cslmusicmod.stationeditor.model.Station;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.WindowEvent;
+import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
 
-public class MainWindow extends JFrame {
-    private JPanel mainPanel;
-    private JTabbedPane tabs;
-    private JTextField stationName;
-    private JPanel testpanel;
-    private JMenuBar menuBar;
-    private JMenu fileMenu;
-
-    private Action openAction;
-    private Action exitAction;
+public class MainWindow {
 
     private Station station;
 
-    public  MainWindow() throws IOException {
+    @FXML
+    private ThumbnailEditor thumbnailEditor;
 
+    @FXML
+    private NameEditor nameEditor;
+
+    @FXML
+    private ScheduleEditor scheduleEditor;
+
+    public MainWindow() {
         Gson gson = Station.getGson();
-        String json = new String(Files.readAllBytes(Paths.get("TestStation.json")));
-        station =  gson.fromJson(json, Station.class);
-
-        initComponents();
+        try(FileReader r = new FileReader("TestStation.json")) {
+            station = gson.fromJson(r, Station.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    private void initActions() {
-        openAction = new AbstractAction("Open") {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-
-            }
-        };
-        exitAction = new AbstractAction("Exit") {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                MainWindow.this.dispatchEvent(new WindowEvent(MainWindow.this, WindowEvent.WINDOW_CLOSING));
-            }
-        };
-    }
-
-    private void initMenuBar() {
-        menuBar = new JMenuBar();
-        fileMenu = new JMenu("File");
-        fileMenu.add(openAction);
-        fileMenu.add(exitAction);
-
-        setJMenuBar(menuBar);
-        menuBar.add(fileMenu);
-    }
-
-    private void initComponents() {
-        setTitle("CSL Music Mod Station Editor");
-        setContentPane(mainPanel);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        pack();
-
-        testpanel.add(new JScrollPane(new CollectionListEditor(station, new ArrayList<>())));
-
-        initActions();
-        initMenuBar();
-    }
-
-    public static void main(String[] args) throws IOException {
-        MainWindow wnd = new MainWindow();
-        wnd.setVisible(true);
+    @FXML
+    private void initialize() {
+        thumbnailEditor.setStation(station);
+        nameEditor.setStation(station);
+        scheduleEditor.setStation(station);
     }
 
 }

@@ -21,6 +21,8 @@ public class Station implements Validatable {
     private Map<String, ContextCondition> filters;
     private List<ContextEntry> contexts;
 
+    private String directory;
+
     public Station() {
         name = "";
         thumbnail = "";
@@ -28,15 +30,6 @@ public class Station implements Validatable {
         schedule = new ArrayList<>();
         contexts = new ArrayList<>();
         filters = new HashMap<>();
-    }
-
-    public static void main(String[] args) throws IOException {
-
-        Gson gson = getGson();
-        String json = new String(Files.readAllBytes(Paths.get("TestStation.json")));
-        Station stat =  gson.fromJson(json, Station.class);
-
-        System.out.println("");
     }
 
     public static Gson getGson() {
@@ -105,5 +98,13 @@ public class Station implements Validatable {
                 .and(schedule)
                 .and(filters.values())
                 .and(contexts);
+    }
+
+    public String getDirectory() {
+        return directory;
+    }
+
+    public void setDirectory(String directory) {
+        this.directory = directory;
     }
 }
