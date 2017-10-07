@@ -20,8 +20,8 @@
    <bottom>
       <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="8.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="addNewEntry" defaultButton="true" mnemonicParsing="false" onAction="#addNewEntry" text="Add" />
-            <Button fx:id="removeEntries" onAction="#removeEntries" mnemonicParsing="false" text="Remove" />
+            <Button fx:id="addNewEntry" defaultButton="true" minWidth="100.0" mnemonicParsing="false" onAction="#addNewEntry" text="Add" />
+            <Button fx:id="removeEntries" minWidth="100.0" mnemonicParsing="false" onAction="#removeEntries" text="Remove" />
             <Label text="If you don't define a schedule, CSL Music Mod will generate a random one." textAlignment="RIGHT" HBox.hgrow="ALWAYS" />
          </children>
          <padding>

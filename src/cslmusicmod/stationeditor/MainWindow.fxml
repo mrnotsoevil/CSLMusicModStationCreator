@@ -6,6 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import cslmusicmod.stationeditor.controls.ScheduleEditor?>
+<?import org.controlsfx.control.RangeSlider?>
 <VBox prefHeight="400.0" prefWidth="600.0" stylesheets="/cslmusicmod/stationeditor/MainWindow.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cslmusicmod.stationeditor.MainWindow">
    <children>
       <MenuBar prefHeight="29.0" prefWidth="600.0">
@@ -66,16 +67,10 @@
             </Tab>
             <Tab text="Filters">
               <content>
-                <StackPane>
-                    <children>
-                        <TextArea />
-                    </children>
-                </StackPane>
               </content>
             </Tab>
             <Tab text="Contexts">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
             </Tab>
         </tabs>

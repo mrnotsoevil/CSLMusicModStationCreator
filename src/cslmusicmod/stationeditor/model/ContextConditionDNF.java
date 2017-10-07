@@ -9,7 +9,7 @@ public class ContextConditionDNF implements Validatable {
 
     private List<List<String>> dnf;
 
-    private Map<String, ContextCondition> inlinedContextConditions;
+    private transient Map<String, ContextCondition> inlinedContextConditions;
 
     public ContextConditionDNF() {
         dnf = new ArrayList<>();

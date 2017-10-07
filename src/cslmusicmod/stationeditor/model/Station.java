@@ -21,7 +21,7 @@ public class Station implements Validatable {
     private Map<String, ContextCondition> filters;
     private List<ContextEntry> contexts;
 
-    private String directory;
+    private transient String directory;
 
     public Station() {
         name = "";
