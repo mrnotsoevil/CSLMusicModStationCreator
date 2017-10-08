@@ -13,6 +13,11 @@ public class IntRange implements Validatable {
         this.to = to;
     }
 
+    public IntRange(IntRange original) {
+        this.from = original.from;
+        this.to = original.to;
+    }
+
     public int getFrom() {
         return from;
     }

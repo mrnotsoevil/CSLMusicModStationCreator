@@ -2,7 +2,7 @@ package cslmusicmod.stationeditor.model;
 
 import java.sql.Time;
 
-public class TimeContextCondition extends ContextCondition {
+public class TimeContextCondition extends ContextCondition implements IntRanged {
 
     private int from;
     private int to;
@@ -12,6 +12,17 @@ public class TimeContextCondition extends ContextCondition {
         from = 0;
         to = 24;
         not = false;
+    }
+
+    public TimeContextCondition(Station station) {
+        this();
+        setStation(station);
+    }
+
+    public TimeContextCondition(TimeContextCondition original) {
+        this.setStation(original.getStation());
+        this.setRange(original.getRange());
+        this.not = original.not;
     }
 
     @Override
@@ -51,6 +62,17 @@ public class TimeContextCondition extends ContextCondition {
     @Override
     public ValidationResult isValid() {
         return new ValidationResult(this).and(from >= 0 && from <= 24 && to >= 0 && to <= 24, "Must range from 0 to 24");
+    }
+
+    @Override
+    public IntRange getRange() {
+        return new IntRange(from, to);
+    }
+
+    @Override
+    public void setRange(IntRange range) {
+        from = range.getFrom();
+        to = range.getTo();
     }
 }
 

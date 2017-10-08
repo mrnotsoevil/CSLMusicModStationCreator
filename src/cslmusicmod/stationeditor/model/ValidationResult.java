@@ -2,6 +2,7 @@ package cslmusicmod.stationeditor.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class ValidationResult {
@@ -43,6 +44,10 @@ public class ValidationResult {
         return problems.isEmpty();
     }
 
+    public List<Problem> getProblems() {
+        return Collections.unmodifiableList(problems);
+    }
+
     public static class Problem {
         private Validatable source;
         private String description;
@@ -50,6 +55,19 @@ public class ValidationResult {
         public Problem(Validatable source, String description) {
             this.source = source;
             this.description = description;
+        }
+
+        public Validatable getSource() {
+            return source;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        @Override
+        public String toString() {
+            return String.format("%s: %s", source.getClass().getSimpleName(), description);
         }
     }
 

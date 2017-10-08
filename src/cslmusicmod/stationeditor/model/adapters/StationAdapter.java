@@ -41,6 +41,14 @@ public class StationAdapter implements JsonSerializer<Station>, JsonDeserializer
 
         station.setFilters(namedContextConditions);
 
+        // Set all necessary parent references
+        station.getFilters().values().stream().forEach(x -> x.setStation(station));
+        station.getSchedule().stream().forEach(x -> x.setStation(station));
+        station.getContexts().stream().forEach(x -> {
+            x.setStation(station);
+            x.getConditions().setContext(x);
+        });
+
         return station;
     }
 

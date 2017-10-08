@@ -1,6 +1,7 @@
 package cslmusicmod.stationeditor.controls;
 
 import cslmusicmod.stationeditor.controls.helpers.ControlsHelper;
+import cslmusicmod.stationeditor.controls.helpers.DialogHelper;
 import cslmusicmod.stationeditor.model.*;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
@@ -10,6 +11,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.util.Optional;
@@ -40,10 +42,6 @@ public class FiltersEditor extends BorderPane {
         addItemDialog.setContentText("Set the name of the condition");
     }
 
-    private String getName(ContextCondition cond) {
-        return station.getFilters().keySet().stream().filter(x -> station.getFilters().get(x) == cond).findAny().get();
-    }
-
     @FXML
     private void initialize() {
         content.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -52,7 +50,7 @@ public class FiltersEditor extends BorderPane {
                 = (TableColumn<ContextCondition, ContextCondition> p) -> new EditTableCell();
 
         nameColumn.setCellValueFactory((value) -> {
-            return new ReadOnlyObjectWrapper<>(getName(value.getValue()));
+            return new ReadOnlyObjectWrapper<>(station.getFilterName(value.getValue()));
         });
         summaryColumn.setCellValueFactory((value) -> {
             return new ReadOnlyObjectWrapper<>(value.getValue().getSummary());
@@ -92,10 +90,7 @@ public class FiltersEditor extends BorderPane {
                 connectData();
             }
             else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Add new condition");
-                alert.setContentText( "The name must be unique and non-empty!");
-                alert.showAndWait();
+                DialogHelper.showErrorAlert("Add new condition", "The name must be unique and non-empty!");
             }
         }
 
@@ -125,7 +120,7 @@ public class FiltersEditor extends BorderPane {
     private void removeEntries() {
 
         for(ContextCondition todelete : content.getSelectionModel().getSelectedItems()) {
-            station.getFilters().remove(getName(todelete));
+            station.getFilters().remove(station.getFilterName(todelete));
         }
 
         connectData();
@@ -138,16 +133,6 @@ public class FiltersEditor extends BorderPane {
         public EditTableCell() {
             createButton();
         }
-
-//        @Override
-//        public void startEdit() {
-//
-//        }
-//
-//        @Override
-//        public void cancelEdit() {
-//            super.cancelEdit();
-//        }
 
         @Override
         public void updateItem(ContextCondition item, boolean empty) {
@@ -177,6 +162,11 @@ public class FiltersEditor extends BorderPane {
         public void handle(ActionEvent actionEvent) {
             if(getItem() instanceof DisasterContextCondition) {
 
+                DisasterContextConditionEditor editor = new DisasterContextConditionEditor();
+                Stage stage = ControlsHelper.createModalStageFor(this, editor);
+                editor.setCondition((DisasterContextCondition)getItem());
+                stage.showAndWait();
+                getTableView().refresh();
             }
             else if(getItem() instanceof MoodContextCondition) {
 

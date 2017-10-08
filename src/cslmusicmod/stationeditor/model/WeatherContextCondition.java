@@ -20,6 +20,22 @@ public class WeatherContextCondition extends ContextCondition {
         not = false;
     }
 
+    public WeatherContextCondition(Station station) {
+        this();
+        setStation(station);
+    }
+
+    public WeatherContextCondition(WeatherContextCondition original) {
+        this.setStation(original.getStation());
+        this.temperature = new IntRange(original.temperature);
+        this.rain = new IntRange(original.rain);
+        this.cloudy = new IntRange(original.cloudy);
+        this.foggy = new IntRange(original.foggy);
+        this.rainbow = new IntRange(original.rainbow);
+        this.northernlights = new IntRange(original.northernlights);
+        this.not = original.not;
+    }
+
     @Override
     public String getType() {
         return "weather";

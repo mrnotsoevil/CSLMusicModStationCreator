@@ -1,9 +1,13 @@
 package cslmusicmod.stationeditor.model;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class ContextEntry implements Validatable {
+
+    private transient Station station;
+
     private ContextConditionDNF conditions;
     private List<String> collections;
     private List<String> songs;
@@ -12,6 +16,18 @@ public class ContextEntry implements Validatable {
         conditions = new ContextConditionDNF();
         collections = Collections.emptyList();
         songs = Collections.emptyList();
+    }
+
+    public ContextEntry(Station station) {
+        this();
+        this.station = station;
+    }
+
+    public ContextEntry(ContextEntry original) {
+        this.station = original.station;
+        this.conditions = new ContextConditionDNF(original.conditions);
+        this.collections = new ArrayList<>(original.collections);
+        this.songs = new ArrayList<>(original.songs);
     }
 
     public ContextConditionDNF getConditions() {
@@ -41,5 +57,13 @@ public class ContextEntry implements Validatable {
     @Override
     public ValidationResult isValid() {
         return new ValidationResult(this).and(conditions);
+    }
+
+    public Station getStation() {
+        return station;
+    }
+
+    public void setStation(Station station) {
+        this.station = station;
     }
 }

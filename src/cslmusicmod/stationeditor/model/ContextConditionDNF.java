@@ -1,19 +1,30 @@
 package cslmusicmod.stationeditor.model;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class ContextConditionDNF implements Validatable {
 
+    private transient ContextEntry context;
+
     private List<List<String>> dnf;
 
+    // Only used during deserialization
     private transient Map<String, ContextCondition> inlinedContextConditions;
 
     public ContextConditionDNF() {
         dnf = new ArrayList<>();
         inlinedContextConditions = new HashMap<>();
+    }
+
+    public ContextConditionDNF(ContextEntry context) {
+        this();
+        this.context = context;
+    }
+
+    public ContextConditionDNF(ContextConditionDNF original) {
+        this.context = original.context;
+        dnf = original.dnf.stream().map(x -> new ArrayList<String>(x)).collect(Collectors.toList());
     }
 
     public List<List<String>> getDnf() {
@@ -35,5 +46,13 @@ public class ContextConditionDNF implements Validatable {
     @Override
     public ValidationResult isValid() {
         return new ValidationResult(this);
+    }
+
+    public ContextEntry getContext() {
+        return context;
+    }
+
+    public void setContext(ContextEntry context) {
+        this.context = context;
     }
 }

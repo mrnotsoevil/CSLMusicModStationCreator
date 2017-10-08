@@ -84,7 +84,7 @@ public class ScheduleEditor extends BorderPane {
 
     @FXML
     private void addNewEntry() {
-        ScheduleEntry e = new ScheduleEntry();
+        ScheduleEntry e = new ScheduleEntry(station);
         content.getItems().add(e);
     }
 

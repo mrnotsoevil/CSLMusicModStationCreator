@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class DisasterContextCondition extends ContextCondition {
+public class DisasterContextCondition extends ContextCondition implements IntRanged {
 
     public static List<String> KNOWN_DISASTERS = Collections.unmodifiableList(Arrays.asList("Structure Fire",
             "Structure Collapse",
@@ -19,6 +19,8 @@ public class DisasterContextCondition extends ContextCondition {
             "Thunderstorm",
             "Sinkhole",
             "Chirpynado"));
+    public static IntRange RANGE_BORDERS = new IntRange(0, 256);
+    public static IntRange DEFAULT_RANGE = RANGE_BORDERS;
 
     private int from;
     private int to;
@@ -32,6 +34,18 @@ public class DisasterContextCondition extends ContextCondition {
         not = false;
     }
 
+    public DisasterContextCondition(Station station) {
+        this();
+        setStation(station);
+    }
+
+    public DisasterContextCondition(DisasterContextCondition original) {
+        this.setStation(original.getStation());
+        this.setRange(original.getRange());
+        this.of = new ArrayList<>(original.of);
+        this.not = original.not;
+    }
+
     @Override
     public String getType() {
         return "disaster";
@@ -39,7 +53,7 @@ public class DisasterContextCondition extends ContextCondition {
 
     @Override
     public String getSummary() {
-        return (not ? "Not " : "") + String.format("%d to %d disasters of %s", from, to, of.isEmpty() ? "all disaster types" : of.stream().collect(Collectors.joining(", ")));
+        return (not ? "Not " : "") + String.format("%d to %d disasters of %s", from, to, of.isEmpty() ? "all disaster types" : of.stream().collect(Collectors.joining(" or ")));
     }
 
     public int getFrom() {
@@ -78,5 +92,16 @@ public class DisasterContextCondition extends ContextCondition {
     public ValidationResult isValid() {
         return new ValidationResult(this).and(from >= 0 && to <= 256 && from <= to, "Invalid from/to range").
                 and(of.stream().allMatch(x -> KNOWN_DISASTERS.contains(x)), "Unknown disaster types");
+    }
+
+    @Override
+    public IntRange getRange() {
+        return new IntRange(from, to);
+    }
+
+    @Override
+    public void setRange(IntRange range) {
+        from = range.getFrom();
+        to = range.getTo();
     }
 }
