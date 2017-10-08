@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class DisasterContextCondition extends ContextCondition {
 
@@ -34,6 +35,11 @@ public class DisasterContextCondition extends ContextCondition {
     @Override
     public String getType() {
         return "disaster";
+    }
+
+    @Override
+    public String getSummary() {
+        return (not ? "Not " : "") + String.format("%d to %d disasters of %s", from, to, of.isEmpty() ? "all disaster types" : of.stream().collect(Collectors.joining(", ")));
     }
 
     public int getFrom() {

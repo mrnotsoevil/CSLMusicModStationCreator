@@ -16,6 +16,11 @@ public class MoodContextCondition extends ContextCondition {
         return "mood";
     }
 
+    @Override
+    public String getSummary() {
+        return (not ? "Not " : "") + String.format("Mood from %d to %d", from, to);
+    }
+
     public int getFrom() {
         return from;
     }

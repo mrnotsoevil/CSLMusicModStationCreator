@@ -8,6 +8,7 @@
 <?import cslmusicmod.stationeditor.controls.ScheduleEditor?>
 <?import org.controlsfx.control.RangeSlider?>
 <?import cslmusicmod.stationeditor.controls.CollectionsEditor?>
+<?import cslmusicmod.stationeditor.controls.FiltersEditor?>
 <VBox prefHeight="400.0" prefWidth="600.0" stylesheets="/cslmusicmod/stationeditor/MainWindow.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cslmusicmod.stationeditor.MainWindow">
    <children>
       <MenuBar prefHeight="29.0" prefWidth="600.0">
@@ -68,6 +69,7 @@
             </Tab>
             <Tab text="Filters">
               <content>
+                  <FiltersEditor fx:id="filtersEditor" />
               </content>
             </Tab>
             <Tab text="Contexts">

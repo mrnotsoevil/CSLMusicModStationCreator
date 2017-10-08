@@ -27,6 +27,9 @@ public class MainWindow {
     @FXML
     private CollectionsEditor collectionsEditor;
 
+    @FXML
+    private FiltersEditor filtersEditor;
+
     public MainWindow() {
         Gson gson = Station.getGson();
         try(FileReader r = new FileReader("TestStation.json")) {
@@ -42,6 +45,7 @@ public class MainWindow {
         nameEditor.setStation(station);
         scheduleEditor.setStation(station);
         collectionsEditor.setStation(station);
+        filtersEditor.setStation(station);
     }
 
 }

@@ -19,6 +19,11 @@ public class TimeContextCondition extends ContextCondition {
         return "time";
     }
 
+    @Override
+    public String getSummary() {
+        return (not ? "Not " : "") + String.format("From %dh to %dh", from, to);
+    }
+
     public int getFrom() {
         return from;
     }

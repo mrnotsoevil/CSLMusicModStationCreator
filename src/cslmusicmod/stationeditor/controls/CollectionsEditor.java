@@ -68,8 +68,11 @@ public class CollectionsEditor extends BorderPane {
         Optional<String> result = addItemDialog.showAndWait();
 
         if(result.isPresent()) {
-            if(!content.getItems().contains(result.get())) {
-                content.getItems().add(result.get());
+
+            String name = result.get().trim();
+
+            if(!content.getItems().contains(name)) {
+                content.getItems().add(name);
             }
         }
     }

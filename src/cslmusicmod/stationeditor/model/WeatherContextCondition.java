@@ -25,6 +25,34 @@ public class WeatherContextCondition extends ContextCondition {
         return "weather";
     }
 
+    @Override
+    public String getSummary() {
+
+        String sum = (not ? "Not " : "");
+        int count = 0;
+
+        if(!temperature.equals(new IntRange(-100, 100))) {
+            sum += (count++ > 0 ? " & " : "") + temperature.toString("°C");
+        }
+        if(!rain.equals(new IntRange(0, 10))) {
+            sum += (count++ > 0 ? " & " : "") + rain.scale(10).toString("%");
+        }
+        if(!cloudy.equals(new IntRange(0, 10))) {
+            sum += (count++ > 0 ? " & " : "") + cloudy.scale(10).toString("%");
+        }
+        if(!foggy.equals(new IntRange(0, 10))) {
+            sum += (count++ > 0 ? " & " : "") + foggy.scale(10).toString("%");
+        }
+        if(!rainbow.equals(new IntRange(0, 10))) {
+            sum += (count++ > 0 ? " & " : "") + rainbow.scale(10).toString("%");
+        }
+        if(!northernlights.equals(new IntRange(0, 10))) {
+            sum += (count++ > 0 ? " & " : "") + northernlights.scale(10).toString("%");
+        }
+
+        return sum;
+    }
+
     public IntRange getTemperature() {
         return temperature;
     }

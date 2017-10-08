@@ -29,6 +29,10 @@ public class IntRange implements Validatable {
         this.to = to;
     }
 
+    public IntRange scale(int scale) {
+        return new IntRange(from * scale, to * scale);
+    }
+
     @Override
     public ValidationResult isValid() {
         return new ValidationResult(this).and( to <= from, "Invalid from/to range");
@@ -36,5 +40,24 @@ public class IntRange implements Validatable {
 
     public ValidationResult isValid(int from, int to) {
         return isValid().and(this.from >= from && this.to <= to, "Only values from " + from + " to " + to + " allowed");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if(o instanceof IntRange) {
+            return from == ((IntRange)o).from && to == ((IntRange)o).to;
+        }
+        else {
+            return false;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%d-%d", from, to);
+    }
+
+    public String toString(String unit) {
+        return String.format("%d%s-%d%s", from, unit, to, unit);
     }
 }
