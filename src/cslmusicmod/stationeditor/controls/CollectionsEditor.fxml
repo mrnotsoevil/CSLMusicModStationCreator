@@ -12,11 +12,10 @@
    <center>
       <TableView fx:id="content" editable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn fx:id="contentTypeColumn" minWidth="200.0" prefWidth="200.0" text="Play content type" />
-          <TableColumn fx:id="contentNumberColumn" minWidth="200.0" prefWidth="200.0" text="Duration" />
+          <TableColumn fx:id="nameColumn" minWidth="200.0" prefWidth="200.0" text="Name" />
         </columns>
           <placeholder>
-              <Label text="No schedule defined. CSL Music Mod will generate a random one." wrapText="true"/>
+              <Label text="No collections defined. This means that the station does not contain any music." wrapText="true"/>
           </placeholder>
       </TableView>
    </center>

@@ -1,10 +1,7 @@
 package cslmusicmod.stationeditor;
 
 import com.google.gson.Gson;
-import cslmusicmod.stationeditor.controls.FilePicker;
-import cslmusicmod.stationeditor.controls.NameEditor;
-import cslmusicmod.stationeditor.controls.ScheduleEditor;
-import cslmusicmod.stationeditor.controls.ThumbnailEditor;
+import cslmusicmod.stationeditor.controls.*;
 import cslmusicmod.stationeditor.model.Station;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,6 +24,9 @@ public class MainWindow {
     @FXML
     private ScheduleEditor scheduleEditor;
 
+    @FXML
+    private CollectionsEditor collectionsEditor;
+
     public MainWindow() {
         Gson gson = Station.getGson();
         try(FileReader r = new FileReader("TestStation.json")) {
@@ -41,6 +41,7 @@ public class MainWindow {
         thumbnailEditor.setStation(station);
         nameEditor.setStation(station);
         scheduleEditor.setStation(station);
+        collectionsEditor.setStation(station);
     }
 
 }

@@ -16,6 +16,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.ChoiceBoxTableCell;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Text;
 import javafx.util.Callback;
 import org.controlsfx.control.RangeSlider;
 
