@@ -14,7 +14,7 @@ import org.controlsfx.control.CheckComboBox;
 
 import java.util.stream.Collectors;
 
-public class TimeContextConditionEditor extends BorderPane {
+public class TimeContextConditionEditor extends ContextConditionEditor {
 
     private TimeContextCondition condition;
 
@@ -62,7 +62,7 @@ public class TimeContextConditionEditor extends BorderPane {
 
     @FXML
     private void revertData() {
-        conditionName.setText(condition.getStation().getFilterName(condition));
+        conditionName.setText(nameForCondition(condition));
         invertCondition.setSelected(condition.isNot());
         timeRange.setTarget(new IntRange(condition.getRange()), TimeContextCondition.RANGE_BORDERS);
     }
@@ -70,26 +70,14 @@ public class TimeContextConditionEditor extends BorderPane {
     @FXML
     private void saveData() {
 
-        String name = conditionName.getText().trim();
-
-        if(name.isEmpty()) {
-            DialogHelper.showErrorAlert("Rename condition", "The name must be non-empty!");
-            conditionName.setText(condition.getStation().getFilterName(condition));
+        if(!canCreateOrRenameCondition(condition, conditionName.textProperty())) {
             return;
-        }
-        if(!condition.getStation().getFilterName(condition).equals(name)) {
-            if(condition.getStation().getFilters().keySet().contains(name)) {
-                DialogHelper.showErrorAlert("Rename condition", "The name must be unique!");
-                conditionName.setText(condition.getStation().getFilterName(condition));
-
-                return;
-            }
         }
 
         ValidationResult validation = writeTo(new TimeContextCondition(condition)).isValid();
 
         if(validation.isOK()) {
-            condition.getStation().renameFilter(condition.getStation().getFilterName(condition), name);
+            createOrRenameCondition(condition, conditionName.textProperty());
             writeTo(condition);
 
             closeWindow();

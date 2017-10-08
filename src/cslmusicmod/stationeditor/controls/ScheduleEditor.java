@@ -31,6 +31,12 @@ public class ScheduleEditor extends BorderPane {
     @FXML
     private TableColumn<ScheduleEntry, IntRange> contentNumberColumn;
 
+    @FXML
+    private ComboBox<String> newItemType;
+
+    @FXML
+    private PreciseIntRangeEditor newItemRange;
+
 //    @FXML
 //    private TableColumn<ScheduleEntry, ScheduleEntry> editColumn;
 
@@ -40,6 +46,9 @@ public class ScheduleEditor extends BorderPane {
 
     @FXML
     public void initialize() {
+
+        ScheduleEntry.ALLOWED_TYPES.stream().forEach(x -> newItemType.getItems().add(x));
+        newItemRange.setTarget(new IntRange(0, 3), ScheduleEntry.RANGE_BORDERS);
 
         content.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         Callback<TableColumn<ScheduleEntry, IntRange>, TableCell<ScheduleEntry, IntRange>> durationCellFactory
@@ -105,7 +114,7 @@ public class ScheduleEditor extends BorderPane {
 
     private static class DurationTableCell extends TableCell<ScheduleEntry, IntRange> {
 
-        private RangeSlider slider;
+        private PreciseIntRangeEditor slider;
 
         public DurationTableCell() {
         }
@@ -138,8 +147,7 @@ public class ScheduleEditor extends BorderPane {
             } else {
                 if (isEditing()) {
                     if (slider != null) {
-                        slider.setLowValue(item.getFrom());
-                        slider.setHighValue(item.getTo());
+                        slider.setTarget(new IntRange(item), ScheduleEntry.RANGE_BORDERS);
                     }
                     setText(null);
                     setGraphic(slider);
@@ -151,73 +159,21 @@ public class ScheduleEditor extends BorderPane {
         }
 
         private void createSlider() {
-            slider = new RangeSlider();
-            slider.setShowTickLabels(true);
-            slider.setShowTickMarks(true);
-            slider.setMin(0);
-            slider.setMax(10);
-            slider.setMinorTickCount(0);
-            slider.setLowValue(getItem().getFrom());
-            slider.setHighValue(getItem().getTo());
-            slider.setMajorTickUnit(1);
-            slider.setSnapToTicks(true);
+            slider = new PreciseIntRangeEditor();
             slider.setMinWidth(this.getWidth() - this.getGraphicTextGap()* 2);
             slider.focusedProperty().addListener(
                     (ObservableValue<? extends Boolean> arg0,
                      Boolean arg1, Boolean arg2) -> {
+                        System.out.println(arg2);
                         if (!arg2) {
-                            commitEdit(new IntRange((int) Math.round(slider.getLowValue()), (int) Math.round(slider.getHighValue())));
+                            commitEdit(new IntRange(slider.getTarget()));
                         }
                     });
+            slider.setTarget(new IntRange(getItem()), ScheduleEntry.RANGE_BORDERS);
         }
 
         private String getString() {
             return getItem() == null ? "" : getItem().getFrom() + " - " + getItem().getTo() + " songs";
-        }
-    }
-
-    private static class EditTableCell extends TableCell<ScheduleEntry, ScheduleEntry> implements EventHandler<ActionEvent> {
-
-        private TableColumn[] targets;
-
-        private Button editButton;
-
-        public EditTableCell( TableColumn... targets ) {
-            createButton();
-            this.targets = targets;
-        }
-
-        @Override
-        public void updateItem(ScheduleEntry item, boolean empty) {
-            super.updateItem(item, empty);
-
-            if (empty) {
-                setText(null);
-                setGraphic(null);
-            } else {
-                setText(null);
-                setGraphic(editButton);
-            }
-        }
-
-        private void createButton() {
-            editButton = new Button();
-            editButton.setText("Edit");
-            editButton.setPrefWidth(100);
-            editButton.setOnAction(this);
-        }
-
-        private String getString() {
-            return "";
-        }
-
-        @Override
-        public void handle(ActionEvent actionEvent) {
-
-            for(TableColumn c : targets) {
-                getTableView().edit(getTableRow().getIndex(), c);
-            }
-
         }
     }
 }

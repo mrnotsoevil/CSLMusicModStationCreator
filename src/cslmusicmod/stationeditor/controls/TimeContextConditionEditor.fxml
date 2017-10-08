@@ -44,7 +44,7 @@
                 <Label text="Time range" GridPane.rowIndex="1" />
                 <CheckBox fx:id="invertCondition" mnemonicParsing="false" text="Invert condition" GridPane.rowIndex="2" />
                 <TextField fx:id="conditionName" GridPane.columnIndex="1" />
-            <PreciseIntRangeEditor fx:id="timeRange" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <PreciseIntRangeEditor fx:id="timeRange" GridPane.columnIndex="1" GridPane.rowIndex="1" resilient="false" />
             </children>
         </GridPane>
     </center>

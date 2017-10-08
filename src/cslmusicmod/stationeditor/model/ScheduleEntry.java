@@ -16,6 +16,7 @@ public class ScheduleEntry implements Validatable, IntRanged {
             "broadcast",
             "commercial",
             "talk"));
+    public static IntRange RANGE_BORDERS = new IntRange(0, 100);
 
     private transient Station station;
 

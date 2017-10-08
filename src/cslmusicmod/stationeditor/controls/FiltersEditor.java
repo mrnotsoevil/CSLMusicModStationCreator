@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -76,44 +77,40 @@ public class FiltersEditor extends BorderPane {
         connectData();
     }
 
-    private void addCondition(ContextCondition cond) {
-
-        addItemDialog.getEditor().textProperty().setValue("");
-        Optional<String> result = addItemDialog.showAndWait();
-
-        if(result.isPresent()) {
-
-            String name = result.get().trim();
-
-            if(!name.isEmpty() && !station.getFilters().containsKey(result.get())) {
-                station.getFilters().put(result.get(), cond);
-                connectData();
-            }
-            else {
-                DialogHelper.showErrorAlert("Add new condition", "The name must be unique and non-empty!");
-            }
-        }
-
-    }
-
     @FXML
     private void addDisasterCondition() {
-        addCondition(new DisasterContextCondition(station));
+        DisasterContextConditionEditor dlg = new DisasterContextConditionEditor();
+        Stage stage = ControlsHelper.createModalStageFor(this, dlg);
+        dlg.setCondition(new DisasterContextCondition(station));
+        stage.showAndWait();
+        connectData();
     }
 
     @FXML
     private void addMoodCondition() {
-        addCondition(new MoodContextCondition(station));
+        MoodContextConditionEditor dlg = new MoodContextConditionEditor();
+        Stage stage = ControlsHelper.createModalStageFor(this, dlg);
+        dlg.setCondition(new MoodContextCondition(station));
+        stage.showAndWait();
+        connectData();
     }
 
     @FXML
     private void addTimeCondition() {
-        addCondition(new TimeContextCondition(station));
+        TimeContextConditionEditor dlg = new TimeContextConditionEditor();
+        Stage stage = ControlsHelper.createModalStageFor(this, dlg);
+        dlg.setCondition(new TimeContextCondition(station));
+        stage.showAndWait();
+        connectData();
     }
 
     @FXML
     private void addWeatherCondition() {
-        addCondition(new WeatherContextCondition(station));
+        WeatherContextConditionEditor dlg = new WeatherContextConditionEditor();
+        Stage stage = ControlsHelper.createModalStageFor(this, dlg);
+        dlg.setCondition(new WeatherContextCondition(station));
+        stage.showAndWait();
+        connectData();
     }
 
     @FXML

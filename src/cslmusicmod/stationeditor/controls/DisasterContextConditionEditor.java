@@ -17,7 +17,7 @@ import org.controlsfx.control.IndexedCheckModel;
 
 import java.util.stream.Collectors;
 
-public class DisasterContextConditionEditor extends BorderPane {
+public class DisasterContextConditionEditor extends ContextConditionEditor {
 
     private DisasterContextCondition condition;
 
@@ -67,7 +67,7 @@ public class DisasterContextConditionEditor extends BorderPane {
 
     @FXML
     private void revertData() {
-        conditionName.setText(condition.getStation().getFilterName(condition));
+        conditionName.setText(nameForCondition(condition));
         invertCondition.setSelected(condition.isNot());
         disasterCount.setTarget(new IntRange(condition.getRange()), DisasterContextCondition.RANGE_BORDERS);
     }
@@ -75,26 +75,14 @@ public class DisasterContextConditionEditor extends BorderPane {
     @FXML
     private void saveData() {
 
-        String name = conditionName.getText().trim();
-
-        if(name.isEmpty()) {
-            DialogHelper.showErrorAlert("Rename condition", "The name must be non-empty!");
-            conditionName.setText(condition.getStation().getFilterName(condition));
+        if(!canCreateOrRenameCondition(condition, conditionName.textProperty())) {
             return;
-        }
-        if(!condition.getStation().getFilterName(condition).equals(name)) {
-            if(condition.getStation().getFilters().keySet().contains(name)) {
-                DialogHelper.showErrorAlert("Rename condition", "The name must be unique!");
-                conditionName.setText(condition.getStation().getFilterName(condition));
-
-                return;
-            }
         }
 
         ValidationResult validation = writeTo(new DisasterContextCondition(condition)).isValid();
 
         if(validation.isOK()) {
-            condition.getStation().renameFilter(condition.getStation().getFilterName(condition), name);
+            createOrRenameCondition(condition, conditionName.textProperty());
             writeTo(condition);
 
             closeWindow();

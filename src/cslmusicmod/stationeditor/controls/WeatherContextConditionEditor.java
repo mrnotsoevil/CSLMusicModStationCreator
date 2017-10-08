@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 import java.util.stream.Collectors;
 
-public class WeatherContextConditionEditor extends BorderPane {
+public class WeatherContextConditionEditor extends ContextConditionEditor {
 
     private WeatherContextCondition condition;
 
@@ -81,7 +81,7 @@ public class WeatherContextConditionEditor extends BorderPane {
 
     @FXML
     private void revertData() {
-        conditionName.setText(condition.getStation().getFilterName(condition));
+        conditionName.setText(nameForCondition(condition));
         invertCondition.setSelected(condition.isNot());
         temparatureRange.setTarget(new IntRange(condition.getTemperature()), WeatherContextCondition.TEMPERATURE_RANGE_BORDERS);
         rainRange.setTarget(new IntRange(condition.getRain()), WeatherContextCondition.WEATHER_RANGE_BORDERS);
@@ -94,26 +94,14 @@ public class WeatherContextConditionEditor extends BorderPane {
     @FXML
     private void saveData() {
 
-        String name = conditionName.getText().trim();
-
-        if(name.isEmpty()) {
-            DialogHelper.showErrorAlert("Rename condition", "The name must be non-empty!");
-            conditionName.setText(condition.getStation().getFilterName(condition));
+        if(!canCreateOrRenameCondition(condition, conditionName.textProperty())) {
             return;
-        }
-        if(!condition.getStation().getFilterName(condition).equals(name)) {
-            if(condition.getStation().getFilters().keySet().contains(name)) {
-                DialogHelper.showErrorAlert("Rename condition", "The name must be unique!");
-                conditionName.setText(condition.getStation().getFilterName(condition));
-
-                return;
-            }
         }
 
         ValidationResult validation = writeTo(new WeatherContextCondition(condition)).isValid();
 
         if(validation.isOK()) {
-            condition.getStation().renameFilter(condition.getStation().getFilterName(condition), name);
+            createOrRenameCondition(condition, conditionName.textProperty());
             writeTo(condition);
 
             closeWindow();
