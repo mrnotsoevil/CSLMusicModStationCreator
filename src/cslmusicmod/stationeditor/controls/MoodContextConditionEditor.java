@@ -2,7 +2,6 @@ package cslmusicmod.stationeditor.controls;
 
 import cslmusicmod.stationeditor.controls.helpers.ControlsHelper;
 import cslmusicmod.stationeditor.controls.helpers.DialogHelper;
-import cslmusicmod.stationeditor.model.DisasterContextCondition;
 import cslmusicmod.stationeditor.model.IntRange;
 import cslmusicmod.stationeditor.model.MoodContextCondition;
 import cslmusicmod.stationeditor.model.ValidationResult;

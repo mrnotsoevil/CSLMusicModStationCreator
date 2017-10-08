@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.HBox?>
+<?import org.controlsfx.control.RangeSlider?>
+
+<fx:root alignment="CENTER_LEFT" prefHeight="25" prefWidth="300" spacing="8.0" type="javafx.scene.layout.HBox" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Spinner fx:id="exactFrom" HBox.hgrow="NEVER" />
+      <RangeSlider fx:id="slider" showTickLabels="true" showTickMarks="true" snapToTicks="true" HBox.hgrow="ALWAYS" />
+      <Spinner fx:id="exactTo" HBox.hgrow="NEVER" />
+   </children>
+</fx:root>

@@ -3,7 +3,6 @@ package cslmusicmod.stationeditor.controls;
 import cslmusicmod.stationeditor.controls.helpers.ControlsHelper;
 import cslmusicmod.stationeditor.controls.helpers.DialogHelper;
 import cslmusicmod.stationeditor.model.IntRange;
-import cslmusicmod.stationeditor.model.TimeContextCondition;
 import cslmusicmod.stationeditor.model.ValidationResult;
 import cslmusicmod.stationeditor.model.WeatherContextCondition;
 import javafx.fxml.FXML;
@@ -11,7 +10,6 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import org.controlsfx.control.CheckComboBox;
 
 import java.util.stream.Collectors;
 

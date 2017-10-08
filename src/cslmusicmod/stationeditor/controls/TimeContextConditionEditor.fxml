@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import cslmusicmod.stationeditor.controls.IntRangeEditor?>
+<?import cslmusicmod.stationeditor.controls.SliderIntRangeEditor?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
