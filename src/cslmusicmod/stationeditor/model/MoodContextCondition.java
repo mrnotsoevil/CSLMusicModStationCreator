@@ -1,6 +1,10 @@
 package cslmusicmod.stationeditor.model;
 
 public class MoodContextCondition extends ContextCondition implements IntRanged {
+
+    public static IntRange RANGE_BORDERS = new IntRange(0, 100);
+    public static IntRange DEFAULT_RANGE = RANGE_BORDERS;
+
     private int from;
     private int to;
     private boolean not;

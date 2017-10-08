@@ -2,6 +2,11 @@ package cslmusicmod.stationeditor.model;
 
 public class WeatherContextCondition extends ContextCondition {
 
+    public static IntRange TEMPERATURE_RANGE_BORDERS = new IntRange(-100, 100);
+    public static IntRange DEFAULT_TEMPERATURE_RANGE = TEMPERATURE_RANGE_BORDERS;
+    public static IntRange WEATHER_RANGE_BORDERS = new IntRange(0, 10);
+    public static IntRange DEFAULT_WEATHER_RANGE = WEATHER_RANGE_BORDERS;
+
     private IntRange temperature;
     private IntRange rain;
     private IntRange cloudy;
@@ -47,22 +52,22 @@ public class WeatherContextCondition extends ContextCondition {
         String sum = (not ? "Not " : "");
         int count = 0;
 
-        if(!temperature.equals(new IntRange(-100, 100))) {
+        if(!temperature.equals(DEFAULT_TEMPERATURE_RANGE)) {
             sum += (count++ > 0 ? " & " : "") + temperature.toString("°C");
         }
-        if(!rain.equals(new IntRange(0, 10))) {
+        if(!rain.equals(DEFAULT_WEATHER_RANGE)) {
             sum += (count++ > 0 ? " & " : "") + rain.scale(10).toString("%");
         }
-        if(!cloudy.equals(new IntRange(0, 10))) {
+        if(!cloudy.equals(DEFAULT_WEATHER_RANGE)) {
             sum += (count++ > 0 ? " & " : "") + cloudy.scale(10).toString("%");
         }
-        if(!foggy.equals(new IntRange(0, 10))) {
+        if(!foggy.equals(DEFAULT_WEATHER_RANGE)) {
             sum += (count++ > 0 ? " & " : "") + foggy.scale(10).toString("%");
         }
-        if(!rainbow.equals(new IntRange(0, 10))) {
+        if(!rainbow.equals(DEFAULT_WEATHER_RANGE)) {
             sum += (count++ > 0 ? " & " : "") + rainbow.scale(10).toString("%");
         }
-        if(!northernlights.equals(new IntRange(0, 10))) {
+        if(!northernlights.equals(DEFAULT_WEATHER_RANGE)) {
             sum += (count++ > 0 ? " & " : "") + northernlights.scale(10).toString("%");
         }
 

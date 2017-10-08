@@ -98,22 +98,22 @@ public class FiltersEditor extends BorderPane {
 
     @FXML
     private void addDisasterCondition() {
-        addCondition(new DisasterContextCondition());
+        addCondition(new DisasterContextCondition(station));
     }
 
     @FXML
     private void addMoodCondition() {
-        addCondition(new MoodContextCondition());
+        addCondition(new MoodContextCondition(station));
     }
 
     @FXML
     private void addTimeCondition() {
-        addCondition(new TimeContextCondition());
+        addCondition(new TimeContextCondition(station));
     }
 
     @FXML
     private void addWeatherCondition() {
-        addCondition(new WeatherContextCondition());
+        addCondition(new WeatherContextCondition(station));
     }
 
     @FXML
@@ -161,7 +161,6 @@ public class FiltersEditor extends BorderPane {
         @Override
         public void handle(ActionEvent actionEvent) {
             if(getItem() instanceof DisasterContextCondition) {
-
                 DisasterContextConditionEditor editor = new DisasterContextConditionEditor();
                 Stage stage = ControlsHelper.createModalStageFor(this, editor);
                 editor.setCondition((DisasterContextCondition)getItem());
@@ -169,13 +168,25 @@ public class FiltersEditor extends BorderPane {
                 getTableView().refresh();
             }
             else if(getItem() instanceof MoodContextCondition) {
-
+                MoodContextConditionEditor editor = new MoodContextConditionEditor();
+                Stage stage = ControlsHelper.createModalStageFor(this, editor);
+                editor.setCondition((MoodContextCondition) getItem());
+                stage.showAndWait();
+                getTableView().refresh();
             }
             else if(getItem() instanceof TimeContextCondition) {
-
+                TimeContextConditionEditor editor = new TimeContextConditionEditor();
+                Stage stage = ControlsHelper.createModalStageFor(this, editor);
+                editor.setCondition((TimeContextCondition) getItem());
+                stage.showAndWait();
+                getTableView().refresh();
             }
             else if(getItem() instanceof WeatherContextCondition) {
-
+                WeatherContextConditionEditor editor = new WeatherContextConditionEditor();
+                Stage stage = ControlsHelper.createModalStageFor(this, editor);
+                editor.setCondition((WeatherContextCondition) getItem());
+                stage.showAndWait();
+                getTableView().refresh();
             }
             else {
                 throw new RuntimeException("Unknown context condition " + getItem().getClass().getSimpleName());

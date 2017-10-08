@@ -12,7 +12,7 @@ public class IntRangeEditor extends RangeSlider {
         setShowTickLabels(true);
         setShowTickMarks(true);
         setMin(0);
-        setMax(256);
+        setMax(10);
         setMinorTickCount(0);
         setMajorTickUnit(1);
         setSnapToTicks(true);
@@ -33,8 +33,10 @@ public class IntRangeEditor extends RangeSlider {
         return target;
     }
 
-    public void setTarget(IntRange target) {
+    public void setTarget(IntRange target, IntRange borders) {
         this.target = target;
+        this.minProperty().set(borders.getFrom());
+        this.maxProperty().set(borders.getTo());
         this.lowValueProperty().setValue(target.getFrom());
         this.highValueProperty().setValue(target.getTo());
     }
