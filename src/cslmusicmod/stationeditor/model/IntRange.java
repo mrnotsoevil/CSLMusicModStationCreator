@@ -40,7 +40,7 @@ public class IntRange implements Validatable {
 
     @Override
     public ValidationResult isValid() {
-        return new ValidationResult(this).and( to <= from, "Invalid from/to range");
+        return new ValidationResult(this).and( from <= to, "Invalid from/to range");
     }
 
     public ValidationResult isValid(int from, int to) {

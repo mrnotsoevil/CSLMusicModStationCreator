@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="CSLMusicModStationEditor">
+    <output-path>$PROJECT_DIR$/out/artifacts/CSLMusicModStationEditor</output-path>
+    <root id="archive" name="CSLMusicModStationEditor.jar">
+      <element id="module-output" name="CSLMusicModStationEditor" />
+      <element id="library" level="project" name="com.google.code.gson:gson:2.8.2" />
+    </root>
+  </artifact>
+</component>

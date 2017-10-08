@@ -24,7 +24,7 @@ public class IntRangeEditor extends RangeSlider {
         });
         highValueProperty().addListener((change) -> {
             if(target != null) {
-                target.setFrom(highValueProperty().intValue());
+                target.setTo(highValueProperty().intValue());
             }
         });
     }
@@ -34,10 +34,13 @@ public class IntRangeEditor extends RangeSlider {
     }
 
     public void setTarget(IntRange target, IntRange borders) {
-        this.target = target;
+        this.target = null;
         this.minProperty().set(borders.getFrom());
         this.maxProperty().set(borders.getTo());
         this.lowValueProperty().setValue(target.getFrom());
         this.highValueProperty().setValue(target.getTo());
+        this.lowValueProperty().setValue(target.getFrom());
+        this.highValueProperty().setValue(target.getTo());
+        this.target = target;
     }
 }

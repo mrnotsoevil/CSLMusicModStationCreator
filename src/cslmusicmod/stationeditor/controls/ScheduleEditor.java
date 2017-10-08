@@ -1,22 +1,20 @@
 package cslmusicmod.stationeditor.controls;
 
 import cslmusicmod.stationeditor.controls.helpers.ControlsHelper;
-import cslmusicmod.stationeditor.model.IntRange;
-import cslmusicmod.stationeditor.model.ScheduleEntry;
-import cslmusicmod.stationeditor.model.Station;
+import cslmusicmod.stationeditor.model.*;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.ChoiceBoxTableCell;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import org.controlsfx.control.RangeSlider;
 
@@ -32,6 +30,9 @@ public class ScheduleEditor extends BorderPane {
 
     @FXML
     private TableColumn<ScheduleEntry, IntRange> contentNumberColumn;
+
+//    @FXML
+//    private TableColumn<ScheduleEntry, ScheduleEntry> editColumn;
 
     public ScheduleEditor() {
         ControlsHelper.initControl(this);
@@ -65,6 +66,14 @@ public class ScheduleEditor extends BorderPane {
             e.setMax(t.getNewValue().getTo());
             t.getTableView().refresh();
         });
+
+//        Callback<TableColumn<ScheduleEntry, ScheduleEntry>, TableCell<ScheduleEntry, ScheduleEntry>> editCellFactory
+//                = (TableColumn<ScheduleEntry, ScheduleEntry> p) -> new EditTableCell(contentNumberColumn, contentTypeColumn);
+//        editColumn.setCellValueFactory((value) -> {
+//            return new ReadOnlyObjectWrapper<>(value.getValue());
+//        });
+//        editColumn.setSortable(false);
+//        editColumn.setCellFactory(editCellFactory);
     }
 
     private void connectData() {
@@ -163,6 +172,51 @@ public class ScheduleEditor extends BorderPane {
 
         private String getString() {
             return getItem() == null ? "" : getItem().getFrom() + " - " + getItem().getTo() + " songs";
+        }
+    }
+
+    private static class EditTableCell extends TableCell<ScheduleEntry, ScheduleEntry> implements EventHandler<ActionEvent> {
+
+        private TableColumn[] targets;
+
+        private Button editButton;
+
+        public EditTableCell( TableColumn... targets ) {
+            createButton();
+            this.targets = targets;
+        }
+
+        @Override
+        public void updateItem(ScheduleEntry item, boolean empty) {
+            super.updateItem(item, empty);
+
+            if (empty) {
+                setText(null);
+                setGraphic(null);
+            } else {
+                setText(null);
+                setGraphic(editButton);
+            }
+        }
+
+        private void createButton() {
+            editButton = new Button();
+            editButton.setText("Edit");
+            editButton.setPrefWidth(100);
+            editButton.setOnAction(this);
+        }
+
+        private String getString() {
+            return "";
+        }
+
+        @Override
+        public void handle(ActionEvent actionEvent) {
+
+            for(TableColumn c : targets) {
+                getTableView().edit(getTableRow().getIndex(), c);
+            }
+
         }
     }
 }

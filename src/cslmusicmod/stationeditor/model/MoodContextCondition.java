@@ -62,7 +62,7 @@ public class MoodContextCondition extends ContextCondition implements IntRanged 
 
     @Override
     public ValidationResult isValid() {
-        return new ValidationResult(this).and(to <= from && to >= 0 && from <= 100, "Mood must range from 0 to 100");
+        return new ValidationResult(this).and(from <= to && from >= 0 && to <= 100, "Mood must range from 0 to 100");
     }
 
     @Override
