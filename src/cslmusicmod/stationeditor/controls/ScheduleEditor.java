@@ -66,6 +66,7 @@ public class ScheduleEditor extends BorderPane {
             e.setMax(t.getNewValue().getTo());
             t.getTableView().refresh();
         });
+        content.setRowFactory(ControlsHelper.dragDropReorderRowFactory(content));
 
 //        Callback<TableColumn<ScheduleEntry, ScheduleEntry>, TableCell<ScheduleEntry, ScheduleEntry>> editCellFactory
 //                = (TableColumn<ScheduleEntry, ScheduleEntry> p) -> new EditTableCell(contentNumberColumn, contentTypeColumn);

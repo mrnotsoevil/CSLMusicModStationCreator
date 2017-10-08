@@ -5,12 +5,21 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Dialog;
+import javafx.scene.control.TableRow;
+import javafx.scene.control.TableView;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.DataFormat;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.TransferMode;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 import java.io.IOException;
 
 public final class ControlsHelper {
+
+    private static final DataFormat SERIALIZED_MIME_TYPE = new DataFormat("application/x-java-serialized-object");
 
     private ControlsHelper() {
 
@@ -38,6 +47,59 @@ public final class ControlsHelper {
         stage.initOwner(parent.getScene().getWindow());
         stage.setScene(new Scene(content));
         return stage;
+    }
+
+    public static <S> Callback<TableView<S>,TableRow<S>> dragDropReorderRowFactory(TableView<S> tableView) {
+
+        return tv -> {
+            TableRow<S> row = new TableRow<>();
+
+            row.setOnDragDetected(event -> {
+                if (! row.isEmpty()) {
+                    Integer index = row.getIndex();
+                    Dragboard db = row.startDragAndDrop(TransferMode.MOVE);
+                    db.setDragView(row.snapshot(null, null));
+                    ClipboardContent cc = new ClipboardContent();
+                    cc.put(SERIALIZED_MIME_TYPE, index);
+                    db.setContent(cc);
+                    event.consume();
+                }
+            });
+
+            row.setOnDragOver(event -> {
+                Dragboard db = event.getDragboard();
+                if (db.hasContent(SERIALIZED_MIME_TYPE)) {
+                    if (row.getIndex() != ((Integer)db.getContent(SERIALIZED_MIME_TYPE)).intValue()) {
+                        event.acceptTransferModes(TransferMode.COPY_OR_MOVE);
+                        event.consume();
+                    }
+                }
+            });
+
+            row.setOnDragDropped(event -> {
+                Dragboard db = event.getDragboard();
+                if (db.hasContent(SERIALIZED_MIME_TYPE)) {
+                    int draggedIndex = (Integer) db.getContent(SERIALIZED_MIME_TYPE);
+                    S draggedPerson = tableView.getItems().remove(draggedIndex);
+
+                    int dropIndex ;
+
+                    if (row.isEmpty()) {
+                        dropIndex = tableView.getItems().size() ;
+                    } else {
+                        dropIndex = row.getIndex();
+                    }
+
+                    tableView.getItems().add(dropIndex, draggedPerson);
+
+                    event.setDropCompleted(true);
+                    tableView.getSelectionModel().select(dropIndex);
+                    event.consume();
+                }
+            });
+
+            return row;
+        };
     }
 
 }
