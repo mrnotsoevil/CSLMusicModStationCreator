@@ -48,6 +48,7 @@ public class ScheduleEditor extends BorderPane {
     public void initialize() {
 
         ScheduleEntry.ALLOWED_TYPES.stream().forEach(x -> newItemType.getItems().add(x));
+        newItemType.getSelectionModel().select(0);
         newItemRange.setTarget(new IntRange(0, 3), ScheduleEntry.RANGE_BORDERS);
 
         content.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -104,6 +105,8 @@ public class ScheduleEditor extends BorderPane {
     @FXML
     private void addNewEntry() {
         ScheduleEntry e = new ScheduleEntry(station);
+        e.setRange(new IntRange(newItemRange.getTarget()));
+        e.setType(newItemType.getValue());
         content.getItems().add(e);
     }
 

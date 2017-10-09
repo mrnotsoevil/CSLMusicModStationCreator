@@ -55,4 +55,12 @@ public class ContextConditionDNF implements Validatable {
     public void setContext(ContextEntry context) {
         this.context = context;
     }
+
+    public String getSummary() {
+        return dnf.stream().map(x -> "(" + x.stream().collect(Collectors.joining(" and ")) + ")").collect(Collectors.joining(" or "));
+    }
+
+    public boolean isEmpty() {
+        return dnf.isEmpty();
+    }
 }
