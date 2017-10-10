@@ -6,12 +6,17 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 
+<?import org.controlsfx.glyphfont.Glyph?>
 <fx:root prefHeight="25" prefWidth="300" type="javafx.scene.layout.HBox" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField fx:id="path" HBox.hgrow="ALWAYS">
          <HBox.margin>
             <Insets right="8.0" />
          </HBox.margin></TextField>
-      <Button fx:id="pick" mnemonicParsing="false" onAction="#pickFile" text="..." GridPane.columnIndex="1" />
+      <Button fx:id="pick" mnemonicParsing="false" onAction="#pickFile" GridPane.columnIndex="1" >
+         <graphic>
+            <Glyph fontFamily="FontAwesome" icon="folder" />
+         </graphic>
+      </Button>
    </children>
 </fx:root>

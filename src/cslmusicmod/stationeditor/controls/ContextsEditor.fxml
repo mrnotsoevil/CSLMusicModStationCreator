@@ -10,13 +10,14 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
+<?import org.controlsfx.glyphfont.Glyph?>
 <fx:root prefWidth="783.0" type="BorderPane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
     <center>
         <TableView fx:id="content" editable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <columns>
                 <TableColumn fx:id="nameColumn" minWidth="100.0" prefWidth="100" text="Name" />
                 <TableColumn fx:id="summaryColumn" minWidth="200.0" prefWidth="-1.0" text="Summary" />
-                <TableColumn fx:id="editColumn" minWidth="100.0" prefWidth="100.0" text="" />
+                <TableColumn fx:id="editColumn" minWidth="100.0" prefWidth="100.0" maxWidth="100" text="" />
             </columns>
             <placeholder>
                 <Label text="No filters defined." wrapText="true" />
@@ -29,8 +30,16 @@
     <bottom>
         <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="8.0" BorderPane.alignment="CENTER">
             <children>
-                <Button fx:id="addNewEntry" minWidth="100.0" mnemonicParsing="false" text="Add context" onAction="#addEntry" />
-                <Button fx:id="removeEntries" minWidth="100.0" mnemonicParsing="false" onAction="#removeEntries" text="Remove" />
+                <Button fx:id="addNewEntry" minWidth="100.0" mnemonicParsing="false" text="Add context" onAction="#addEntry" >
+                    <graphic>
+                        <Glyph fontFamily="FontAwesome" icon="plus" />
+                    </graphic>
+                </Button>
+                <Button fx:id="removeEntries" minWidth="100.0" mnemonicParsing="false" onAction="#removeEntries" text="Remove" >
+                    <graphic>
+                        <Glyph fontFamily="FontAwesome" icon="minus" />
+                    </graphic>
+                </Button>
             </children>
             <padding>
                 <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />

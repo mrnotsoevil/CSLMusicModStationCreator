@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import org.controlsfx.glyphfont.Glyph;
 
 public class ContextsEditor extends BorderPane {
 
@@ -112,6 +113,7 @@ public class ContextsEditor extends BorderPane {
             editButton.setText("Edit");
             editButton.setPrefWidth(100);
             editButton.setOnAction(this);
+            editButton.setGraphic(Glyph.create("FontAwesome|pencil"));
         }
 
         private String getString() {

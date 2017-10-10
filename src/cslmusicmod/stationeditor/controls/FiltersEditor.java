@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import org.controlsfx.glyphfont.Glyph;
 
 import java.util.Optional;
 
@@ -147,6 +148,7 @@ public class FiltersEditor extends BorderPane {
         private void createButton() {
             editButton = new Button();
             editButton.setText("Edit");
+            editButton.setGraphic(Glyph.create("FontAwesome|pencil"));
             editButton.setPrefWidth(100);
             editButton.setOnAction(this);
         }
