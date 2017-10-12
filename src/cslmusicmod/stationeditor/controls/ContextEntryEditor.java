@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import org.controlsfx.control.CheckComboBox;
+import org.controlsfx.control.CheckListView;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
@@ -21,7 +22,7 @@ public class ContextEntryEditor extends BorderPane {
     private TextField contextName;
 
     @FXML
-    private CheckComboBox<String> contextCollections;
+    private CheckListView<String> contextCollections;
 
     public ContextEntryEditor() {
         ControlsHelper.initControl(this);
