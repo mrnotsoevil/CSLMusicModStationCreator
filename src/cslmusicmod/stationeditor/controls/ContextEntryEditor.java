@@ -8,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import org.controlsfx.control.CheckComboBox;
 import org.controlsfx.control.CheckListView;
 
 import java.util.ArrayList;
@@ -20,6 +19,9 @@ public class ContextEntryEditor extends BorderPane {
 
     @FXML
     private TextField contextName;
+
+    @FXML
+    private FormulaEditor formulaEditor;
 
     @FXML
     private CheckListView<String> contextCollections;
@@ -46,6 +48,7 @@ public class ContextEntryEditor extends BorderPane {
         this.entry = condition;
         contextCollections.getItems().clear();
         entry.getStation().getCollections().forEach(x -> contextCollections.getItems().add(x));
+        formulaEditor.setDnf(condition.getConditions());
 
         revertData();
     }

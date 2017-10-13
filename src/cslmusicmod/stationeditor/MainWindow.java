@@ -37,6 +37,7 @@ public class MainWindow {
         Gson gson = Station.getGson();
         try(FileReader r = new FileReader("TestStation.json")) {
             station = gson.fromJson(r, Station.class);
+            System.out.println("Station loaded!");
         } catch (IOException e) {
             e.printStackTrace();
         }

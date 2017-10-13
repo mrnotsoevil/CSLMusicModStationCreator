@@ -2,14 +2,8 @@ package cslmusicmod.stationeditor.model;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import cslmusicmod.stationeditor.model.adapters.ContextConditionAdapter;
-import cslmusicmod.stationeditor.model.adapters.ContextConditionDNFAdapter;
-import cslmusicmod.stationeditor.model.adapters.IntRangeAdapter;
-import cslmusicmod.stationeditor.model.adapters.StationAdapter;
+import cslmusicmod.stationeditor.model.adapters.*;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -48,7 +42,8 @@ public class Station implements Validatable {
         bson.registerTypeAdapter(IntRange.class, new IntRangeAdapter());
         bson.registerTypeAdapter(ContextCondition.class, new ContextConditionAdapter());
         bson.registerTypeAdapter(Station.class, new StationAdapter());
-        bson.registerTypeAdapter(ContextConditionDNF.class, new ContextConditionDNFAdapter());
+        bson.registerTypeAdapter(Formula.class, new FormulaAdapter());
+        bson.registerTypeAdapter(Conjunction.class, new ConjunctionAdapter());
         bson.setPrettyPrinting();
         return bson.create();
     }
@@ -139,7 +134,8 @@ public class Station implements Validatable {
 
         // Rename in DNF
         contexts.stream().forEach(context -> {
-            context.getConditions().getDnf().stream().forEach(list -> {
+            context.getConditions().getDnf().stream().forEach(conj -> {
+                List<String> list = conj.getLiterals();
                 for(int i = 0; i < list.size(); ++i) {
                     if(list.get(i).equals(oldname)) {
                         list.set(i, newname);

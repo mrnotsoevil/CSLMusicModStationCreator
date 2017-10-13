@@ -9,13 +9,13 @@ public class ContextEntry implements Validatable {
 
     private transient Station station;
 
-    private ContextConditionDNF conditions;
+    private Formula conditions;
     private List<String> collections;
     private List<String> songs;
     private String name;
 
     public ContextEntry() {
-        conditions = new ContextConditionDNF();
+        conditions = new Formula();
         collections = Collections.emptyList();
         songs = Collections.emptyList();
         name = "";
@@ -28,17 +28,17 @@ public class ContextEntry implements Validatable {
 
     public ContextEntry(ContextEntry original) {
         this.station = original.station;
-        this.conditions = new ContextConditionDNF(original.conditions);
+        this.conditions = new Formula(original.conditions);
         this.collections = new ArrayList<>(original.collections);
         this.songs = new ArrayList<>(original.songs);
         this.name = original.name;
     }
 
-    public ContextConditionDNF getConditions() {
+    public Formula getConditions() {
         return conditions;
     }
 
-    public void setConditions(ContextConditionDNF conditions) {
+    public void setConditions(Formula conditions) {
         this.conditions = conditions;
     }
 

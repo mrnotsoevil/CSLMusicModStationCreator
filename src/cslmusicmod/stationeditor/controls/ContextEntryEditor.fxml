@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import org.controlsfx.control.CheckListView?>
 
-<?import cslmusicmod.stationeditor.controls.DNFEditor?>
+<?import cslmusicmod.stationeditor.controls.FormulaEditor?>
 <fx:root prefHeight="400" prefWidth="500" type="BorderPane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
     <bottom>
         <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -62,7 +62,7 @@
             </Tab>
             <Tab closable="false" text="Conditions">
               <content>
-                <DNFEditor fx:id="dnfEditor" />
+                <FormulaEditor fx:id="formulaEditor" />
               </content>
             </Tab>
          </tabs>

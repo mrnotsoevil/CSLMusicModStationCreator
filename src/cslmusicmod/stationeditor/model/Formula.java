@@ -3,35 +3,35 @@ package cslmusicmod.stationeditor.model;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class ContextConditionDNF implements Validatable {
+public class Formula implements Validatable {
 
     private transient ContextEntry context;
 
-    private List<List<String>> dnf;
+    private List<Conjunction> dnf;
 
     // Only used during deserialization
     private transient Map<String, ContextCondition> inlinedContextConditions;
 
-    public ContextConditionDNF() {
+    public Formula() {
         dnf = new ArrayList<>();
         inlinedContextConditions = new HashMap<>();
     }
 
-    public ContextConditionDNF(ContextEntry context) {
+    public Formula(ContextEntry context) {
         this();
         this.context = context;
     }
 
-    public ContextConditionDNF(ContextConditionDNF original) {
+    public Formula(Formula original) {
         this.context = original.context;
-        dnf = original.dnf.stream().map(x -> new ArrayList<String>(x)).collect(Collectors.toList());
+        dnf = original.dnf.stream().map(x -> new Conjunction(x)).collect(Collectors.toList());
     }
 
-    public List<List<String>> getDnf() {
+    public List<Conjunction> getDnf() {
         return dnf;
     }
 
-    public void setDnf(List<List<String>> dnf) {
+    public void setDnf(List<Conjunction> dnf) {
         this.dnf = dnf;
     }
 
@@ -57,7 +57,7 @@ public class ContextConditionDNF implements Validatable {
     }
 
     public String getSummary() {
-        return dnf.stream().map(x -> "(" + x.stream().collect(Collectors.joining(" and ")) + ")").collect(Collectors.joining(" or "));
+        return dnf.stream().map(x -> "(" + x.getSummary() + ")").collect(Collectors.joining(" or "));
     }
 
     public boolean isEmpty() {
