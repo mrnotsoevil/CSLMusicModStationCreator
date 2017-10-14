@@ -1,9 +1,11 @@
 package cslmusicmod.stationeditor.controls;
 
 import cslmusicmod.stationeditor.controls.helpers.ControlsHelper;
+import cslmusicmod.stationeditor.controls.helpers.DialogHelper;
 import cslmusicmod.stationeditor.controls.helpers.EditCell;
 import cslmusicmod.stationeditor.controls.helpers.TriggerEditCell;
 import cslmusicmod.stationeditor.model.ScheduleEntry;
+import cslmusicmod.stationeditor.model.SongCollection;
 import cslmusicmod.stationeditor.model.Station;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
@@ -17,6 +19,8 @@ import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Optional;
 
 public class CollectionsEditor extends BorderPane {
@@ -26,13 +30,13 @@ public class CollectionsEditor extends BorderPane {
     private TextInputDialog addItemDialog;
 
     @FXML
-    private TableView<String> content;
+    private TableView<SongCollection> content;
 
     @FXML
-    private TableColumn<String, String> nameColumn;
+    private TableColumn<SongCollection, String> nameColumn;
 
     @FXML
-    private TableColumn<String, String> editColumn;
+    private TableColumn<SongCollection, SongCollection> editColumn;
 
     public CollectionsEditor() {
         ControlsHelper.initControl(this);
@@ -48,16 +52,16 @@ public class CollectionsEditor extends BorderPane {
         content.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
         nameColumn.setCellValueFactory((value) -> {
-            return new ReadOnlyObjectWrapper<>(value.getValue());
+            return new ReadOnlyObjectWrapper<>(value.getValue().getName());
         });
+        editColumn.setCellValueFactory(value -> new ReadOnlyObjectWrapper<>(value.getValue()));
         editColumn.setCellFactory(value -> new CollectionsEditCell());
 
     }
 
     private void connectData() {
-        ObservableList<String> data = FXCollections.observableArrayList(station.getCollections());
+        ObservableList<SongCollection> data = FXCollections.observableArrayList(station.getCollections().values());
         content.setItems(data);
-        station.setCollections(data);
     }
 
     public Station getStation() {
@@ -78,22 +82,31 @@ public class CollectionsEditor extends BorderPane {
 
             String name = result.get().trim();
 
-            if(!content.getItems().contains(name)) {
-                content.getItems().add(name);
+            if(!station.getCollections().keySet().contains(name)) {
+                SongCollection coll = new SongCollection(station);
+                coll.setName(name);
+                coll.setStation(station);
+                station.addCollection(coll);
+                connectData();
             }
         }
     }
 
     @FXML
     private void removeEntries() {
-        content.getItems().removeAll(content.getSelectionModel().getSelectedItems());
+       connectData();
     }
 
-    private static class CollectionsEditCell extends EditCell<String, String> {
+    private static class CollectionsEditCell extends EditCell<SongCollection, SongCollection> {
 
         @Override
         public void handle(ActionEvent actionEvent) {
+            SongCollection coll = getItem();
 
+            if(!coll.getStation().hasSaveLocation()) {
+                DialogHelper.showErrorAlert("Song collection editor", "Please save the station once to enable the editor.");
+                return;
+            }
         }
     }
 

@@ -61,7 +61,7 @@ public class ContextEntryEditor extends BorderPane {
     public void setContextEntry(ContextEntry condition) {
         this.entry = condition;
         contextCollections.getItems().clear();
-        entry.getStation().getCollections().forEach(x -> contextCollections.getItems().add(x));
+        entry.getStation().getCollections().values().forEach(x -> contextCollections.getItems().add(x.getName()));
 
         revertData();
     }

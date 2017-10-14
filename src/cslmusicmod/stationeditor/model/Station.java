@@ -1,7 +1,5 @@
 package cslmusicmod.stationeditor.model;
 
-import com.google.common.base.Charsets;
-import com.google.common.io.Resources;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import cslmusicmod.stationeditor.model.adapters.*;
@@ -11,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -19,18 +18,19 @@ public class Station implements Validatable {
     private String name;
     private String description;
     private String thumbnail;
-    private List<String> collections;
+    private Map<String, SongCollection> collections;
     private List<ScheduleEntry> schedule;
     private Map<String, ContextCondition> filters;
     private List<ContextEntry> contexts;
 
+    private transient String filename;
     private transient String directory;
 
     public Station() {
         name = "";
         description = "Adds more music to the game. Needs CSL Music Mod.";
         thumbnail = "";
-        collections = new ArrayList<>();
+        collections = new HashMap<>();
         schedule = new ArrayList<>();
         contexts = new ArrayList<>();
         filters = new HashMap<>();
@@ -40,7 +40,7 @@ public class Station implements Validatable {
         this.name = original.name;
         this.description = original.description;
         this.thumbnail = original.thumbnail;
-        this.collections = new ArrayList<>(original.collections);
+        this.collections = new HashMap<>(original.collections);
         this.schedule = original.schedule.stream().map(x -> new ScheduleEntry(x, this)).collect(Collectors.toList());
         this.contexts = original.contexts.stream().map(x -> new ContextEntry(x, this)).collect(Collectors.toList());
         this.filters = new HashMap<>();
@@ -54,6 +54,7 @@ public class Station implements Validatable {
         bson.registerTypeAdapter(Station.class, new StationAdapter());
         bson.registerTypeAdapter(Formula.class, new FormulaAdapter());
         bson.registerTypeAdapter(Conjunction.class, new ConjunctionAdapter());
+        bson.registerTypeAdapter(SongCollection.class, new SongCollectionAdapter());
         bson.setPrettyPrinting();
         return bson.create();
     }
@@ -74,12 +75,14 @@ public class Station implements Validatable {
         this.thumbnail = thumbnail;
     }
 
-    public List<String> getCollections() {
-        return collections;
+    public Map<String, SongCollection> getCollections() {
+        return Collections.unmodifiableMap(collections);
     }
 
-    public void setCollections(List<String> collections) {
-        this.collections = collections;
+    public void addCollection(SongCollection coll) {
+        if(!collections.values().contains(coll) && !collections.keySet().contains(coll.getName())) {
+            collections.put(coll.getName(), coll);
+        }
     }
 
     public List<ScheduleEntry> getSchedule() {
@@ -91,11 +94,7 @@ public class Station implements Validatable {
     }
 
     public Map<String, ContextCondition> getFilters() {
-        return filters;
-    }
-
-    public void setFilters(Map<String, ContextCondition> filters) {
-        this.filters = filters;
+        return Collections.unmodifiableMap(filters);
     }
 
     public List<ContextEntry> getContexts() {
@@ -126,6 +125,25 @@ public class Station implements Validatable {
 
     public String getFilterName(ContextCondition cond) {
         return getFilters().keySet().stream().filter(x -> getFilters().get(x) == cond).findAny().get();
+    }
+
+    public void addFilter(String name, ContextCondition cond) {
+        this.filters.put(name, cond);
+    }
+
+    public boolean canRemoveFilter(String name) {
+        return contexts.stream().allMatch(context -> {
+           return context.getConditions().getConjunctions().stream().allMatch(cond -> !cond.getLiterals().contains(name));
+        });
+    }
+
+    public boolean removeFilter(String name) {
+        if(!canRemoveFilter(name))
+            return false;
+
+        filters.remove(name);
+
+        return true;
     }
 
     public boolean renameFilter(String oldname, String newname) {
@@ -182,4 +200,15 @@ public class Station implements Validatable {
         return template;
     }
 
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
+    public boolean hasSaveLocation() {
+        return filename != null && Files.exists(Paths.get(filename));
+    }
 }

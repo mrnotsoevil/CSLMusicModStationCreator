@@ -9,7 +9,7 @@ public class DescriptionEditor extends TextField {
 
     public DescriptionEditor() {
         textProperty().addListener(changeEvent -> {
-            station.setName(textProperty().getValue());
+            station.setDescription(textProperty().getValue());
         });
     }
 

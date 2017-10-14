@@ -1,6 +1,7 @@
 package cslmusicmod.stationeditor.controls;
 
 import cslmusicmod.stationeditor.controls.helpers.ControlsHelper;
+import cslmusicmod.stationeditor.controls.helpers.DialogHelper;
 import cslmusicmod.stationeditor.controls.helpers.EditCell;
 import cslmusicmod.stationeditor.model.*;
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -113,7 +114,14 @@ public class FiltersEditor extends BorderPane {
     private void removeEntries() {
 
         for(ContextCondition todelete : content.getSelectionModel().getSelectedItems()) {
-            station.getFilters().remove(station.getFilterName(todelete));
+            if(!station.canRemoveFilter(station.getFilterName(todelete))) {
+                DialogHelper.showErrorAlert("Delete filter", "The filter " + station.getFilterName(todelete) + " is being used! Cannot delete it!");
+                return;
+            }
+        }
+
+        for(ContextCondition todelete : content.getSelectionModel().getSelectedItems()) {
+            station.removeFilter(station.getFilterName(todelete));
         }
 
         connectData();

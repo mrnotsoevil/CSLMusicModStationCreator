@@ -16,22 +16,24 @@ public class StationAdapter implements JsonSerializer<Station>, JsonDeserializer
         Station station = new Station();
         JsonObject obj = jsonElement.getAsJsonObject();
 
-        Type stringListType = new TypeToken<List<String>>(){}.getType();
+        Type songCollectionListType = new TypeToken<List<SongCollection>>(){}.getType();
         Type scheduleEntryListType = new TypeToken<List<ScheduleEntry>>(){}.getType();
         Type namedContextConditionsType = new TypeToken<Map<String, ContextCondition>>(){}.getType();
         Type contextListType = new TypeToken<List<ContextEntry>>(){}.getType();
 
-        Map<String, ContextCondition> namedContextConditions = new HashMap<>();
+        final Map<String, ContextCondition> namedContextConditions = new HashMap<>();
 
         station.setName(obj.get("name").getAsString());
         if(obj.has("thumbnail"))
             station.setThumbnail(obj.get("thumbnail").getAsString());
-        if(obj.has("collections"))
-            station.setCollections(jsonDeserializationContext.deserialize(obj.get("collections"), stringListType));
+        if(obj.has("collections")){
+            List<SongCollection> coll = jsonDeserializationContext.deserialize(obj.get("collections"), songCollectionListType);
+            coll.stream().forEach(x -> station.addCollection(x));
+        }
         if(obj.has("schedule"))
             station.setSchedule(jsonDeserializationContext.deserialize(obj.get("schedule"), scheduleEntryListType));
         if(obj.has("filters"))
-            namedContextConditions = jsonDeserializationContext.deserialize(obj.get("filters"), namedContextConditionsType);
+            namedContextConditions.putAll(jsonDeserializationContext.deserialize(obj.get("filters"), namedContextConditionsType));
         if(obj.has("contexts"))
             station.setContexts(jsonDeserializationContext.deserialize(obj.get("contexts"), contextListType));
 
@@ -39,7 +41,7 @@ public class StationAdapter implements JsonSerializer<Station>, JsonDeserializer
             namedContextConditions.putAll(cont.getConditions().getInlinedContextConditions());
         }
 
-        station.setFilters(namedContextConditions);
+        namedContextConditions.keySet().stream().forEach(x -> station.addFilter(x, namedContextConditions.get(x)));
 
         // Set all necessary parent references
         station.getFilters().values().stream().forEach(x -> x.setStation(station));
@@ -49,6 +51,7 @@ public class StationAdapter implements JsonSerializer<Station>, JsonDeserializer
             x.getConditions().setContext(x);
             x.getConditions().getConjunctions().stream().forEach(y -> y.setFormula(x.getConditions()));
         });
+        station.getCollections().values().stream().forEach(x -> x.setStation(station));
 
         return station;
     }

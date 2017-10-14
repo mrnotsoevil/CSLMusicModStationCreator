@@ -3,6 +3,7 @@ package cslmusicmod.stationeditor;
 import com.google.gson.Gson;
 import cslmusicmod.stationeditor.controls.*;
 import cslmusicmod.stationeditor.controls.helpers.DialogHelper;
+import cslmusicmod.stationeditor.helpers.FileHelper;
 import cslmusicmod.stationeditor.model.Station;
 import cslmusicmod.stationeditor.model.ValidationResult;
 import javafx.application.Platform;
@@ -10,16 +11,17 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import org.controlsfx.glyphfont.FontAwesome;
+import net.coobird.thumbnailator.Thumbnailator;
+import net.coobird.thumbnailator.Thumbnails;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.util.stream.Collectors;
+import java.nio.file.Paths;
+import java.security.DigestException;
 
 public class MainWindow {
 
@@ -51,20 +53,21 @@ public class MainWindow {
     @FXML
     private ContextsEditor contextsEditor;
 
-    private FileChooser openStationChooser;
+    private FileChooser stationFileChooser;
 
     public MainWindow() {
         station = new Station();
-        openStationChooser = new FileChooser();
-        openStationChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("JSON", "*.json"),
-                new FileChooser.ExtensionFilter("All files", "*.*")
+        stationFileChooser = new FileChooser();
+        stationFileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("JSON (*.json)", "*.json"),
+                new FileChooser.ExtensionFilter("All files (*.*)", "*.*")
         );
     }
 
     @FXML
     private void initialize() {
         updateEditors();
+        updateTitle();
     }
 
     private void updateEditors() {
@@ -78,7 +81,7 @@ public class MainWindow {
     }
 
     public void openFile(ActionEvent actionEvent) {
-        File target = openStationChooser.showOpenDialog(root.getScene().getWindow());
+        File target = stationFileChooser.showOpenDialog(root.getScene().getWindow());
 
         if(target != null) {
             try (FileReader r = new FileReader(target)) {
@@ -91,8 +94,10 @@ public class MainWindow {
                 }
 
                 loaded.setDirectory(target.getParent());
+                loaded.setFilename(target.getAbsolutePath());
                 station = loaded;
                 updateEditors();
+                updateTitle();
 
             } catch (Exception e) {
                 DialogHelper.showExceptionError("Open station", "Error while loading the data!", e);
@@ -101,6 +106,73 @@ public class MainWindow {
     }
 
     public void saveFile(ActionEvent actionEvent) {
+
+        ValidationResult validation = station.isValid();
+
+        if(!validation.isOK()) {
+            DialogHelper.showValidationError("Save station", "The data is not valid!", validation);
+            return;
+        }
+
+        File path;
+
+        if(station.hasSaveLocation()) {
+            path = new File(station.getFilename());
+        }
+        else {
+            stationFileChooser.setInitialFileName(station.getName() + ".json");
+            path = stationFileChooser.showSaveDialog(root.getScene().getWindow());
+        }
+
+        if(path != null) {
+
+            // Save the thumbnail
+            if(!station.getThumbnail().isEmpty()) {
+
+                if(Paths.get(station.getThumbnail()).isAbsolute()) {
+
+                    File targetfile = Paths.get(path.getParent(), FileHelper.sanatizeFilename(station.getName() + ".png")).toFile();
+                    File srcfile = new File(station.getThumbnail());
+
+                    try {
+                        Thumbnails.of(srcfile).size(64, 64).keepAspectRatio(false).outputFormat("png").toFile(targetfile);
+                    } catch (IOException e) {
+                        DialogHelper.showExceptionError("Save station", "Error while saving the thumbnail!", e);
+                    }
+
+                    station.setThumbnail(targetfile.getName());
+                    thumbnailEditor.setStation(station);
+                }
+                else if(!station.getThumbnail().toLowerCase().endsWith(".png") && station.hasSaveLocation()) {
+                    File targetfile = Paths.get(path.getParent(), FileHelper.sanatizeFilename(station.getThumbnail() + ".png")).toFile();
+                    File srcfile = Paths.get(path.getParent(), station.getThumbnail()).toFile();
+
+                    try {
+                        Thumbnails.of(srcfile).size(64, 64).keepAspectRatio(false).outputFormat("png").toFile(targetfile);
+                    } catch (IOException e) {
+                        DialogHelper.showExceptionError("Save station", "Error while saving the thumbnail!", e);
+                    }
+
+                    station.setThumbnail(targetfile.getName());
+                    thumbnailEditor.setStation(station);
+                }
+
+            }
+
+            try(FileWriter w = new FileWriter(path)) {
+                w.write(stationSerializer.toJson(station));
+                station.setFilename(path.getAbsolutePath());
+                station.setDirectory(path.getParent());
+            } catch (IOException e) {
+                DialogHelper.showExceptionError("Save station", "Error while saving!", e);
+            }
+            finally {
+                updateTitle();
+            }
+
+
+        }
+
     }
 
     public void exit(ActionEvent actionEvent) {
@@ -110,5 +182,23 @@ public class MainWindow {
     public void newFile(ActionEvent actionEvent) {
         station = new Station();
         updateEditors();
+        updateTitle();
+    }
+
+    public void updateTitle() {
+
+        try {
+            if(station.hasSaveLocation()) {
+                ((Stage)root.getScene().getWindow()).setTitle(new File(station.getFilename()).getName() + " - CSL Music Mod Station Editor");
+            }
+            else {
+                ((Stage)root.getScene().getWindow()).setTitle("CSL Music Mod Station Editor");
+            }
+        }
+        catch (Exception e) {
+
+        }
+
+
     }
 }

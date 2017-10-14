@@ -54,7 +54,7 @@ public abstract class ContextConditionEditor extends BorderPane {
             condition.getStation().renameFilter(condition.getStation().getFilterName(condition), name);
         }
         else {
-            condition.getStation().getFilters().put(name, condition);
+            condition.getStation().addFilter(name, condition);
         }
     }
 
