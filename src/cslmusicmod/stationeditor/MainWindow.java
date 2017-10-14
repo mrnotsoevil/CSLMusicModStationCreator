@@ -22,6 +22,9 @@ public class MainWindow {
     private NameEditor nameEditor;
 
     @FXML
+    private DescriptionEditor descriptionEditor;
+
+    @FXML
     private ScheduleEditor scheduleEditor;
 
     @FXML
@@ -47,6 +50,7 @@ public class MainWindow {
     private void initialize() {
         thumbnailEditor.setStation(station);
         nameEditor.setStation(station);
+        descriptionEditor.setStation(station);
         scheduleEditor.setStation(station);
         collectionsEditor.setStation(station);
         filtersEditor.setStation(station);

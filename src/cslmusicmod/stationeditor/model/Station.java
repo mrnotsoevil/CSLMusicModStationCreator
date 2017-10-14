@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 public class Station implements Validatable {
 
     private String name;
+    private String description;
     private String thumbnail;
     private List<String> collections;
     private List<ScheduleEntry> schedule;
@@ -20,6 +21,7 @@ public class Station implements Validatable {
 
     public Station() {
         name = "";
+        description = "Adds more music to the game. Needs CSL Music Mod.";
         thumbnail = "";
         collections = new ArrayList<>();
         schedule = new ArrayList<>();
@@ -29,6 +31,7 @@ public class Station implements Validatable {
 
     public Station(Station original) {
         this.name = original.name;
+        this.description = original.description;
         this.thumbnail = original.thumbnail;
         this.collections = new ArrayList<>(original.collections);
         this.schedule = original.schedule.stream().map(x -> new ScheduleEntry(x, this)).collect(Collectors.toList());
@@ -145,5 +148,13 @@ public class Station implements Validatable {
         });
 
         return true;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

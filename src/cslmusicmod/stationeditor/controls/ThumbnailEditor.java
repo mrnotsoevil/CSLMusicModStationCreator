@@ -48,7 +48,14 @@ public class ThumbnailEditor extends HBox {
 
     private void updateImage() {
 
-        String path = station.getThumbnail();
+        String thumbnail = station.getThumbnail();
+
+        if(thumbnail.isEmpty()) {
+            setDefaultImage();
+            return;
+        }
+
+        String path = station.getDirectory() == null ? thumbnail : Paths.get(station.getDirectory(), thumbnail).toString();
 
         if(path.isEmpty() || !Files.exists(Paths.get(path)) || Files.isDirectory(Paths.get(path))) {
             setDefaultImage();

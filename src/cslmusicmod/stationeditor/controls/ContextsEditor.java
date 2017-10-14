@@ -1,18 +1,17 @@
 package cslmusicmod.stationeditor.controls;
 
 import cslmusicmod.stationeditor.controls.helpers.ControlsHelper;
+import cslmusicmod.stationeditor.controls.helpers.EditCell;
 import cslmusicmod.stationeditor.model.*;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
-import org.controlsfx.glyphfont.Glyph;
 
 public class ContextsEditor extends BorderPane {
 
@@ -87,37 +86,12 @@ public class ContextsEditor extends BorderPane {
         }
     }
 
-    private static class EditTableCell extends TableCell<ContextEntry, ContextEntry> implements EventHandler<ActionEvent> {
+    private static class EditTableCell extends EditCell<ContextEntry, ContextEntry> {
 
         private Button editButton;
 
         public EditTableCell() {
-            createButton();
-        }
 
-        @Override
-        public void updateItem(ContextEntry item, boolean empty) {
-            super.updateItem(item, empty);
-
-            if (empty) {
-                setText(null);
-                setGraphic(null);
-            } else {
-                setText(null);
-                setGraphic(editButton);
-            }
-        }
-
-        private void createButton() {
-            editButton = new Button();
-            editButton.setText("Edit");
-            editButton.setPrefWidth(100);
-            editButton.setOnAction(this);
-            editButton.setGraphic(Glyph.create("FontAwesome|pencil"));
-        }
-
-        private String getString() {
-            return "";
         }
 
         @Override

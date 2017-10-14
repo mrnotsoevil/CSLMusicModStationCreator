@@ -1,6 +1,7 @@
 package cslmusicmod.stationeditor.controls;
 
 import cslmusicmod.stationeditor.controls.helpers.ControlsHelper;
+import cslmusicmod.stationeditor.controls.helpers.TriggerEditCell;
 import cslmusicmod.stationeditor.model.*;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ChangeListener;
@@ -29,7 +30,13 @@ public class ScheduleEditor extends BorderPane {
     private TableColumn<ScheduleEntry, String> contentTypeColumn;
 
     @FXML
+    private TableColumn<ScheduleEntry, ScheduleEntry> contentTypeEditColumn;
+
+    @FXML
     private TableColumn<ScheduleEntry, IntRange> contentNumberColumn;
+
+    @FXML
+    private TableColumn<ScheduleEntry, ScheduleEntry> contentNumberEditColumn;
 
     @FXML
     private ComboBox<String> newItemType;
@@ -52,8 +59,6 @@ public class ScheduleEditor extends BorderPane {
         newItemRange.setTarget(new IntRange(0, 3), ScheduleEntry.RANGE_BORDERS);
 
         content.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        Callback<TableColumn<ScheduleEntry, IntRange>, TableCell<ScheduleEntry, IntRange>> durationCellFactory
-                = (TableColumn<ScheduleEntry, IntRange> p) -> new DurationTableCell();
 
         contentTypeColumn.setSortable(false);
         contentTypeColumn.setCellValueFactory((value) -> {
@@ -69,7 +74,7 @@ public class ScheduleEditor extends BorderPane {
         contentNumberColumn.setCellValueFactory((value) -> {
             return new ReadOnlyObjectWrapper<>(new IntRange(value.getValue().getMin(), value.getValue().getMax()));
         });
-        contentNumberColumn.setCellFactory(durationCellFactory);
+        contentNumberColumn.setCellFactory(value -> new DurationTableCell());
         contentNumberColumn.setOnEditCommit((TableColumn.CellEditEvent<ScheduleEntry, IntRange> t) -> {
             ScheduleEntry e = t.getRowValue();
             e.setMin(t.getNewValue().getFrom());
@@ -77,6 +82,9 @@ public class ScheduleEditor extends BorderPane {
             t.getTableView().refresh();
         });
         content.setRowFactory(ControlsHelper.dragDropReorderRowFactory(content));
+
+        contentTypeEditColumn.setCellFactory(value -> new TriggerEditCell<>(contentTypeColumn));
+        contentNumberEditColumn.setCellFactory(value -> new TriggerEditCell<>(contentNumberColumn));
 
 //        Callback<TableColumn<ScheduleEntry, ScheduleEntry>, TableCell<ScheduleEntry, ScheduleEntry>> editCellFactory
 //                = (TableColumn<ScheduleEntry, ScheduleEntry> p) -> new EditTableCell(contentNumberColumn, contentTypeColumn);
