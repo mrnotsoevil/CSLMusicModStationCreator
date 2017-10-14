@@ -19,7 +19,6 @@
             <TableColumn fx:id="contentTypeEditColumn" minWidth="100.0" prefWidth="100.0" maxWidth="100" text="" />
           <TableColumn fx:id="contentNumberColumn" minWidth="200.0" prefWidth="200.0" text="Duration" />
             <TableColumn fx:id="contentNumberEditColumn" minWidth="100.0" prefWidth="100.0" maxWidth="100" text="" />
-            <!--<TableColumn fx:id="editColumn" minWidth="100.0" prefWidth="100.0" text="" />-->
         </columns>
           <placeholder>
               <Label text="No schedule defined. CSL Music Mod will generate a random one." wrapText="true" />

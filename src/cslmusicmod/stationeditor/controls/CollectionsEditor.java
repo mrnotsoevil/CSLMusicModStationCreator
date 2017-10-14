@@ -1,11 +1,14 @@
 package cslmusicmod.stationeditor.controls;
 
 import cslmusicmod.stationeditor.controls.helpers.ControlsHelper;
+import cslmusicmod.stationeditor.controls.helpers.EditCell;
+import cslmusicmod.stationeditor.controls.helpers.TriggerEditCell;
 import cslmusicmod.stationeditor.model.ScheduleEntry;
 import cslmusicmod.stationeditor.model.Station;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
@@ -28,6 +31,9 @@ public class CollectionsEditor extends BorderPane {
     @FXML
     private TableColumn<String, String> nameColumn;
 
+    @FXML
+    private TableColumn<String, String> editColumn;
+
     public CollectionsEditor() {
         ControlsHelper.initControl(this);
 
@@ -44,6 +50,7 @@ public class CollectionsEditor extends BorderPane {
         nameColumn.setCellValueFactory((value) -> {
             return new ReadOnlyObjectWrapper<>(value.getValue());
         });
+        editColumn.setCellFactory(value -> new CollectionsEditCell());
 
     }
 
@@ -80,6 +87,14 @@ public class CollectionsEditor extends BorderPane {
     @FXML
     private void removeEntries() {
         content.getItems().removeAll(content.getSelectionModel().getSelectedItems());
+    }
+
+    private static class CollectionsEditCell extends EditCell<String, String> {
+
+        @Override
+        public void handle(ActionEvent actionEvent) {
+
+        }
     }
 
 }
