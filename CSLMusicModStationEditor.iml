@@ -9,5 +9,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="com.google.code.gson:gson:2.8.2" level="project" />
     <orderEntry type="library" name="org.controlsfx:controlsfx:8.40.13" level="project" />
+    <orderEntry type="library" name="com.google.guava:guava:14.0.1" level="project" />
   </component>
 </module>

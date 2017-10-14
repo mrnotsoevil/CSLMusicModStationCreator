@@ -1,9 +1,16 @@
 package cslmusicmod.stationeditor.model;
 
+import com.google.common.base.Charsets;
+import com.google.common.io.Resources;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import cslmusicmod.stationeditor.model.adapters.*;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -122,13 +129,13 @@ public class Station implements Validatable {
     }
 
     public boolean renameFilter(String oldname, String newname) {
-        if(newname.isEmpty())
+        if (newname.isEmpty())
             return false;
-        if(oldname.equals(newname))
+        if (oldname.equals(newname))
             return true;
-        if(getFilters().containsKey(newname))
+        if (getFilters().containsKey(newname))
             return false;
-        if(!getFilters().containsKey(oldname))
+        if (!getFilters().containsKey(oldname))
             return false;
 
         ContextCondition cond = filters.get(oldname);
@@ -139,8 +146,8 @@ public class Station implements Validatable {
         contexts.stream().forEach(context -> {
             context.getConditions().getConjunctions().stream().forEach(conj -> {
                 List<String> list = conj.getLiterals();
-                for(int i = 0; i < list.size(); ++i) {
-                    if(list.get(i).equals(oldname)) {
+                for (int i = 0; i < list.size(); ++i) {
+                    if (list.get(i).equals(oldname)) {
                         list.set(i, newname);
                     }
                 }
@@ -157,4 +164,22 @@ public class Station implements Validatable {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public String buildModSource() {
+        String template;
+        try (BufferedReader buffer = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/cslmusicmod/stationeditor/Mod.cs")))) {
+            template = buffer.lines().collect(Collectors.joining("\n"));
+        } catch (IOException e) {
+            throw new IllegalStateException();
+        }
+
+        String namespace = "MusicPack_" + getName().trim().replaceAll("[^a-zA-Z0-9]" , "_");
+
+        template = template.replace("__NAME__", getName())
+                .replace("__DESCRIPTION__", getDescription())
+                .replace("__NAMESPACE__", namespace);
+
+        return template;
+    }
+
 }

@@ -1,5 +1,5 @@
 {
-    "name" : "TestStation",
+    "name" : "Test Station!!",
     "collections" : [ "Test_Day", "Test_Night" ],
     "filters" : {
         "day" : { "type" : "time", "from" : 6, "to" : 20 },
