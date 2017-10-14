@@ -98,7 +98,7 @@ public class WeatherContextConditionEditor extends ContextConditionEditor {
             return;
         }
 
-        ValidationResult validation = writeTo(new WeatherContextCondition(condition)).isValid();
+        ValidationResult validation = writeTo(new WeatherContextCondition(condition, condition.getStation())).isValid();
 
         if(validation.isOK()) {
             createOrRenameCondition(condition, conditionName.textProperty());

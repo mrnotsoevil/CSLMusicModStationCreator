@@ -31,8 +31,8 @@ public class Station implements Validatable {
         this.name = original.name;
         this.thumbnail = original.thumbnail;
         this.collections = new ArrayList<>(original.collections);
-        this.schedule = original.schedule.stream().map(x -> new ScheduleEntry(x)).collect(Collectors.toList());
-        this.contexts = original.contexts.stream().map(x -> new ContextEntry(x)).collect(Collectors.toList());
+        this.schedule = original.schedule.stream().map(x -> new ScheduleEntry(x, this)).collect(Collectors.toList());
+        this.contexts = original.contexts.stream().map(x -> new ContextEntry(x, this)).collect(Collectors.toList());
         this.filters = new HashMap<>();
         original.filters.keySet().stream().forEach(x -> filters.put(x, original.filters.get(x)));
     }
@@ -134,7 +134,7 @@ public class Station implements Validatable {
 
         // Rename in DNF
         contexts.stream().forEach(context -> {
-            context.getConditions().getDnf().stream().forEach(conj -> {
+            context.getConditions().getConjunctions().stream().forEach(conj -> {
                 List<String> list = conj.getLiterals();
                 for(int i = 0; i < list.size(); ++i) {
                     if(list.get(i).equals(oldname)) {

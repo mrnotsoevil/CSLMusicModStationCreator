@@ -22,8 +22,8 @@ public class TimeContextCondition extends ContextCondition implements IntRanged 
         setStation(station);
     }
 
-    public TimeContextCondition(TimeContextCondition original) {
-        this.setStation(original.getStation());
+    public TimeContextCondition(TimeContextCondition original, Station parent) {
+        this.setStation(parent);
         this.setRange(original.getRange());
         this.not = original.not;
     }

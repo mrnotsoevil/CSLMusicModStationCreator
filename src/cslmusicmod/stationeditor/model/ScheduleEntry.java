@@ -30,8 +30,8 @@ public class ScheduleEntry implements Validatable, IntRanged {
         max = 3;
     }
 
-    public ScheduleEntry(ScheduleEntry original) {
-        this.station = original.station;
+    public ScheduleEntry(ScheduleEntry original, Station parent) {
+        this.station = parent;
         this.type = original.type;
         this.setRange(original.getRange());
     }

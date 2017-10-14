@@ -73,7 +73,7 @@ public class ContextsEditor extends BorderPane {
    @FXML
    private void addEntry() {
        ContextEntryEditor dlg = new ContextEntryEditor();
-       Stage stage = ControlsHelper.createModalStageFor(this, dlg);
+       Stage stage = ControlsHelper.createModalStageFor(this, dlg, "Create context");
        dlg.setContextEntry(new ContextEntry(station));
        stage.showAndWait();
        connectData();
@@ -123,7 +123,7 @@ public class ContextsEditor extends BorderPane {
         @Override
         public void handle(ActionEvent actionEvent) {
             ContextEntryEditor dlg = new ContextEntryEditor();
-            Stage stage = ControlsHelper.createModalStageFor(this, dlg);
+            Stage stage = ControlsHelper.createModalStageFor(this, dlg, "Edit context");
             dlg.setContextEntry(getItem());
             stage.showAndWait();
             getTableView().refresh();

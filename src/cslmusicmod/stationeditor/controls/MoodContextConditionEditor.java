@@ -76,7 +76,7 @@ public class MoodContextConditionEditor extends ContextConditionEditor {
             return;
         }
 
-        ValidationResult validation = writeTo(new MoodContextCondition(condition)).isValid();
+        ValidationResult validation = writeTo(new MoodContextCondition(condition, condition.getStation())).isValid();
 
         if(validation.isOK()) {
             createOrRenameCondition(condition, conditionName.textProperty());

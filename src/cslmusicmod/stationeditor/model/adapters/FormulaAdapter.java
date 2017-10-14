@@ -36,7 +36,7 @@ public class FormulaAdapter implements JsonDeserializer<Formula>, JsonSerializer
         }
 
         Formula o = new Formula();
-        o.setDnf(dnf);
+        o.setConjunctions(dnf);
         o.setInlinedContextConditions(inlinedContextConditions);
 
         return o;
@@ -44,6 +44,6 @@ public class FormulaAdapter implements JsonDeserializer<Formula>, JsonSerializer
 
     @Override
     public JsonElement serialize(Formula formula, Type type, JsonSerializationContext jsonSerializationContext) {
-        return jsonSerializationContext.serialize(formula.getDnf());
+        return jsonSerializationContext.serialize(formula.getConjunctions());
     }
 }

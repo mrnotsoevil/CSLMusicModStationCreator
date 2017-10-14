@@ -74,7 +74,7 @@ public class TimeContextConditionEditor extends ContextConditionEditor {
             return;
         }
 
-        ValidationResult validation = writeTo(new TimeContextCondition(condition)).isValid();
+        ValidationResult validation = writeTo(new TimeContextCondition(condition, condition.getStation())).isValid();
 
         if(validation.isOK()) {
             createOrRenameCondition(condition, conditionName.textProperty());

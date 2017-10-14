@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class Conjunction {
 
-    private Formula dnf;
+    private Formula formula;
 
     private List<String> literals;
 
@@ -14,22 +14,22 @@ public class Conjunction {
         literals = new ArrayList<>();
     }
 
-    public Conjunction(Formula dnf) {
+    public Conjunction(Formula formula) {
         this();
-        this.dnf = dnf;
+        this.formula = formula;
     }
 
-    public Conjunction(Conjunction original) {
-        this.dnf = original.dnf;
+    public Conjunction(Conjunction original, Formula parent) {
+        this.formula = parent;
         this.literals = new ArrayList<>(original.literals);
     }
 
-    public Formula getDnf() {
-        return dnf;
+    public Formula getFormula() {
+        return formula;
     }
 
-    public void setDnf(Formula dnf) {
-        this.dnf = dnf;
+    public void setFormula(Formula formula) {
+        this.formula = formula;
     }
 
     public List<String> getLiterals() {

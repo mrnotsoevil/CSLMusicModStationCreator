@@ -81,7 +81,7 @@ public class FiltersEditor extends BorderPane {
     @FXML
     private void addDisasterCondition() {
         DisasterContextConditionEditor dlg = new DisasterContextConditionEditor();
-        Stage stage = ControlsHelper.createModalStageFor(this, dlg);
+        Stage stage = ControlsHelper.createModalStageFor(this, dlg, "Create condition");
         dlg.setCondition(new DisasterContextCondition(station));
         stage.showAndWait();
         connectData();
@@ -90,7 +90,7 @@ public class FiltersEditor extends BorderPane {
     @FXML
     private void addMoodCondition() {
         MoodContextConditionEditor dlg = new MoodContextConditionEditor();
-        Stage stage = ControlsHelper.createModalStageFor(this, dlg);
+        Stage stage = ControlsHelper.createModalStageFor(this, dlg, "Create condition");
         dlg.setCondition(new MoodContextCondition(station));
         stage.showAndWait();
         connectData();
@@ -99,7 +99,7 @@ public class FiltersEditor extends BorderPane {
     @FXML
     private void addTimeCondition() {
         TimeContextConditionEditor dlg = new TimeContextConditionEditor();
-        Stage stage = ControlsHelper.createModalStageFor(this, dlg);
+        Stage stage = ControlsHelper.createModalStageFor(this, dlg, "Create condition");
         dlg.setCondition(new TimeContextCondition(station));
         stage.showAndWait();
         connectData();
@@ -108,7 +108,7 @@ public class FiltersEditor extends BorderPane {
     @FXML
     private void addWeatherCondition() {
         WeatherContextConditionEditor dlg = new WeatherContextConditionEditor();
-        Stage stage = ControlsHelper.createModalStageFor(this, dlg);
+        Stage stage = ControlsHelper.createModalStageFor(this, dlg, "Create condition");
         dlg.setCondition(new WeatherContextCondition(station));
         stage.showAndWait();
         connectData();
@@ -161,28 +161,28 @@ public class FiltersEditor extends BorderPane {
         public void handle(ActionEvent actionEvent) {
             if(getItem() instanceof DisasterContextCondition) {
                 DisasterContextConditionEditor editor = new DisasterContextConditionEditor();
-                Stage stage = ControlsHelper.createModalStageFor(this, editor);
+                Stage stage = ControlsHelper.createModalStageFor(this, editor, "Edit condition");
                 editor.setCondition((DisasterContextCondition)getItem());
                 stage.showAndWait();
                 getTableView().refresh();
             }
             else if(getItem() instanceof MoodContextCondition) {
                 MoodContextConditionEditor editor = new MoodContextConditionEditor();
-                Stage stage = ControlsHelper.createModalStageFor(this, editor);
+                Stage stage = ControlsHelper.createModalStageFor(this, editor, "Edit condition");
                 editor.setCondition((MoodContextCondition) getItem());
                 stage.showAndWait();
                 getTableView().refresh();
             }
             else if(getItem() instanceof TimeContextCondition) {
                 TimeContextConditionEditor editor = new TimeContextConditionEditor();
-                Stage stage = ControlsHelper.createModalStageFor(this, editor);
+                Stage stage = ControlsHelper.createModalStageFor(this, editor, "Edit condition");
                 editor.setCondition((TimeContextCondition) getItem());
                 stage.showAndWait();
                 getTableView().refresh();
             }
             else if(getItem() instanceof WeatherContextCondition) {
                 WeatherContextConditionEditor editor = new WeatherContextConditionEditor();
-                Stage stage = ControlsHelper.createModalStageFor(this, editor);
+                Stage stage = ControlsHelper.createModalStageFor(this, editor, "Edit condition");
                 editor.setCondition((WeatherContextCondition) getItem());
                 stage.showAndWait();
                 getTableView().refresh();

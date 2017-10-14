@@ -30,8 +30,8 @@ public class WeatherContextCondition extends ContextCondition {
         setStation(station);
     }
 
-    public WeatherContextCondition(WeatherContextCondition original) {
-        this.setStation(original.getStation());
+    public WeatherContextCondition(WeatherContextCondition original, Station parent) {
+        this.setStation(parent);
         this.temperature = new IntRange(original.temperature);
         this.rain = new IntRange(original.rain);
         this.cloudy = new IntRange(original.cloudy);

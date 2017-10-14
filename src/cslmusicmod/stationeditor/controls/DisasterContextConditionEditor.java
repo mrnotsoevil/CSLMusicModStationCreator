@@ -79,7 +79,7 @@ public class DisasterContextConditionEditor extends ContextConditionEditor {
             return;
         }
 
-        ValidationResult validation = writeTo(new DisasterContextCondition(condition)).isValid();
+        ValidationResult validation = writeTo(new DisasterContextCondition(condition, condition.getStation())).isValid();
 
         if(validation.isOK()) {
             createOrRenameCondition(condition, conditionName.textProperty());

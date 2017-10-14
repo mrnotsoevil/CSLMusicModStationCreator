@@ -7,13 +7,13 @@ public class Formula implements Validatable {
 
     private transient ContextEntry context;
 
-    private List<Conjunction> dnf;
+    private List<Conjunction> conjunctions;
 
     // Only used during deserialization
     private transient Map<String, ContextCondition> inlinedContextConditions;
 
     public Formula() {
-        dnf = new ArrayList<>();
+        conjunctions = new ArrayList<>();
         inlinedContextConditions = new HashMap<>();
     }
 
@@ -22,17 +22,17 @@ public class Formula implements Validatable {
         this.context = context;
     }
 
-    public Formula(Formula original) {
-        this.context = original.context;
-        dnf = original.dnf.stream().map(x -> new Conjunction(x)).collect(Collectors.toList());
+    public Formula(Formula original, ContextEntry parent) {
+        this.context = parent;
+        conjunctions = original.conjunctions.stream().map(x -> new Conjunction(x, this)).collect(Collectors.toList());
     }
 
-    public List<Conjunction> getDnf() {
-        return dnf;
+    public List<Conjunction> getConjunctions() {
+        return conjunctions;
     }
 
-    public void setDnf(List<Conjunction> dnf) {
-        this.dnf = dnf;
+    public void setConjunctions(List<Conjunction> conjunctions) {
+        this.conjunctions = conjunctions;
     }
 
     public Map<String, ContextCondition> getInlinedContextConditions() {
@@ -57,10 +57,10 @@ public class Formula implements Validatable {
     }
 
     public String getSummary() {
-        return dnf.stream().map(x -> "(" + x.getSummary() + ")").collect(Collectors.joining(" or "));
+        return conjunctions.stream().map(x -> "(" + x.getSummary() + ")").collect(Collectors.joining(" or "));
     }
 
     public boolean isEmpty() {
-        return dnf.isEmpty();
+        return conjunctions.isEmpty();
     }
 }

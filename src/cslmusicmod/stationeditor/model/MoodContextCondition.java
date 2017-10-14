@@ -20,8 +20,8 @@ public class MoodContextCondition extends ContextCondition implements IntRanged 
         setStation(station);
     }
 
-    public MoodContextCondition(MoodContextCondition original) {
-        this.setStation(original.getStation());
+    public MoodContextCondition(MoodContextCondition original, Station parent) {
+        this.setStation(parent);
         this.setRange(original.getRange());
         this.not = original.not;
     }

@@ -47,7 +47,7 @@ public class StationAdapter implements JsonSerializer<Station>, JsonDeserializer
         station.getContexts().stream().forEach(x -> {
             x.setStation(station);
             x.getConditions().setContext(x);
-            x.getConditions().getDnf().stream().forEach(y -> y.setDnf(x.getConditions()));
+            x.getConditions().getConjunctions().stream().forEach(y -> y.setFormula(x.getConditions()));
         });
 
         return station;

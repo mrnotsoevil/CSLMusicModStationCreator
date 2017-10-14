@@ -15,6 +15,9 @@
 <?import org.controlsfx.control.CheckListView?>
 
 <?import cslmusicmod.stationeditor.controls.FormulaEditor?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.HBox?>
+<?import org.controlsfx.glyphfont.Glyph?>
 <fx:root prefHeight="400" prefWidth="500" type="BorderPane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
     <bottom>
         <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -55,9 +58,33 @@
                     </GridPane>
                </content>
             </Tab>
-            <Tab closable="false" text="Songs">
+            <Tab closable="false" text="Song restrictions">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <BorderPane>
+                    <center>
+                        <ListView fx:id="songs" />
+                    </center>
+                    <top>
+                        <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="8.0" BorderPane.alignment="CENTER">
+                            <children>
+                                <TextField HBox.hgrow="ALWAYS" fx:id="songToAdd" />
+                                <Button minWidth="100.0" mnemonicParsing="false" text="Add" onAction="#addSong" >
+                                    <graphic>
+                                        <Glyph fontFamily="FontAwesome" icon="plus" />
+                                    </graphic>
+                                </Button>
+                                <Button minWidth="100.0" mnemonicParsing="false" onAction="#removeSongs" text="Remove" >
+                                    <graphic>
+                                        <Glyph fontFamily="FontAwesome" icon="minus" />
+                                    </graphic>
+                                </Button>
+                            </children>
+                            <padding>
+                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                            </padding>
+                        </HBox>
+                    </top>
+                </BorderPane>
               </content>
             </Tab>
             <Tab closable="false" text="Conditions">

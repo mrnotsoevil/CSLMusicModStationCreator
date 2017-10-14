@@ -39,8 +39,8 @@ public class DisasterContextCondition extends ContextCondition implements IntRan
         setStation(station);
     }
 
-    public DisasterContextCondition(DisasterContextCondition original) {
-        this.setStation(original.getStation());
+    public DisasterContextCondition(DisasterContextCondition original, Station parent) {
+        this.setStation(parent);
         this.setRange(original.getRange());
         this.of = new ArrayList<>(original.of);
         this.not = original.not;

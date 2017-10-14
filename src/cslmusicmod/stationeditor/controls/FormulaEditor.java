@@ -8,8 +8,6 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;
 import org.controlsfx.control.GridView;
 
-import java.util.List;
-
 public class FormulaEditor extends BorderPane {
 
     private Formula dnf;
@@ -30,17 +28,17 @@ public class FormulaEditor extends BorderPane {
 
     @FXML
     private void addNewEntry() {
-
+        content.getItems().add(new Conjunction(dnf));
     }
 
-    @FXML
-    private void removeEntries() {
-
-    }
 
     public void setDnf(Formula dnf) {
         this.dnf = dnf;
-        content.setItems(FXCollections.observableArrayList(dnf.getDnf()));
-        dnf.setDnf(content.getItems());
+        content.setItems(FXCollections.observableArrayList(dnf.getConjunctions()));
+        dnf.setConjunctions(content.getItems());
+    }
+
+    public Formula getDnf() {
+        return dnf;
     }
 }

@@ -26,9 +26,9 @@ public class ContextEntry implements Validatable {
         this.station = station;
     }
 
-    public ContextEntry(ContextEntry original) {
-        this.station = original.station;
-        this.conditions = new Formula(original.conditions);
+    public ContextEntry(ContextEntry original, Station parent) {
+        this.station = parent;
+        this.conditions = new Formula(original.conditions, this);
         this.collections = new ArrayList<>(original.collections);
         this.songs = new ArrayList<>(original.songs);
         this.name = original.name;

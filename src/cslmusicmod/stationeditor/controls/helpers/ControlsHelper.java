@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
+import javafx.scene.image.Image;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.DataFormat;
 import javafx.scene.input.Dragboard;
@@ -41,11 +42,13 @@ public final class ControlsHelper {
         }
     }
 
-    public static Stage createModalStageFor(Node parent, Parent content) {
+    public static Stage createModalStageFor(Node parent, Parent content, String title) {
         Stage stage = new Stage();
+        stage.setTitle(title);
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(parent.getScene().getWindow());
         stage.setScene(new Scene(content));
+        stage.getIcons().add(new Image("/cslmusicmod/stationeditor/icon.png"));
         return stage;
     }
 
