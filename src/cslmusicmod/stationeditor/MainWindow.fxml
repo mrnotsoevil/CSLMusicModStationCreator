@@ -11,15 +11,33 @@
 <?import cslmusicmod.stationeditor.controls.FiltersEditor?>
 <?import cslmusicmod.stationeditor.controls.ContextsEditor?>
 <?import cslmusicmod.stationeditor.controls.DescriptionEditor?>
-<VBox prefHeight="768" prefWidth="1024" stylesheets="/cslmusicmod/stationeditor/MainWindow.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cslmusicmod.stationeditor.MainWindow">
+<?import org.controlsfx.glyphfont.Glyph?>
+<VBox fx:id="root" prefHeight="768" prefWidth="1024" stylesheets="/cslmusicmod/stationeditor/MainWindow.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cslmusicmod.stationeditor.MainWindow">
    <children>
       <MenuBar prefHeight="29.0" prefWidth="600.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Open ..." />
-                  <MenuItem mnemonicParsing="false" text="Save" />
-              <MenuItem mnemonicParsing="false" text="Exit" />
+                <MenuItem mnemonicParsing="false" text="New" accelerator="Shortcut+N" onAction="#newFile" >
+                    <graphic>
+                        <Glyph fontFamily="FontAwesome" icon="file" />
+                    </graphic>
+                </MenuItem>
+                  <MenuItem mnemonicParsing="false" text="Open ..." accelerator="Shortcut+O" onAction="#openFile" >
+                      <graphic>
+                          <Glyph fontFamily="FontAwesome" icon="folder" />
+                      </graphic>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false" text="Save" accelerator="Shortcut+S" onAction="#saveFile" >
+                      <graphic>
+                          <Glyph fontFamily="FontAwesome" icon="floppy_alt" />
+                      </graphic>
+                  </MenuItem>
+              <MenuItem mnemonicParsing="false" text="Exit" accelerator="Shortcut+Q" onAction="#exit" >
+                  <graphic>
+                      <Glyph fontFamily="FontAwesome" icon="sign_out" />
+                  </graphic>
+              </MenuItem>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">

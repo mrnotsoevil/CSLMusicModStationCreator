@@ -85,7 +85,7 @@ public class MoodContextConditionEditor extends ContextConditionEditor {
             closeWindow();
         }
         else {
-            DialogHelper.showErrorAlert("Invalid data", validation.getProblems().stream().map( (ValidationResult.Problem x) -> x.toString()).collect(Collectors.joining("\n")));
+            DialogHelper.showValidationError("Invalid data", "The entered data is not valid!", validation);
         }
     }
 }
