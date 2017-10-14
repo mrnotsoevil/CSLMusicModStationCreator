@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 
 <?import org.controlsfx.glyphfont.Glyph?>
+<?import javafx.scene.control.SplitMenuButton?>
 <fx:root prefWidth="783.0" type="BorderPane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <TableView fx:id="content" editable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -27,11 +28,11 @@
    <bottom>
       <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="8.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="addNewEntry" defaultButton="true" minWidth="100.0" mnemonicParsing="false" onAction="#addNewEntry" text="Add" >
+            <SplitMenuButton fx:id="addNewEntry" minWidth="100.0" mnemonicParsing="false" onAction="#addNewEntry" text="Add" >
                 <graphic>
                     <Glyph fontFamily="FontAwesome" icon="plus" />
                 </graphic>
-            </Button>
+            </SplitMenuButton>
             <Button fx:id="removeEntries" minWidth="100.0" mnemonicParsing="false" onAction="#removeEntries" text="Remove" >
                 <graphic>
                     <Glyph fontFamily="FontAwesome" icon="minus" />

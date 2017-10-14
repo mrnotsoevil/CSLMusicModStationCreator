@@ -63,7 +63,7 @@ public class StationAdapter implements JsonSerializer<Station>, JsonDeserializer
         elem.add("name", new JsonPrimitive(station.getName()));
         if(station.getThumbnail() != null && !station.getThumbnail().isEmpty())
             elem.add("thumbnail", new JsonPrimitive(station.getThumbnail()));
-        elem.add("collections", jsonSerializationContext.serialize(station.getCollections()));
+        elem.add("collections", jsonSerializationContext.serialize(station.getCollections().values()));
         elem.add("schedule", jsonSerializationContext.serialize(station.getSchedule()));
         elem.add("filters", jsonSerializationContext.serialize(station.getFilters()));
         elem.add("contexts", jsonSerializationContext.serialize(station.getContexts()));

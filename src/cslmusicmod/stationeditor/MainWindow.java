@@ -6,11 +6,13 @@ import cslmusicmod.stationeditor.controls.helpers.DialogHelper;
 import cslmusicmod.stationeditor.helpers.FileHelper;
 import cslmusicmod.stationeditor.model.Station;
 import cslmusicmod.stationeditor.model.ValidationResult;
+import cslmusicmod.stationeditor.model.VanillaCollections;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import net.coobird.thumbnailator.Thumbnailator;
@@ -55,6 +57,8 @@ public class MainWindow {
 
     private FileChooser stationFileChooser;
 
+    private DirectoryChooser exportDirectoryChooser;
+
     public MainWindow() {
         station = new Station();
         stationFileChooser = new FileChooser();
@@ -62,6 +66,7 @@ public class MainWindow {
                 new FileChooser.ExtensionFilter("JSON (*.json)", "*.json"),
                 new FileChooser.ExtensionFilter("All files (*.*)", "*.*")
         );
+        exportDirectoryChooser = new DirectoryChooser();
     }
 
     @FXML

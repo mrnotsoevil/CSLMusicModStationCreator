@@ -1,0 +1,12 @@
+[
+  { "name" : "Music: Cities" },
+  { "name" : "Music: Classical" },
+  { "name" : "Music: GoldFM" },
+  { "name" : "Talk: Cities" },
+  { "name" : "Talk: Classical" },
+  { "name" : "Talk: GoldFM" },
+  { "name" : "Blurb: Cities" },
+  { "name" : "Blurb: Classical" },
+  { "name" : "Blurb: GoldFM" },
+  { "name" : "Commercial: Common" }
+]

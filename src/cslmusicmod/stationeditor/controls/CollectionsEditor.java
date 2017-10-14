@@ -7,15 +7,13 @@ import cslmusicmod.stationeditor.controls.helpers.TriggerEditCell;
 import cslmusicmod.stationeditor.model.ScheduleEntry;
 import cslmusicmod.stationeditor.model.SongCollection;
 import cslmusicmod.stationeditor.model.Station;
+import cslmusicmod.stationeditor.model.VanillaCollections;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
@@ -38,6 +36,9 @@ public class CollectionsEditor extends BorderPane {
     @FXML
     private TableColumn<SongCollection, SongCollection> editColumn;
 
+    @FXML
+    private SplitMenuButton addNewEntry;
+
     public CollectionsEditor() {
         ControlsHelper.initControl(this);
 
@@ -56,6 +57,15 @@ public class CollectionsEditor extends BorderPane {
         });
         editColumn.setCellValueFactory(value -> new ReadOnlyObjectWrapper<>(value.getValue()));
         editColumn.setCellFactory(value -> new CollectionsEditCell());
+
+        for(SongCollection coll : VanillaCollections.getInstance().getCollections()) {
+            MenuItem item = new MenuItem();
+            item.setText(coll.getName());
+            item.setOnAction(event -> {
+                addNewEntry(coll.getName());
+            });
+            addNewEntry.getItems().add(item);
+        }
 
     }
 
@@ -81,14 +91,18 @@ public class CollectionsEditor extends BorderPane {
         if(result.isPresent()) {
 
             String name = result.get().trim();
+            addNewEntry(name);
 
-            if(!station.getCollections().keySet().contains(name)) {
-                SongCollection coll = new SongCollection(station);
-                coll.setName(name);
-                coll.setStation(station);
-                station.addCollection(coll);
-                connectData();
-            }
+        }
+    }
+
+    private void addNewEntry(String name) {
+        if(!station.getCollections().keySet().contains(name)) {
+            SongCollection coll = new SongCollection(station);
+            coll.setName(name);
+            coll.setStation(station);
+            station.addCollection(coll);
+            connectData();
         }
     }
 
