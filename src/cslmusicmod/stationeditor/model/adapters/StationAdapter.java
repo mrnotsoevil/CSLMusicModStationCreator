@@ -24,6 +24,8 @@ public class StationAdapter implements JsonSerializer<Station>, JsonDeserializer
         final Map<String, ContextCondition> namedContextConditions = new HashMap<>();
 
         station.setName(obj.get("name").getAsString());
+        if(obj.has("description"))
+            station.setDescription(obj.get("description").getAsString());
         if(obj.has("thumbnail"))
             station.setThumbnail(obj.get("thumbnail").getAsString());
         if(obj.has("collections")){
@@ -67,6 +69,7 @@ public class StationAdapter implements JsonSerializer<Station>, JsonDeserializer
         elem.add("schedule", jsonSerializationContext.serialize(station.getSchedule()));
         elem.add("filters", jsonSerializationContext.serialize(station.getFilters()));
         elem.add("contexts", jsonSerializationContext.serialize(station.getContexts()));
+        elem.add("description", jsonSerializationContext.serialize(station.getDescription()));
 
         return elem;
     }
