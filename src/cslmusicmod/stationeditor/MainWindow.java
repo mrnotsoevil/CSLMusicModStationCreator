@@ -64,8 +64,8 @@ public class MainWindow {
     @FXML
     private CollectionsEditor collectionsEditor;
 
-    @FXML
-    private FiltersEditor filtersEditor;
+//    @FXML
+//    private FiltersEditor filtersEditor;
 
     @FXML
     private ContextsEditor contextsEditor;
@@ -104,7 +104,7 @@ public class MainWindow {
         descriptionEditor.setStation(station);
         scheduleEditor.setStation(station);
         collectionsEditor.setStation(station);
-        filtersEditor.setStation(station);
+//        filtersEditor.setStation(station);
         contextsEditor.setStation(station);
     }
 

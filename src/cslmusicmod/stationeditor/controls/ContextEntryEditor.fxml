@@ -18,7 +18,8 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.HBox?>
 <?import org.controlsfx.glyphfont.Glyph?>
-<fx:root prefHeight="400" prefWidth="500" type="BorderPane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+<?import cslmusicmod.stationeditor.controls.FiltersEditor?>
+<fx:root prefHeight="600" prefWidth="800" type="BorderPane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
     <bottom>
         <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <buttons>
@@ -89,7 +90,17 @@
             </Tab>
             <Tab closable="false" text="Conditions">
               <content>
-                <FormulaEditor fx:id="formulaEditor" />
+                  <TabPane side="LEFT" tabClosingPolicy="UNAVAILABLE" >
+                      <tabs>
+                          <Tab text="Available">
+                              <FiltersEditor fx:id="filtersEditor" />
+                          </Tab>
+                          <Tab text="Applying" >
+                              <FormulaEditor fx:id="formulaEditor" />
+                          </Tab>
+                      </tabs>
+                  </TabPane>
+
               </content>
             </Tab>
          </tabs>

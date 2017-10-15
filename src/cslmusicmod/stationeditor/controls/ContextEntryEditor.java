@@ -42,6 +42,9 @@ public class ContextEntryEditor extends BorderPane {
     @FXML
     private TextField songToAdd;
 
+    @FXML
+    private FiltersEditor filtersEditor;
+
     public ContextEntryEditor() {
         ControlsHelper.initControl(this);
     }
@@ -72,6 +75,7 @@ public class ContextEntryEditor extends BorderPane {
         this.entry = condition;
         contextCollections.getItems().clear();
         entry.getStation().getCollections().values().forEach(x -> contextCollections.getItems().add(x.getName()));
+        filtersEditor.setStation(condition.getStation());
 
         revertData();
     }

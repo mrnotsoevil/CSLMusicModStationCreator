@@ -128,11 +128,11 @@
                         <ScheduleEditor fx:id="scheduleEditor"/>
                     </content>
                 </Tab>
-                <Tab text="Filters">
-                    <content>
-                        <FiltersEditor fx:id="filtersEditor"/>
-                    </content>
-                </Tab>
+                <!--<Tab text="Filters">-->
+                    <!--<content>-->
+                        <!--<FiltersEditor fx:id="filtersEditor"/>-->
+                    <!--</content>-->
+                <!--</Tab>-->
                 <Tab text="Contexts">
                     <content>
                         <ContextsEditor fx:id="contextsEditor"/>
