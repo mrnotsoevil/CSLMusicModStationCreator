@@ -87,6 +87,10 @@ public class Station implements Validatable {
         }
     }
 
+    public void removeCollection(SongCollection coll) {
+        collections.remove(coll.getName());
+    }
+
     public List<ScheduleEntry> getSchedule() {
         return schedule;
     }

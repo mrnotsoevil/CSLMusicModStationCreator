@@ -110,6 +110,7 @@ public class CollectionsEditor extends BorderPane {
 
     @FXML
     private void removeEntries() {
+       content.getSelectionModel().getSelectedItems().stream().forEach(x -> station.removeCollection(x));
        connectData();
     }
 
