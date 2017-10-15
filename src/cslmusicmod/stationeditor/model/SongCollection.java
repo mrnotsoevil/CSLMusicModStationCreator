@@ -1,5 +1,13 @@
 package cslmusicmod.stationeditor.model;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class SongCollection implements Validatable {
 
     private Station station;
@@ -43,6 +51,17 @@ public class SongCollection implements Validatable {
 
     public boolean isEditable() {
         return VanillaCollections.getInstance().getCollections().stream().allMatch(x -> !x.getName().equals(getName()));
+    }
+
+    public List<Song> getLocalListOfSongs() {
+        try {
+            return Files.list(Paths.get(station.getDirectory(), name)).filter(path -> {
+                String extension = com.google.common.io.Files.getFileExtension(path.toString()).toLowerCase();
+                return extension.equals("ogg");
+            }).map(path -> new Song(path.toString())).collect(Collectors.toList());
+        } catch (IOException e) {
+            return Collections.emptyList();
+        }
     }
 
 }
