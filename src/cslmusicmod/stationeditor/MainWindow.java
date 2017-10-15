@@ -17,10 +17,14 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import net.coobird.thumbnailator.Thumbnailator;
 import net.coobird.thumbnailator.Thumbnails;
@@ -38,6 +42,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.security.DigestException;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class MainWindow {
@@ -209,9 +214,23 @@ public class MainWindow {
     }
 
     public void newFile(ActionEvent actionEvent) {
-        station = new Station();
-        updateEditors();
-        updateTitle();
+
+        Alert closeConfirmation = new Alert(
+                Alert.AlertType.CONFIRMATION,
+                "Create a new station?",
+                ButtonType.YES,
+                ButtonType.NO
+        );
+        closeConfirmation.setHeaderText("New station");
+        closeConfirmation.initModality(Modality.APPLICATION_MODAL);
+        closeConfirmation.initOwner(root.getScene().getWindow());
+
+        Optional<ButtonType> closeResponse = closeConfirmation.showAndWait();
+        if (!ButtonType.YES.equals(closeResponse.get())) {
+            station = new Station();
+            updateEditors();
+            updateTitle();
+        }
     }
 
     public void updateTitle() {
