@@ -24,6 +24,9 @@ public class ScheduleEditor extends BorderPane {
     private TableView<ScheduleEntry> content;
 
     @FXML
+    private TableColumn<ScheduleEntry, Integer> contentPriorityColumn;
+
+    @FXML
     private TableColumn<ScheduleEntry, String> contentTypeColumn;
 
     @FXML
@@ -52,6 +55,9 @@ public class ScheduleEditor extends BorderPane {
 
         content.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         content.setEditable(false);
+
+        contentPriorityColumn.setSortable(false);
+        contentPriorityColumn.setCellValueFactory(value -> new ReadOnlyObjectWrapper<>(value.getValue().getStation().getSchedule().indexOf(value.getValue()) + 1));
 
         contentTypeColumn.setSortable(false);
         contentTypeColumn.setCellValueFactory((value) -> {

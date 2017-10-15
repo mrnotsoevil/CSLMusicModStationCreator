@@ -15,6 +15,7 @@
     <center>
         <TableView fx:id="content" editable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <columns>
+                <TableColumn fx:id="contentPriorityColumn" minWidth="100.0" prefWidth="100.0" maxWidth="100.0" text="Priority" style="-fx-alignment: center" />
                 <TableColumn fx:id="nameColumn" minWidth="100.0" prefWidth="100" text="Name" />
                 <TableColumn fx:id="summaryColumn" minWidth="200.0" prefWidth="-1.0" text="Summary" />
                 <TableColumn fx:id="editColumn" minWidth="100.0" prefWidth="100.0" maxWidth="100" text="" />

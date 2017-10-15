@@ -22,6 +22,9 @@ public class ContextsEditor extends BorderPane {
     private TableView<ContextEntry> content;
 
     @FXML
+    private TableColumn<ContextEntry, Integer> contentPriorityColumn;
+
+    @FXML
     private TableColumn<ContextEntry, String> nameColumn;
 
     @FXML
@@ -40,6 +43,9 @@ public class ContextsEditor extends BorderPane {
 
         Callback<TableColumn<ContextEntry, ContextEntry>, TableCell<ContextEntry, ContextEntry>> editCellFactory
                 = (TableColumn<ContextEntry, ContextEntry> p) -> new EditTableCell();
+
+        contentPriorityColumn.setSortable(false);
+        contentPriorityColumn.setCellValueFactory(value -> new ReadOnlyObjectWrapper<>(value.getValue().getStation().getContexts().indexOf(value.getValue()) + 1));
 
         nameColumn.setCellValueFactory((value) -> {
             return new ReadOnlyObjectWrapper<>(value.getValue().getName());
