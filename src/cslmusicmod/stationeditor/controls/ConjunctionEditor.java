@@ -3,6 +3,8 @@ package cslmusicmod.stationeditor.controls;
 import cslmusicmod.stationeditor.controls.helpers.ControlsHelper;
 import cslmusicmod.stationeditor.model.Conjunction;
 import cslmusicmod.stationeditor.model.Station;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
@@ -30,13 +32,16 @@ public class ConjunctionEditor extends GridCell<Conjunction> {
     @FXML
     private void initialize() {
         content.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        addEntry.showingProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean t1) {
+                rebuildAddItemMenu();
+            }
+        });
     }
 
-    public void setConjunction(Conjunction conjunction) {
-        this.conjunction = conjunction;
-
+    private void rebuildAddItemMenu() {
         Station station = conjunction.getFormula().getContext().getStation();
-
         addEntry.getItems().clear();
         for(String id : station.getFilters().keySet()) {
             MenuItem item = new MenuItem();
@@ -50,7 +55,10 @@ public class ConjunctionEditor extends GridCell<Conjunction> {
 
             addEntry.getItems().add(item);
         }
+    }
 
+    public void setConjunction(Conjunction conjunction) {
+        this.conjunction = conjunction;
         content.setItems(FXCollections.observableArrayList(conjunction.getLiterals()));
         conjunction.setLiterals(content.getItems());
     }
