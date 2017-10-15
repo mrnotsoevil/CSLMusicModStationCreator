@@ -116,6 +116,7 @@ public class ContextEntryEditor extends BorderPane {
 
         if(!s.isEmpty() && !songs.getItems().contains(s) ) {
             songs.getItems().add(s);
+            songToAdd.setText("");
         }
     }
 
