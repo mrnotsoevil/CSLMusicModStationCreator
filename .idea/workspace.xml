@@ -25,24 +25,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainWindow.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/MainWindow.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="130" column="61" lean-forward="true" selection-start-line="130" selection-start-column="61" selection-end-line="130" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ScheduleEditor.fxml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ScheduleEditor.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ScheduleEditor.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="18" column="159" lean-forward="false" selection-start-line="18" selection-start-column="159" selection-end-line="18" selection-end-column="159" />
+            <state relative-caret-position="160">
+              <caret line="42" column="58" lean-forward="true" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -54,70 +44,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="159" lean-forward="true" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="159" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DialogHelper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/helpers/DialogHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="18" column="55" lean-forward="true" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CollectionsEditor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/CollectionsEditor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="76" column="11" lean-forward="false" selection-start-line="76" selection-start-column="11" selection-end-line="76" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ContextsEditor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ContextsEditor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="47" column="150" lean-forward="true" selection-start-line="47" selection-start-column="150" selection-end-line="47" selection-end-column="150" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SongCollectionEditor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/SongCollectionEditor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="734">
-              <caret line="80" column="13" lean-forward="true" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ContextEntryEditor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ContextEntryEditor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="64" column="30" lean-forward="true" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConjunctionEditor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ConjunctionEditor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="46" column="11" lean-forward="false" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="11" />
+            <state relative-caret-position="500">
+              <caret line="54" column="25" lean-forward="false" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -127,8 +55,20 @@
         <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ScheduleEditor.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="52" column="50" lean-forward="true" selection-start-line="52" selection-start-column="50" selection-end-line="52" selection-end-column="50" />
+              <caret line="115" column="59" lean-forward="false" selection-start-line="115" selection-start-column="59" selection-end-line="115" selection-end-column="59" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ContextsEditor.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ContextsEditor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="96" column="34" lean-forward="false" selection-start-line="96" selection-start-column="34" selection-end-line="96" selection-end-column="34" />
+              <folding>
+                <element signature="e#3217#3218#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -163,7 +103,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/helpers/ControlsHelper.java" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/NameEditor.java" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/helpers/TriggerEditCell.java" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/Mod.cs" />
@@ -210,10 +149,11 @@
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ConjunctionEditor.java" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ContextEntryEditor.java" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/SongCollectionEditor.java" />
-        <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ScheduleEditor.java" />
-        <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ContextsEditor.java" />
-        <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ContextsEditor.fxml" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ScheduleEditor.fxml" />
+        <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/helpers/ListHelper.java" />
+        <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ScheduleEditor.java" />
+        <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ContextsEditor.fxml" />
+        <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ContextsEditor.java" />
       </list>
     </option>
   </component>
@@ -329,7 +269,7 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="contexte&#9;FILE&#9;file:///home/ruman/git/CSLMusicModStationEditor/src/cslmusicmod/stationeditor/controls/ContextEntryEditor.java&#10;sta&#9;FILE&#9;file:///home/ruman/git/CSLMusicModStationEditor/src/cslmusicmod/stationeditor/model/Station.java&#10;dia&#9;FILE&#9;file:///home/ruman/git/CSLMusicModStationEditor/src/cslmusicmod/stationeditor/controls/helpers/DialogHelper.java&#10;main&#9;PSI&#9;JAVA://cslmusicmod.stationeditor.MainWindow&#10;controls&#9;FILE&#9;file:///home/ruman/git/CSLMusicModStationEditor/src/cslmusicmod/stationeditor/controls/helpers/ControlsHelper.java&#10;contr&#9;FILE&#9;file:///home/ruman/git/CSLMusicModStationEditor/src/cslmusicmod/stationeditor/controls/helpers/ControlsHelper.java&#10;stationad&#9;FILE&#9;file:///home/ruman/git/CSLMusicModStationEditor/src/cslmusicmod/stationeditor/model/adapters/StationAdapter.java" />
+    <property name="SearchEverywhereHistoryKey" value="sc&#9;FILE&#9;file:///home/ruman/git/CSLMusicModStationEditor/src/cslmusicmod/stationeditor/controls/ScheduleEditor.java&#10;contexte&#9;FILE&#9;file:///home/ruman/git/CSLMusicModStationEditor/src/cslmusicmod/stationeditor/controls/ContextEntryEditor.java&#10;sta&#9;FILE&#9;file:///home/ruman/git/CSLMusicModStationEditor/src/cslmusicmod/stationeditor/model/Station.java&#10;dia&#9;FILE&#9;file:///home/ruman/git/CSLMusicModStationEditor/src/cslmusicmod/stationeditor/controls/helpers/DialogHelper.java&#10;main&#9;PSI&#9;JAVA://cslmusicmod.stationeditor.MainWindow&#10;controls&#9;FILE&#9;file:///home/ruman/git/CSLMusicModStationEditor/src/cslmusicmod/stationeditor/controls/helpers/ControlsHelper.java&#10;contr&#9;FILE&#9;file:///home/ruman/git/CSLMusicModStationEditor/src/cslmusicmod/stationeditor/controls/helpers/ControlsHelper.java&#10;stationad&#9;FILE&#9;file:///home/ruman/git/CSLMusicModStationEditor/src/cslmusicmod/stationeditor/model/adapters/StationAdapter.java" />
     <property name="last_opened_file_path" value="$USER_HOME$/tmp/cslmusicmod-station-editor" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="405" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -423,7 +363,7 @@
       <workItem from="1507924925118" duration="2097000" />
       <workItem from="1507981746070" duration="28835000" />
       <workItem from="1508016004061" duration="2038000" />
-      <workItem from="1508062819001" duration="35658000" />
+      <workItem from="1508062819001" duration="36417000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1507324548682</created>
@@ -670,11 +610,18 @@
       <option name="project" value="LOCAL" />
       <updated>1508102405668</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="+ Priority indication for schedule &amp; contexts">
+      <created>1508103225545</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1508103225545</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156887000" />
+    <option name="totallyTimeSpent" value="157646000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="311" y="0" width="1930" height="1055" extended-state="6" />
@@ -713,7 +660,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="* Improved creating of conditions&#10;* Improved precise int range editor&#10;* TODO: Fix schedule editing" />
     <MESSAGE value="+ Started implementing context entry editor" />
     <MESSAGE value="* Icons for UI" />
     <MESSAGE value="* work" />
@@ -738,7 +684,8 @@
     <MESSAGE value="+ Exit confirmation&#10;+ NEw file confirmation" />
     <MESSAGE value="* Fixed export with save errors" />
     <MESSAGE value="+ Remove entries with DELETE key" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ Remove entries with DELETE key" />
+    <MESSAGE value="+ Priority indication for schedule &amp; contexts" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ Priority indication for schedule &amp; contexts" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -775,13 +722,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///usr/lib/jvm/java-8-openjdk/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="33" column="33" lean-forward="false" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/FiltersEditor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
@@ -1216,18 +1156,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ScheduleEditor.java">
+    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/helpers/ListHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="52" column="50" lean-forward="true" selection-start-line="52" selection-start-column="50" selection-end-line="52" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ContextsEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="47" column="150" lean-forward="true" selection-start-line="47" selection-start-column="150" selection-end-line="47" selection-end-column="150" />
+        <state relative-caret-position="51">
+          <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -1237,8 +1169,8 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="159" lean-forward="true" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="159" />
+        <state relative-caret-position="500">
+          <caret line="54" column="25" lean-forward="false" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -1248,9 +1180,27 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="18" column="159" lean-forward="false" selection-start-line="18" selection-start-column="159" selection-end-line="18" selection-end-column="159" />
+        <state relative-caret-position="160">
+          <caret line="42" column="58" lean-forward="true" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="58" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ScheduleEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="115" column="59" lean-forward="false" selection-start-line="115" selection-start-column="59" selection-end-line="115" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ContextsEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="96" column="34" lean-forward="false" selection-start-line="96" selection-start-column="34" selection-end-line="96" selection-end-column="34" />
+          <folding>
+            <element signature="e#3217#3218#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

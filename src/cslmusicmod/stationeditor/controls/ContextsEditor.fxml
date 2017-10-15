@@ -41,6 +41,18 @@
                         <Glyph fontFamily="FontAwesome" icon="minus" />
                     </graphic>
                 </Button>
+                <Button fx:id="moveUp" minWidth="100.0" mnemonicParsing="false" onAction="#moveEntryUp"
+                        text="Move up">
+                    <graphic>
+                        <Glyph fontFamily="FontAwesome" icon="arrow_up"/>
+                    </graphic>
+                </Button>
+                <Button fx:id="moveDown" minWidth="100.0" mnemonicParsing="false" onAction="#moveEntryDown"
+                        text="Move down">
+                    <graphic>
+                        <Glyph fontFamily="FontAwesome" icon="arrow_down"/>
+                    </graphic>
+                </Button>
             </children>
             <padding>
                 <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />

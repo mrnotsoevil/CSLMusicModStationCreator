@@ -16,6 +16,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+import java.util.Collections;
+
 public class ScheduleEditor extends BorderPane {
 
     private Station station;
@@ -107,6 +109,26 @@ public class ScheduleEditor extends BorderPane {
     @FXML
     private void removeEntries() {
         content.getItems().removeAll(content.getSelectionModel().getSelectedItems());
+    }
+
+    @FXML
+    private void moveEntryUp() {
+        int index = content.getSelectionModel().getFocusedIndex();
+
+        if(index >= 1) {
+            Collections.swap(content.getItems(), index, index - 1);
+            content.getSelectionModel().select(index - 1);
+        }
+    }
+
+    @FXML
+    private void moveEntryDown() {
+        int index = content.getSelectionModel().getFocusedIndex();
+
+        if(index >= 0 && index < content.getItems().size() - 1) {
+            Collections.swap(content.getItems(), index, index + 1);
+            content.getSelectionModel().select(index + 1);
+        }
     }
 
     private static class ScheduleEntryEditCell extends EditCell<ScheduleEntry, ScheduleEntry> {

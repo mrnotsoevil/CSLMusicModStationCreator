@@ -14,6 +14,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
+import java.util.Collections;
+
 public class ContextsEditor extends BorderPane {
 
     private Station station;
@@ -93,9 +95,26 @@ public class ContextsEditor extends BorderPane {
 
     @FXML
     private void removeEntries() {
+        station.getContexts().removeAll(content.getSelectionModel().getSelectedItems());
+    }
 
-        for(ContextEntry todelete : content.getSelectionModel().getSelectedItems()) {
-            station.getContexts().remove(todelete);
+    @FXML
+    private void moveEntryUp() {
+        int index = content.getSelectionModel().getFocusedIndex();
+
+        if(index >= 1) {
+            Collections.swap(content.getItems(), index, index - 1);
+            content.getSelectionModel().select(index - 1);
+        }
+    }
+
+    @FXML
+    private void moveEntryDown() {
+        int index = content.getSelectionModel().getFocusedIndex();
+
+        if(index >= 0 && index < content.getItems().size() - 1) {
+            Collections.swap(content.getItems(), index, index + 1);
+            content.getSelectionModel().select(index + 1);
         }
     }
 
