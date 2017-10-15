@@ -141,13 +141,13 @@ public class MainWindow {
     }
 
     @FXML
-    public void saveFile() {
+    public boolean saveFile() {
 
         ValidationResult validation = station.isValid();
 
         if(!validation.isOK()) {
             DialogHelper.showValidationError("Save station", "The data is not valid!", validation);
-            return;
+            return false;
         }
 
         File path;
@@ -201,11 +201,16 @@ public class MainWindow {
                 station.setDirectory(path.getParent());
             } catch (IOException e) {
                 DialogHelper.showExceptionError("Save station", "Error while saving!", e);
+                return false;
             }
             finally {
                 updateTitle();
             }
+
+            return true;
         }
+
+        return false;
     }
 
     @FXML
@@ -251,7 +256,15 @@ public class MainWindow {
     }
 
     private void exportStation(File target) {
-        saveFile();
+
+        if(!station.hasSaveLocation()) {
+            DialogHelper.showErrorAlert("Export music pack", "You need to save the station once.");
+            return;
+        }
+
+        if(!saveFile()){
+            return;
+        }
 
         try {
             List<File> export = station.getExportableFiles();
@@ -289,10 +302,6 @@ public class MainWindow {
 
     @FXML
     public void exportStation() {
-        if(!station.hasSaveLocation()) {
-            DialogHelper.showErrorAlert("Export music pack", "You need to save the station once.");
-            return;
-        }
 
         File target = exportDirectoryChooser.showDialog(root.getScene().getWindow());
 
