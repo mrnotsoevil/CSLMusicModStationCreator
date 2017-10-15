@@ -46,10 +46,37 @@
                         </MenuItem>
                     </items>
                 </Menu>
+                <Menu mnemonicParsing="false" text="Tools">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Open local mod folder" onAction="#openLocalModFolder">
+                            <graphic>
+                                <Glyph fontFamily="FontAwesome" icon="folder"/>
+                            </graphic>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" text="Export to local mod folder" onAction="#exportStationToLocalModFolder">
+                            <graphic>
+                                <Glyph fontFamily="FontAwesome" icon="cubes"/>
+                            </graphic>
+                        </MenuItem>
+                    </items>
+                </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Report issue"/>
-                        <MenuItem mnemonicParsing="false" text="About"/>
+                        <MenuItem mnemonicParsing="false" text="Documentation" onAction="#openDocumentation">
+                            <graphic>
+                                <Glyph fontFamily="FontAwesome" icon="globe"/>
+                            </graphic>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" text="Report issue" onAction="#reportIssue">
+                            <graphic>
+                                <Glyph fontFamily="FontAwesome" icon="globe"/>
+                            </graphic>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" text="About" onAction="#showAbout">
+                            <graphic>
+                                <Glyph fontFamily="FontAwesome" icon="globe"/>
+                            </graphic>
+                        </MenuItem>
                     </items>
                 </Menu>
             </menus>

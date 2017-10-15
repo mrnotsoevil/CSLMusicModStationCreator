@@ -11,5 +11,6 @@
     <orderEntry type="library" name="org.controlsfx:controlsfx:8.40.13" level="project" />
     <orderEntry type="library" name="net.coobird:thumbnailator:0.4.8" level="project" />
     <orderEntry type="library" name="com.google.guava:guava:14.0.1" level="project" />
+    <orderEntry type="library" name="org.apache.commons:commons-lang3:3.3.2" level="project" />
   </component>
 </module>

@@ -3,12 +3,16 @@ package cslmusicmod.stationeditor;
 import com.google.common.base.Charsets;
 import com.google.gson.Gson;
 import cslmusicmod.stationeditor.controls.*;
+import cslmusicmod.stationeditor.controls.helpers.ControlsHelper;
 import cslmusicmod.stationeditor.controls.helpers.DialogHelper;
+import cslmusicmod.stationeditor.helpers.CitiesHelper;
 import cslmusicmod.stationeditor.helpers.CopyTask;
+import cslmusicmod.stationeditor.helpers.DesktopHelper;
 import cslmusicmod.stationeditor.helpers.FileHelper;
 import cslmusicmod.stationeditor.model.Station;
 import cslmusicmod.stationeditor.model.ValidationResult;
 import cslmusicmod.stationeditor.model.VanillaCollections;
+import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,10 +26,12 @@ import net.coobird.thumbnailator.Thumbnailator;
 import net.coobird.thumbnailator.Thumbnails;
 import org.controlsfx.glyphfont.FontAwesome;
 
+import java.awt.*;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -102,7 +108,8 @@ public class MainWindow {
         contextsEditor.setStation(station);
     }
 
-    public void openFile(ActionEvent actionEvent) {
+    @FXML
+    public void openFile() {
         File target = stationFileChooser.showOpenDialog(root.getScene().getWindow());
 
         if(target != null) {
@@ -128,7 +135,8 @@ public class MainWindow {
         }
     }
 
-    public void saveFile(ActionEvent actionEvent) {
+    @FXML
+    public void saveFile() {
 
         ValidationResult validation = station.isValid();
 
@@ -195,7 +203,8 @@ public class MainWindow {
         }
     }
 
-    public void exit(ActionEvent actionEvent) {
+    @FXML
+    public void exit() {
         Platform.exit();
     }
 
@@ -222,7 +231,45 @@ public class MainWindow {
 
     }
 
-    public void exportStation(ActionEvent actionEvent) {
+    private void exportStation(File target) {
+        saveFile();
+
+        try {
+            List<File> export = station.getExportableFiles();
+
+            Path exportroot = target.toPath();
+            Path sourceroot = exportroot.resolve("Source");
+            Path stationroot = exportroot.resolve("CSLMusicMod_Music");
+
+            if(!Files.exists(sourceroot)) {
+                Files.createDirectory(sourceroot);
+            }
+            if(!Files.exists(stationroot)) {
+                Files.createDirectory(stationroot);
+            }
+
+            Files.write(sourceroot.resolve("Mod.cs"), station.buildModSource().getBytes(Charsets.UTF_8), StandardOpenOption.CREATE);
+
+            Path stationdefinitionroot = Paths.get(station.getDirectory());
+
+            CopyTask task = new CopyTask(export.stream().map(file -> {
+                return new CopyTask.Entry(file, stationroot.resolve(stationdefinitionroot.relativize(file.toPath())).toFile());
+            }).collect(Collectors.toList()));
+            task.runningProperty().addListener((observableValue, aBoolean, t1) -> {
+                root.setDisable(t1);
+                progress.setVisible(t1);
+            });
+            progress.progressProperty().unbind();
+            progress.progressProperty().bind(task.progressProperty());
+            new Thread(task).start();
+
+        } catch (IOException e) {
+            DialogHelper.showExceptionError("Export music pack", "Error while exporting the music pack!", e);
+        }
+    }
+
+    @FXML
+    public void exportStation() {
         if(!station.hasSaveLocation()) {
             DialogHelper.showErrorAlert("Export music pack", "You need to save the station once.");
             return;
@@ -231,41 +278,50 @@ public class MainWindow {
         File target = exportDirectoryChooser.showDialog(root.getScene().getWindow());
 
         if(target != null) {
+            exportStation(target);
+        }
+    }
 
-            saveFile(actionEvent);
-
+    @FXML
+    public void exportStationToLocalModFolder() {
+        Path folder = Paths.get(CitiesHelper.getLocalModFolder()).resolve(FileHelper.sanatizeFilename(station.getName()));
+        if(!Files.exists(folder)) {
             try {
-                List<File> export = station.getExportableFiles();
-
-                Path exportroot = target.toPath();
-                Path sourceroot = exportroot.resolve("Source");
-                Path stationroot = exportroot.resolve("CSLMusicMod_Music");
-
-                if(!Files.exists(sourceroot)) {
-                    Files.createDirectory(sourceroot);
-                }
-                if(!Files.exists(stationroot)) {
-                    Files.createDirectory(stationroot);
-                }
-
-                Files.write(sourceroot.resolve("Mod.cs"), station.buildModSource().getBytes(Charsets.UTF_8), StandardOpenOption.CREATE);
-
-                Path stationdefinitionroot = Paths.get(station.getDirectory());
-
-                CopyTask task = new CopyTask(export.stream().map(file -> {
-                    return new CopyTask.Entry(file, stationroot.resolve(stationdefinitionroot.relativize(file.toPath())).toFile());
-                }).collect(Collectors.toList()));
-                task.runningProperty().addListener((observableValue, aBoolean, t1) -> {
-                    root.setDisable(t1);
-                    progress.setVisible(t1);
-                });
-                progress.progressProperty().unbind();
-                progress.progressProperty().bind(task.progressProperty());
-                new Thread(task).start();
-
+                Files.createDirectories(folder);
             } catch (IOException e) {
-                DialogHelper.showExceptionError("Export music pack", "Error while exporting the music pack!", e);
+                e.printStackTrace();
             }
         }
+        exportStation(folder.toFile());
+    }
+
+    @FXML
+    public void openDocumentation() {
+        DesktopHelper.browser(URI.create("https://gitlab.com/rumangerst/cslmusicmod-station-editor/wikis/Overview"));
+    }
+
+    @FXML
+    public void reportIssue() {
+        DesktopHelper.browser(URI.create("https://gitlab.com/rumangerst/cslmusicmod-station-editor/issues"));
+    }
+
+    @FXML
+    public void showAbout() {
+        About dlg = new About();
+        Stage stage = ControlsHelper.createModalStageFor(root, dlg, "About");
+        stage.showAndWait();
+    }
+
+    @FXML
+    public void openLocalModFolder() {
+        File folder = new File(CitiesHelper.getLocalModFolder());
+        if(!folder.exists()) {
+            try {
+                Files.createDirectories(folder.toPath());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        DesktopHelper.open(folder);
     }
 }

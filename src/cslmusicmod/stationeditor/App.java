@@ -1,6 +1,7 @@
 package cslmusicmod.stationeditor;
 
 import javafx.application.Application;
+import javafx.application.HostServices;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,6 +11,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class App extends Application {
+
+    public static final String APP_VERSION = "1.0.0.0";
 
     public static void main(String[] args) {
         launch(args);
