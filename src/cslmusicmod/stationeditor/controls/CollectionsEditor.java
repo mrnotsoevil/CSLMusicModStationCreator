@@ -4,6 +4,7 @@ import cslmusicmod.stationeditor.controls.helpers.ControlsHelper;
 import cslmusicmod.stationeditor.controls.helpers.DialogHelper;
 import cslmusicmod.stationeditor.controls.helpers.EditCell;
 import cslmusicmod.stationeditor.controls.helpers.TriggerEditCell;
+import cslmusicmod.stationeditor.helpers.FileHelper;
 import cslmusicmod.stationeditor.model.ScheduleEntry;
 import cslmusicmod.stationeditor.model.SongCollection;
 import cslmusicmod.stationeditor.model.Station;
@@ -16,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -90,7 +92,7 @@ public class CollectionsEditor extends BorderPane {
 
         if(result.isPresent()) {
 
-            String name = result.get().trim();
+            String name = FileHelper.sanatizeFilename(result.get().trim());
             addNewEntry(name);
 
         }
@@ -120,6 +122,21 @@ public class CollectionsEditor extends BorderPane {
             if(!coll.getStation().hasSaveLocation()) {
                 DialogHelper.showErrorAlert("Song collection editor", "Please save the station once to enable the editor.");
                 return;
+            }
+
+            SongCollectionEditor editor = new SongCollectionEditor();
+            Stage stage = ControlsHelper.createModalStageFor(this, editor, "Edit collection");
+            editor.setCollection(getItem());
+            stage.showAndWait();
+            getTableView().refresh();
+        }
+
+        @Override
+        public void updateItem(SongCollection item, boolean empty) {
+            super.updateItem(item, empty);
+
+            if(!empty) {
+                getEditButton().setDisable(!item.isEditable());
             }
         }
     }

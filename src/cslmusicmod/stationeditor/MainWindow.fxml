@@ -12,95 +12,113 @@
 <?import cslmusicmod.stationeditor.controls.ContextsEditor?>
 <?import cslmusicmod.stationeditor.controls.DescriptionEditor?>
 <?import org.controlsfx.glyphfont.Glyph?>
-<VBox fx:id="root" prefHeight="768" prefWidth="1024" stylesheets="/cslmusicmod/stationeditor/MainWindow.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cslmusicmod.stationeditor.MainWindow">
-   <children>
-      <MenuBar prefHeight="29.0" prefWidth="600.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-                <MenuItem mnemonicParsing="false" text="New" accelerator="Shortcut+N" onAction="#newFile" >
-                    <graphic>
-                        <Glyph fontFamily="FontAwesome" icon="file" />
-                    </graphic>
-                </MenuItem>
-                  <MenuItem mnemonicParsing="false" text="Open ..." accelerator="Shortcut+O" onAction="#openFile" >
-                      <graphic>
-                          <Glyph fontFamily="FontAwesome" icon="folder" />
-                      </graphic>
-                  </MenuItem>
-                  <MenuItem mnemonicParsing="false" text="Save" accelerator="Shortcut+S" onAction="#saveFile" >
-                      <graphic>
-                          <Glyph fontFamily="FontAwesome" icon="floppy_alt" />
-                      </graphic>
-                  </MenuItem>
-              <MenuItem mnemonicParsing="false" text="Exit" accelerator="Shortcut+Q" onAction="#exit" >
-                  <graphic>
-                      <Glyph fontFamily="FontAwesome" icon="sign_out" />
-                  </graphic>
-              </MenuItem>
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-                  <MenuItem mnemonicParsing="false" text="Report issue" />
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-      <TabPane layoutY="29.0" prefHeight="372.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
-        <tabs>
-          <Tab text="General">
-            <content>
-                  <VBox>
-                     <children>
-                        <GridPane hgap="8.0" vgap="8.0">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="NEVER" minWidth="10.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                               <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="64.0" valignment="TOP" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <Label text="Name" />
-                               <Label text="Description" GridPane.rowIndex="1"/>
-                              <Label text="Thumbnail" GridPane.rowIndex="2" />
-                              <NameEditor GridPane.columnIndex="1" fx:id="nameEditor"/>
-                               <DescriptionEditor GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="descriptionEditor"/>
-                              <ThumbnailEditor GridPane.columnIndex="1" GridPane.rowIndex="2" fx:id="thumbnailEditor" />
-                           </children>
-                        </GridPane>
-                     </children>
-                     <padding>
-                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
-                     </padding>
-                  </VBox>
-            </content>
-          </Tab>
-          <Tab text="Collections">
-            <content>
-              <CollectionsEditor fx:id="collectionsEditor" />
-            </content>
-          </Tab>
-            <Tab text="Schedule">
-              <content>
-                  <ScheduleEditor fx:id="scheduleEditor" />
-              </content>
-            </Tab>
-            <Tab text="Filters">
-              <content>
-                  <FiltersEditor fx:id="filtersEditor" />
-              </content>
-            </Tab>
-            <Tab text="Contexts">
-              <content>
-                  <ContextsEditor fx:id="contextsEditor" />
-              </content>
-            </Tab>
-        </tabs>
-      </TabPane>
-   </children>
-</VBox>
+<BorderPane fx:id="root" prefHeight="768" prefWidth="1024" xmlns="http://javafx.com/javafx/8.0.121"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="cslmusicmod.stationeditor.MainWindow">
+    <top>
+        <MenuBar prefHeight="29.0" prefWidth="600.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="New" accelerator="Shortcut+N" onAction="#newFile">
+                            <graphic>
+                                <Glyph fontFamily="FontAwesome" icon="file"/>
+                            </graphic>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" text="Open ..." accelerator="Shortcut+O" onAction="#openFile">
+                            <graphic>
+                                <Glyph fontFamily="FontAwesome" icon="folder"/>
+                            </graphic>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" text="Save" accelerator="Shortcut+S" onAction="#saveFile">
+                            <graphic>
+                                <Glyph fontFamily="FontAwesome" icon="floppy_alt"/>
+                            </graphic>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" text="Export music pack" accelerator="Shortcut+Shift+S" onAction="#exportStation">
+                            <graphic>
+                                <Glyph fontFamily="FontAwesome" icon="cubes"/>
+                            </graphic>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" text="Exit" accelerator="Shortcut+Q" onAction="#exit">
+                            <graphic>
+                                <Glyph fontFamily="FontAwesome" icon="sign_out"/>
+                            </graphic>
+                        </MenuItem>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Report issue"/>
+                        <MenuItem mnemonicParsing="false" text="About"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <TabPane layoutY="29.0" prefHeight="372.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+            <tabs>
+                <Tab text="General">
+                    <content>
+                        <VBox>
+                            <children>
+                                <GridPane hgap="8.0" vgap="8.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="NEVER" minWidth="10.0"/>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+                                        <RowConstraints minHeight="10.0" prefHeight="64.0" valignment="TOP"
+                                                        vgrow="SOMETIMES"/>
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="Name"/>
+                                        <Label text="Description" GridPane.rowIndex="1"/>
+                                        <Label text="Thumbnail" GridPane.rowIndex="2"/>
+                                        <NameEditor GridPane.columnIndex="1" fx:id="nameEditor"/>
+                                        <DescriptionEditor GridPane.columnIndex="1" GridPane.rowIndex="1"
+                                                           fx:id="descriptionEditor"/>
+                                        <ThumbnailEditor GridPane.columnIndex="1" GridPane.rowIndex="2"
+                                                         fx:id="thumbnailEditor"/>
+                                    </children>
+                                </GridPane>
+                            </children>
+                            <padding>
+                                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0"/>
+                            </padding>
+                        </VBox>
+                    </content>
+                </Tab>
+                <Tab text="Collections">
+                    <content>
+                        <CollectionsEditor fx:id="collectionsEditor"/>
+                    </content>
+                </Tab>
+                <Tab text="Schedule">
+                    <content>
+                        <ScheduleEditor fx:id="scheduleEditor"/>
+                    </content>
+                </Tab>
+                <Tab text="Filters">
+                    <content>
+                        <FiltersEditor fx:id="filtersEditor"/>
+                    </content>
+                </Tab>
+                <Tab text="Contexts">
+                    <content>
+                        <ContextsEditor fx:id="contextsEditor"/>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </center>
+    <bottom>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <ProgressBar fx:id="progress" progress="0.0" VBox.vgrow="ALWAYS" />
+            </children>
+        </VBox>
+    </bottom>
+</BorderPane>

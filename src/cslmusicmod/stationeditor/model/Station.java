@@ -5,10 +5,12 @@ import com.google.gson.GsonBuilder;
 import cslmusicmod.stationeditor.model.adapters.*;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -210,5 +212,35 @@ public class Station implements Validatable {
 
     public boolean hasSaveLocation() {
         return filename != null && Files.exists(Paths.get(filename));
+    }
+
+    public List<File> getExportableFiles() throws IOException {
+
+        if(!hasSaveLocation())
+            return Collections.emptyList();
+
+        List<File> export = new ArrayList<>();
+
+        export.add(new File(filename));
+        if(thumbnail != null && !thumbnail.isEmpty())
+            export.add(Paths.get(directory).resolve(thumbnail).toFile());
+
+        for(SongCollection coll : collections.values()) {
+            if(coll.isEditable()) {
+               Path parent = Paths.get(directory).resolve(coll.getName());
+
+               if(Files.exists(parent)) {
+                   Files.list(parent).forEach(file -> {
+                       String extension = com.google.common.io.Files.getFileExtension(file.toString()).toLowerCase();
+
+                       if(extension.equals("ogg")) {
+                           export.add(file.toFile());
+                       }
+                   });
+               }
+            }
+        }
+
+        return export;
     }
 }

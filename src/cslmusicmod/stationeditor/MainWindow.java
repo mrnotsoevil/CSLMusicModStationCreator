@@ -1,5 +1,6 @@
 package cslmusicmod.stationeditor;
 
+import com.google.common.base.Charsets;
 import com.google.gson.Gson;
 import cslmusicmod.stationeditor.controls.*;
 import cslmusicmod.stationeditor.controls.helpers.DialogHelper;
@@ -11,19 +12,25 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import net.coobird.thumbnailator.Thumbnailator;
 import net.coobird.thumbnailator.Thumbnails;
+import org.controlsfx.glyphfont.FontAwesome;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.security.DigestException;
+import java.util.List;
 
 public class MainWindow {
 
@@ -55,6 +62,9 @@ public class MainWindow {
     @FXML
     private ContextsEditor contextsEditor;
 
+    @FXML
+    private ProgressBar progress;
+
     private FileChooser stationFileChooser;
 
     private DirectoryChooser exportDirectoryChooser;
@@ -67,10 +77,15 @@ public class MainWindow {
                 new FileChooser.ExtensionFilter("All files (*.*)", "*.*")
         );
         exportDirectoryChooser = new DirectoryChooser();
+        exportDirectoryChooser.setTitle("Export music pack");
     }
 
     @FXML
     private void initialize() {
+
+        progress.managedProperty().bind(progress.visibleProperty());
+        progress.setVisible(false);
+
         updateEditors();
         updateTitle();
     }
@@ -174,10 +189,7 @@ public class MainWindow {
             finally {
                 updateTitle();
             }
-
-
         }
-
     }
 
     public void exit(ActionEvent actionEvent) {
@@ -205,5 +217,39 @@ public class MainWindow {
         }
 
 
+    }
+
+    public void exportStation(ActionEvent actionEvent) {
+        if(!station.hasSaveLocation()) {
+            DialogHelper.showErrorAlert("Export music pack", "You need to save the station once.");
+            return;
+        }
+
+        File target = exportDirectoryChooser.showDialog(root.getScene().getWindow());
+
+        if(target != null) {
+
+            saveFile(actionEvent);
+
+            try {
+                List<File> export = station.getExportableFiles();
+
+                Path exportroot = target.toPath();
+                Path sourceroot = exportroot.resolve("Source");
+                Path stationroot = exportroot.resolve("CSLMusicMod_Music");
+
+                if(!Files.exists(sourceroot)) {
+                    Files.createDirectory(sourceroot);
+                }
+                if(!Files.exists(stationroot)) {
+                    Files.createDirectory(stationroot);
+                }
+
+                Files.write(sourceroot.resolve("Mod.cs"), station.buildModSource().getBytes(Charsets.UTF_8), StandardOpenOption.CREATE);
+
+            } catch (IOException e) {
+                DialogHelper.showExceptionError("Export music pack", "Error while exporting the music pack!", e);
+            }
+        }
     }
 }

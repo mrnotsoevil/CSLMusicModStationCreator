@@ -55,7 +55,18 @@ public class ThumbnailEditor extends HBox {
             return;
         }
 
-        String path = station.getDirectory() == null ? thumbnail : Paths.get(station.getDirectory(), thumbnail).toString();
+        String path;
+
+        if(Paths.get(thumbnail).isAbsolute()) {
+            path = thumbnail;
+        }
+        else if(station.hasSaveLocation()) {
+            path = Paths.get(station.getDirectory(), thumbnail).toString();
+        }
+        else {
+            setDefaultImage();
+            return;
+        }
 
         if(path.isEmpty() || !Files.exists(Paths.get(path)) || Files.isDirectory(Paths.get(path))) {
             setDefaultImage();

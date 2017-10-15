@@ -40,4 +40,9 @@ public class SongCollection implements Validatable {
     public ValidationResult isValid() {
         return new ValidationResult(this).and(!name.trim().isEmpty(), "Name cannot be empty!");
     }
+
+    public boolean isEditable() {
+        return VanillaCollections.getInstance().getCollections().stream().allMatch(x -> !x.getName().equals(getName()));
+    }
+
 }

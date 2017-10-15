@@ -39,4 +39,11 @@ public abstract class EditCell<K,V> extends TableCell<K, V> implements EventHand
         return "";
     }
 
+    public Button getEditButton() {
+        return editButton;
+    }
+
+    public void setEditButton(Button editButton) {
+        this.editButton = editButton;
+    }
 }
