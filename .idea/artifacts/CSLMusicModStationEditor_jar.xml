@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CSLMusicModStationEditor:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CSLMusicModStationEditor_jar</output-path>
+    <root id="archive" name="CSLMusicModStationEditor.jar">
+      <element id="module-output" name="CSLMusicModStationEditor" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.8.2/gson-2.8.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/guava/guava/14.0.1/guava-14.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/coobird/thumbnailator/0.4.8/thumbnailator-0.4.8.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.3.2/commons-lang3-3.3.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/controlsfx/controlsfx/8.40.13/controlsfx-8.40.13.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

@@ -2,24 +2,16 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="CSLMusicModStationEditor" />
+      <artifact name="CSLMusicModStationEditor:jar" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fb3251aa-2d0f-4882-b0b6-f4ded0caa33d" name="Default" comment="* GUI improvement">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/org_apache_commons_commons_lang3_3_3_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/About.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/About.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/helpers/CitiesHelper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/helpers/DesktopHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/icon.png" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/icon.png" />
+    <list default="true" id="fb3251aa-2d0f-4882-b0b6-f4ded0caa33d" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/CSLMusicModStationEditor_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/CSLMusicModStationEditor.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CSLMusicModStationEditor.iml" afterPath="$PROJECT_DIR$/CSLMusicModStationEditor.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/App.java" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/App.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/MainWindow.fxml" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/MainWindow.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/MainWindow.java" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/MainWindow.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,8 +39,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="29" column="27" lean-forward="true" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
+            <state relative-caret-position="323">
+              <caret line="25" column="24" lean-forward="true" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -348,11 +340,11 @@
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="true" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="SearchEverywhereHistoryKey" value="contexte&#9;FILE&#9;file:///home/ruman/git/CSLMusicModStationEditor/src/cslmusicmod/stationeditor/controls/ContextEntryEditor.java&#10;sta&#9;FILE&#9;file:///home/ruman/git/CSLMusicModStationEditor/src/cslmusicmod/stationeditor/model/Station.java&#10;dia&#9;FILE&#9;file:///home/ruman/git/CSLMusicModStationEditor/src/cslmusicmod/stationeditor/controls/helpers/DialogHelper.java&#10;main&#9;PSI&#9;JAVA://cslmusicmod.stationeditor.MainWindow&#10;controls&#9;FILE&#9;file:///home/ruman/git/CSLMusicModStationEditor/src/cslmusicmod/stationeditor/controls/helpers/ControlsHelper.java&#10;contr&#9;FILE&#9;file:///home/ruman/git/CSLMusicModStationEditor/src/cslmusicmod/stationeditor/controls/helpers/ControlsHelper.java&#10;stationad&#9;FILE&#9;file:///home/ruman/git/CSLMusicModStationEditor/src/cslmusicmod/stationeditor/model/adapters/StationAdapter.java" />
-    <property name="last_opened_file_path" value="/usr/share/doc/java8-openjdk/api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="405" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -445,7 +437,7 @@
       <workItem from="1507924925118" duration="2097000" />
       <workItem from="1507981746070" duration="28835000" />
       <workItem from="1508016004061" duration="2038000" />
-      <workItem from="1508062819001" duration="27368000" />
+      <workItem from="1508062819001" duration="28091000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1507324548682</created>
@@ -629,11 +621,18 @@
       <option name="project" value="LOCAL" />
       <updated>1508088856478</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="+ Added README, license&#10;+ Added missing functions">
+      <created>1508093686463</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1508093686463</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="148597000" />
+    <option name="totallyTimeSpent" value="149320000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="311" y="0" width="1930" height="1055" extended-state="6" />
@@ -672,7 +671,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="GUI stuff" />
     <MESSAGE value="+ Schedule editor working" />
     <MESSAGE value="+ Basic collections editor" />
     <MESSAGE value="+ default thumbnail" />
@@ -697,7 +695,8 @@
     <MESSAGE value="+ Exporting of a station to a music pack" />
     <MESSAGE value="+ Autocomplete of songs in contexts" />
     <MESSAGE value="* GUI improvement" />
-    <option name="LAST_COMMIT_MESSAGE" value="* GUI improvement" />
+    <MESSAGE value="+ Added README, license&#10;+ Added missing functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ Added README, license&#10;+ Added missing functions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1191,8 +1190,8 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="29" column="27" lean-forward="true" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
+        <state relative-caret-position="323">
+          <caret line="25" column="24" lean-forward="true" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -1203,7 +1202,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>CSLMusicModStationEditor</last-edited>
+          <last-edited>CSLMusicModStationEditor:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
