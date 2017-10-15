@@ -14,6 +14,7 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.ChoiceBoxTableCell;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 
@@ -73,6 +74,12 @@ public class SongCollectionEditor extends BorderPane {
         progress.managedProperty().bind(progress.visibleProperty());
         progress.setVisible(false);
         content.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
+        content.setOnKeyPressed(keyEvent -> {
+            if(keyEvent.getCode() == KeyCode.DELETE) {
+                removeContent();
+            }
+        });
     }
 
     public SongCollection getCollection() {

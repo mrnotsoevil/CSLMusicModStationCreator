@@ -7,9 +7,12 @@ import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.ChoiceBoxTableCell;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -65,7 +68,11 @@ public class ScheduleEditor extends BorderPane {
 
 
         content.setRowFactory(ControlsHelper.dragDropReorderRowFactory(content));
-
+        content.setOnKeyPressed(keyEvent -> {
+            if(keyEvent.getCode() == KeyCode.DELETE) {
+                removeEntries();
+            }
+        });
     }
 
     private void connectData() {

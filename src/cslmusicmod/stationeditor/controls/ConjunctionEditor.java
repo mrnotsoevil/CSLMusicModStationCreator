@@ -11,6 +11,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.input.KeyCode;
 import org.controlsfx.control.GridCell;
 
 import java.util.Collections;
@@ -36,6 +37,12 @@ public class ConjunctionEditor extends GridCell<Conjunction> {
             @Override
             public void changed(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean t1) {
                 rebuildAddItemMenu();
+            }
+        });
+
+        content.setOnKeyPressed(keyEvent -> {
+            if(keyEvent.getCode() == KeyCode.DELETE) {
+                removeEntries();
             }
         });
     }

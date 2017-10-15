@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import org.controlsfx.control.CheckListView;
@@ -57,6 +58,11 @@ public class ContextEntryEditor extends BorderPane {
             @Override
             public void onChanged(Change<? extends String> change) {
                 updateSongsAutoComplete();
+            }
+        });
+        songs.setOnKeyPressed(keyEvent -> {
+            if(keyEvent.getCode() == KeyCode.DELETE) {
+                removeSongs();
             }
         });
     }
