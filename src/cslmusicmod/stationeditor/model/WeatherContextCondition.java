@@ -7,6 +7,7 @@ public class WeatherContextCondition extends ContextCondition {
     public static IntRange WEATHER_RANGE_BORDERS = new IntRange(0, 10);
     public static IntRange DEFAULT_WEATHER_RANGE = WEATHER_RANGE_BORDERS;
 
+    private String type = "weather";
     private IntRange temperature;
     private IntRange rain;
     private IntRange cloudy;

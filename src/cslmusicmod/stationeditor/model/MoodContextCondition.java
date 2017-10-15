@@ -5,6 +5,7 @@ public class MoodContextCondition extends ContextCondition implements IntRanged 
     public static IntRange RANGE_BORDERS = new IntRange(0, 100);
     public static IntRange DEFAULT_RANGE = RANGE_BORDERS;
 
+    private String type = "mood";
     private int from;
     private int to;
     private boolean not;

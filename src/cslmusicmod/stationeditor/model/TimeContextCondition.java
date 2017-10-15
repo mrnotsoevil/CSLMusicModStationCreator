@@ -7,6 +7,7 @@ public class TimeContextCondition extends ContextCondition implements IntRanged 
     public static IntRange RANGE_BORDERS = new IntRange(0, 24);
     public static IntRange DEFAULT_RANGE = RANGE_BORDERS;
 
+    private String type = "time";
     private int from;
     private int to;
     private boolean not;

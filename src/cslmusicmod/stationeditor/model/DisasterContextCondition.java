@@ -22,6 +22,7 @@ public class DisasterContextCondition extends ContextCondition implements IntRan
     public static IntRange RANGE_BORDERS = new IntRange(0, 256);
     public static IntRange DEFAULT_RANGE = RANGE_BORDERS;
 
+    private String type = "disaster";
     private int from;
     private int to;
     private List<String> of;

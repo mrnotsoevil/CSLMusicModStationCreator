@@ -5,7 +5,7 @@ import cslmusicmod.stationeditor.model.*;
 
 import java.lang.reflect.Type;
 
-public class ContextConditionAdapter implements JsonSerializer<ContextCondition>, JsonDeserializer<ContextCondition> {
+public class ContextConditionAdapter implements JsonDeserializer<ContextCondition> {
 
 
     @Override
@@ -29,10 +29,10 @@ public class ContextConditionAdapter implements JsonSerializer<ContextCondition>
         }
     }
 
-    @Override
-    public JsonElement serialize(ContextCondition contextCondition, Type type, JsonSerializationContext jsonSerializationContext) {
-        JsonElement elem = jsonSerializationContext.serialize(contextCondition, contextCondition.getClass());
-        elem.getAsJsonObject().add("type", new JsonPrimitive(contextCondition.getType()));
-        return elem;
-    }
+//    @Override
+//    public JsonElement serialize(ContextCondition contextCondition, Type type, JsonSerializationContext jsonSerializationContext) {
+//        JsonElement elem = jsonSerializationContext.serialize(contextCondition, contextCondition.getClass());
+//        elem.getAsJsonObject().add("type", new JsonPrimitive(contextCondition.getType()));
+//        return elem;
+//    }
 }

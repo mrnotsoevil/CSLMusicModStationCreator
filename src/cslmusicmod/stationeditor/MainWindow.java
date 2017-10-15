@@ -4,6 +4,7 @@ import com.google.common.base.Charsets;
 import com.google.gson.Gson;
 import cslmusicmod.stationeditor.controls.*;
 import cslmusicmod.stationeditor.controls.helpers.DialogHelper;
+import cslmusicmod.stationeditor.helpers.CopyTask;
 import cslmusicmod.stationeditor.helpers.FileHelper;
 import cslmusicmod.stationeditor.model.Station;
 import cslmusicmod.stationeditor.model.ValidationResult;
@@ -31,6 +32,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.security.DigestException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MainWindow {
 
@@ -120,6 +122,7 @@ public class MainWindow {
                 updateTitle();
 
             } catch (Exception e) {
+                e.printStackTrace();
                 DialogHelper.showExceptionError("Open station", "Error while loading the data!", e);
             }
         }
@@ -246,6 +249,19 @@ public class MainWindow {
                 }
 
                 Files.write(sourceroot.resolve("Mod.cs"), station.buildModSource().getBytes(Charsets.UTF_8), StandardOpenOption.CREATE);
+
+                Path stationdefinitionroot = Paths.get(station.getDirectory());
+
+                CopyTask task = new CopyTask(export.stream().map(file -> {
+                    return new CopyTask.Entry(file, stationroot.resolve(stationdefinitionroot.relativize(file.toPath())).toFile());
+                }).collect(Collectors.toList()));
+                task.runningProperty().addListener((observableValue, aBoolean, t1) -> {
+                    root.setDisable(t1);
+                    progress.setVisible(t1);
+                });
+                progress.progressProperty().unbind();
+                progress.progressProperty().bind(task.progressProperty());
+                new Thread(task).start();
 
             } catch (IOException e) {
                 DialogHelper.showExceptionError("Export music pack", "Error while exporting the music pack!", e);

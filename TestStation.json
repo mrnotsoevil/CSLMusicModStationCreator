@@ -23,17 +23,20 @@
   ],
   "filters": {
     "disaster1": {
+      "type": "disaster",
       "from": 1,
       "to": 256,
       "of": [],
       "not": false
     },
     "night": {
+      "type": "time",
       "from": 20,
       "to": 6,
       "not": false
     },
     "day": {
+      "type": "time",
       "from": 6,
       "to": 20,
       "not": false
