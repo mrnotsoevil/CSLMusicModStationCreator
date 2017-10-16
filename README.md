@@ -4,9 +4,14 @@ This application allows easier creation & modification of [CSL Music Mod](https:
 radio station files. It creates stations according to the standard described in the
 [CSL Music Mod Wiki](https://github.com/rumangerst/CSLMusicMod/wiki).
 
+## Requirements
+
+* [Java Runtime 8 or higher](https://www.java.com/download/)
+
 ## Installation
 
-* TODO
+[Download](https://gitlab.com/rumangerst/cslmusicmod-station-editor/uploads/8fba8672db6b7b0facdf323d963af08d/CSLMusicModStationEditor-1.0.0.0.zip) the tool
+and unpack it into some folder. Either start the \*.jar file directly or start the respective executable or start script.
 
 ## License
 
