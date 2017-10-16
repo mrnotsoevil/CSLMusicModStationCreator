@@ -57,19 +57,19 @@ public class WeatherContextCondition extends ContextCondition {
             sum += (count++ > 0 ? " & " : "") + temperature.toString("°C");
         }
         if(!rain.equals(DEFAULT_WEATHER_RANGE)) {
-            sum += (count++ > 0 ? " & " : "") + rain.scale(10).toString("%");
+            sum += (count++ > 0 ? " & " : "") + rain.scale(10).toString("%") + " rainy";
         }
         if(!cloudy.equals(DEFAULT_WEATHER_RANGE)) {
-            sum += (count++ > 0 ? " & " : "") + cloudy.scale(10).toString("%");
+            sum += (count++ > 0 ? " & " : "") + cloudy.scale(10).toString("%") + " cloudy";
         }
         if(!foggy.equals(DEFAULT_WEATHER_RANGE)) {
-            sum += (count++ > 0 ? " & " : "") + foggy.scale(10).toString("%");
+            sum += (count++ > 0 ? " & " : "") + foggy.scale(10).toString("%") + " foggy";
         }
         if(!rainbow.equals(DEFAULT_WEATHER_RANGE)) {
-            sum += (count++ > 0 ? " & " : "") + rainbow.scale(10).toString("%");
+            sum += (count++ > 0 ? " & " : "") + rainbow.scale(10).toString("%") + " rainbow";
         }
         if(!northernlights.equals(DEFAULT_WEATHER_RANGE)) {
-            sum += (count++ > 0 ? " & " : "") + northernlights.scale(10).toString("%");
+            sum += (count++ > 0 ? " & " : "") + northernlights.scale(10).toString("%") + " northern lights";
         }
 
         return sum;

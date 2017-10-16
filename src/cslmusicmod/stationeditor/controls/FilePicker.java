@@ -1,6 +1,7 @@
 package cslmusicmod.stationeditor.controls;
 
 import cslmusicmod.stationeditor.controls.helpers.ControlsHelper;
+import cslmusicmod.stationeditor.controls.helpers.RememberingFileChooser;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -19,11 +20,11 @@ public class FilePicker extends HBox {
     @FXML
     private TextField path;
 
-    private FileChooser fileChooser;
+    private RememberingFileChooser fileChooser;
 
     public FilePicker () {
         ControlsHelper.initControl(this);
-        fileChooser = new FileChooser();
+        fileChooser = new RememberingFileChooser();
     }
 
     @FXML

@@ -18,6 +18,6 @@ public class IntRangeAdapter implements JsonDeserializer<IntRange>, JsonSerializ
         arr.add(range.getFrom());
         arr.add(range.getTo());
 
-        return new JsonArray();
+        return arr;
     }
 }

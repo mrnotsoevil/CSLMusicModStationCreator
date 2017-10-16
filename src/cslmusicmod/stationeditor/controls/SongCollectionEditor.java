@@ -2,19 +2,24 @@ package cslmusicmod.stationeditor.controls;
 
 import cslmusicmod.stationeditor.controls.helpers.ControlsHelper;
 import cslmusicmod.stationeditor.controls.helpers.DialogHelper;
+import cslmusicmod.stationeditor.controls.helpers.RememberingFileChooser;
 import cslmusicmod.stationeditor.controls.helpers.TriggerEditCell;
 import cslmusicmod.stationeditor.helpers.CopyToDirectoryTask;
 import cslmusicmod.stationeditor.model.ScheduleEntry;
 import cslmusicmod.stationeditor.model.Song;
 import cslmusicmod.stationeditor.model.SongCollection;
 import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.ChoiceBoxTableCell;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.Dragboard;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 
@@ -24,6 +29,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class SongCollectionEditor extends BorderPane {
 
@@ -46,12 +52,12 @@ public class SongCollectionEditor extends BorderPane {
     @FXML
     private ProgressBar progress;
 
-    private FileChooser songFileChooser;
+    private RememberingFileChooser songFileChooser;
 
     public SongCollectionEditor() {
         ControlsHelper.initControl(this);
 
-        songFileChooser = new FileChooser();
+        songFileChooser = new RememberingFileChooser();
         songFileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("OGG Vorbis (*.ogg)", "*.ogg")
         );
@@ -80,6 +86,33 @@ public class SongCollectionEditor extends BorderPane {
                 removeContent();
             }
         });
+
+        content.setOnDragOver(new EventHandler<DragEvent>() {
+            @Override
+            public void handle(DragEvent event) {
+                Dragboard db = event.getDragboard();
+                if (db.hasFiles()) {
+                    event.acceptTransferModes(TransferMode.COPY);
+                } else {
+                    event.consume();
+                }
+            }
+        });
+
+        content.setOnDragDropped(new EventHandler<DragEvent>() {
+            @Override
+            public void handle(DragEvent event) {
+                Dragboard db = event.getDragboard();
+                boolean success = false;
+                if (db.hasFiles()) {
+                    success = true;
+                    String filePath = null;
+                    addContent(db.getFiles());
+                }
+                event.setDropCompleted(success);
+                event.consume();
+            }
+        });
     }
 
     public SongCollection getCollection() {
@@ -101,6 +134,8 @@ public class SongCollectionEditor extends BorderPane {
         } catch (IOException e) {
             DialogHelper.showExceptionError("Collection editor", "Error while refreshing the list", e);
         }
+
+        content.sort();
     }
 
     @FXML
@@ -113,6 +148,12 @@ public class SongCollectionEditor extends BorderPane {
     }
 
     private void addContent(List<File> sources) {
+
+        sources = sources.stream().filter(f -> "ogg".equalsIgnoreCase(com.google.common.io.Files.getFileExtension(f.toString()))).collect(Collectors.toList());
+
+        if(sources.isEmpty())
+            return;
+
         CopyToDirectoryTask task = new CopyToDirectoryTask(sources, targetDirectory);
         task.runningProperty().addListener((observableValue, aBoolean, t1) -> {
             setDisable(t1);

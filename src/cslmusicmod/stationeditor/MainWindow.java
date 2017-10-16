@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import cslmusicmod.stationeditor.controls.*;
 import cslmusicmod.stationeditor.controls.helpers.ControlsHelper;
 import cslmusicmod.stationeditor.controls.helpers.DialogHelper;
+import cslmusicmod.stationeditor.controls.helpers.RememberingFileChooser;
 import cslmusicmod.stationeditor.helpers.CitiesHelper;
 import cslmusicmod.stationeditor.helpers.CopyTask;
 import cslmusicmod.stationeditor.helpers.DesktopHelper;
@@ -78,13 +79,13 @@ public class MainWindow {
     @FXML
     private ProgressBar progress;
 
-    private FileChooser stationFileChooser;
+    private RememberingFileChooser stationFileChooser;
 
     private DirectoryChooser exportDirectoryChooser;
 
     public MainWindow() {
         station = new Station();
-        stationFileChooser = new FileChooser();
+        stationFileChooser = new RememberingFileChooser();
         stationFileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("JSON (*.json)", "*.json"),
                 new FileChooser.ExtensionFilter("All files (*.*)", "*.*")
