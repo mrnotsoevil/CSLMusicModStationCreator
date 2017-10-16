@@ -10,7 +10,7 @@ radio station files. It creates stations according to the standard described in 
 
 ## Installation
 
-[Download](https://gitlab.com/rumangerst/cslmusicmod-station-editor/uploads/8fba8672db6b7b0facdf323d963af08d/CSLMusicModStationEditor-1.0.0.0.zip) the tool
+[Download](https://gitlab.com/rumangerst/cslmusicmod-station-editor/uploads/285bcff4feee9b29cedbec62fc25b1e8/CSLMusicModStationEditor-1.0.1.0.zip) the tool
 and unpack it into some folder. Either start the \*.jar file directly or start the respective executable or start script.
 
 ## License

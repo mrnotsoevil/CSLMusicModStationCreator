@@ -6,18 +6,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fb3251aa-2d0f-4882-b0b6-f4ded0caa33d" name="Default" comment="* Fixed">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/icon.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/helpers/RememberingFileChooser.java" />
+    <list default="true" id="fb3251aa-2d0f-4882-b0b6-f4ded0caa33d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/App.java" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/App.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/MainWindow.java" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/MainWindow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/FilePicker.java" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/FilePicker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/SongCollectionEditor.java" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/SongCollectionEditor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/model/WeatherContextCondition.java" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/model/WeatherContextCondition.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/model/adapters/IntRangeAdapter.java" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/model/adapters/IntRangeAdapter.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -430,7 +423,7 @@
       <workItem from="1508062819001" duration="36625000" />
       <workItem from="1508143241529" duration="23000" />
       <workItem from="1508172067217" duration="6824000" />
-      <workItem from="1508182420467" duration="2097000" />
+      <workItem from="1508182420467" duration="2356000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1507324548682</created>
@@ -705,11 +698,18 @@
       <option name="project" value="LOCAL" />
       <updated>1508179603796</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="* Fixed serialization of IntRange&#10;+ File Chooser now remembers last location&#10;+ Drag'n drop of songs into collection editor">
+      <created>1508184562690</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1508184562690</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="166798000" />
+    <option name="totallyTimeSpent" value="167057000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="311" y="0" width="1930" height="1055" extended-state="6" />
@@ -748,7 +748,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="* Improved model" />
     <MESSAGE value="+ Full editing capabilities" />
     <MESSAGE value="+ Edit button for schedule" />
     <MESSAGE value="+ Building mod source" />
@@ -773,7 +772,8 @@
     <MESSAGE value="+ Buttons to reorder schedule &amp; context entries" />
     <MESSAGE value="* Fix: New station dialog inverted" />
     <MESSAGE value="* Prepare the 1.0.0.0 release" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Prepare the 1.0.0.0 release" />
+    <MESSAGE value="* Fixed serialization of IntRange&#10;+ File Chooser now remembers last location&#10;+ Drag'n drop of songs into collection editor" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Fixed serialization of IntRange&#10;+ File Chooser now remembers last location&#10;+ Drag'n drop of songs into collection editor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
