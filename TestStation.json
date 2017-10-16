@@ -1,5 +1,5 @@
 {
-  "name": "Test Station!!",
+  "name": "Test Station",
   "collections": [
     "Test_Night",
     "Test_Day"
@@ -73,5 +73,6 @@
       "songs": [],
       "name": ""
     }
-  ]
+  ],
+  "description": "Adds more music to the game. Needs CSL Music Mod."
 }

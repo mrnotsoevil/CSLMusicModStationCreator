@@ -218,7 +218,8 @@ public class MainWindow {
         Platform.exit();
     }
 
-    public void newFile(ActionEvent actionEvent) {
+    @FXML
+    public void newFile() {
 
         Alert closeConfirmation = new Alert(
                 Alert.AlertType.CONFIRMATION,
@@ -231,7 +232,7 @@ public class MainWindow {
         closeConfirmation.initOwner(root.getScene().getWindow());
 
         Optional<ButtonType> closeResponse = closeConfirmation.showAndWait();
-        if (!ButtonType.YES.equals(closeResponse.get())) {
+        if (ButtonType.YES.equals(closeResponse.get())) {
             station = new Station();
             updateEditors();
             updateTitle();
