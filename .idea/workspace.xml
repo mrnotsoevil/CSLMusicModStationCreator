@@ -7,17 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb3251aa-2d0f-4882-b0b6-f4ded0caa33d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/helpers/EditRow.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/helpers/TriggerRowEditCell.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/App.java" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/App.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/CollectionsEditor.java" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/CollectionsEditor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ContextsEditor.java" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ContextsEditor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/FiltersEditor.java" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/FiltersEditor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ScheduleEditor.java" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ScheduleEditor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/helpers/ControlsHelper.java" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/helpers/ControlsHelper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/MainWindow.java" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/MainWindow.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,6 +37,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="378">
               <caret line="68" column="5" lean-forward="true" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainWindow.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/MainWindow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1290">
+              <caret line="329" column="102" lean-forward="false" selection-start-line="329" selection-start-column="102" selection-end-line="329" selection-end-column="102" />
               <folding />
             </state>
           </provider>
@@ -109,11 +112,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="21" column="51" lean-forward="false" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
+            <state relative-caret-position="323">
+              <caret line="36" column="78" lean-forward="false" selection-start-line="36" selection-start-column="78" selection-end-line="36" selection-end-column="78" />
               <folding />
             </state>
           </provider>
@@ -186,7 +189,6 @@
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/helpers/ListHelper.java" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ContextsEditor.fxml" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/model/adapters/IntRangeAdapter.java" />
-        <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/MainWindow.java" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/SongCollectionEditor.java" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/FilePicker.java" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/helpers/RememberingFileChooser.java" />
@@ -200,6 +202,7 @@
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ContextsEditor.java" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/FiltersEditor.java" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/App.java" />
+        <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/MainWindow.java" />
       </list>
     </option>
   </component>
@@ -210,9 +213,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="311" />
+    <option name="x" value="565" />
     <option name="width" value="1400" />
-    <option name="height" value="997" />
+    <option name="height" value="996" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -414,7 +417,7 @@
       <workItem from="1508172067217" duration="6824000" />
       <workItem from="1508182420467" duration="3015000" />
       <workItem from="1508347381696" duration="28000" />
-      <workItem from="1508356574765" duration="2302000" />
+      <workItem from="1508356574765" duration="2832000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1507324548682</created>
@@ -703,14 +706,21 @@
       <option name="project" value="LOCAL" />
       <updated>1508184787190</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="+ Double click on entries to edit">
+      <created>1508361452366</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1508361452366</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="170046000" />
+    <option name="totallyTimeSpent" value="170576000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="311" y="0" width="1930" height="1055" extended-state="6" />
+    <frame x="-5" y="0" width="1930" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -746,7 +756,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="+ Edit button for schedule" />
     <MESSAGE value="+ Building mod source" />
     <MESSAGE value="+ Loading of stations from file" />
     <MESSAGE value="+ Started work on handling collections" />
@@ -771,7 +780,8 @@
     <MESSAGE value="* Prepare the 1.0.0.0 release" />
     <MESSAGE value="* Fixed serialization of IntRange&#10;+ File Chooser now remembers last location&#10;+ Drag'n drop of songs into collection editor" />
     <MESSAGE value="* updated release info" />
-    <option name="LAST_COMMIT_MESSAGE" value="* updated release info" />
+    <MESSAGE value="+ Double click on entries to edit" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ Double click on entries to edit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1104,14 +1114,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/MainWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1972">
-          <caret line="160" column="46" lean-forward="false" selection-start-line="160" selection-start-column="46" selection-end-line="160" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/helpers/RememberingFileChooser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1212,8 +1214,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="21" column="51" lean-forward="false" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
+        <state relative-caret-position="323">
+          <caret line="36" column="78" lean-forward="false" selection-start-line="36" selection-start-column="78" selection-end-line="36" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/MainWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1290">
+          <caret line="329" column="102" lean-forward="false" selection-start-line="329" selection-start-column="102" selection-end-line="329" selection-end-column="102" />
           <folding />
         </state>
       </provider>

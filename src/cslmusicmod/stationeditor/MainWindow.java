@@ -327,12 +327,12 @@ public class MainWindow {
 
     @FXML
     public void openDocumentation() {
-        DesktopHelper.browser(URI.create("https://gitlab.com/rumangerst/cslmusicmod-station-editor/wikis/Overview"));
+        DesktopHelper.browser(URI.create("https://github.com/rumangerst/CSLMusicModStationCreator/wiki"));
     }
 
     @FXML
     public void reportIssue() {
-        DesktopHelper.browser(URI.create("https://gitlab.com/rumangerst/cslmusicmod-station-editor/issues"));
+        DesktopHelper.browser(URI.create("https://github.com/rumangerst/CSLMusicModStationCreator/issues"));
     }
 
     @FXML
