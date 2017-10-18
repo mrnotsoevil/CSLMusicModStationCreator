@@ -1,7 +1,7 @@
 CSL Music Mod Station Creator
 -----------------------------
 
-https://gitlab.com/rumangerst/cslmusicmod-station-editor
+https://github.com/rumangerst/CSLMusicModStationCreator
 
 Running
 -------
