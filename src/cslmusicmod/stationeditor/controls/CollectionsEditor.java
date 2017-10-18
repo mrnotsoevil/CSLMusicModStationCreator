@@ -1,9 +1,6 @@
 package cslmusicmod.stationeditor.controls;
 
-import cslmusicmod.stationeditor.controls.helpers.ControlsHelper;
-import cslmusicmod.stationeditor.controls.helpers.DialogHelper;
-import cslmusicmod.stationeditor.controls.helpers.EditCell;
-import cslmusicmod.stationeditor.controls.helpers.TriggerEditCell;
+import cslmusicmod.stationeditor.controls.helpers.*;
 import cslmusicmod.stationeditor.helpers.FileHelper;
 import cslmusicmod.stationeditor.model.ScheduleEntry;
 import cslmusicmod.stationeditor.model.SongCollection;
@@ -54,6 +51,7 @@ public class CollectionsEditor extends BorderPane {
     private void initialize() {
 
         content.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        content.setRowFactory(value -> new CollectionsEditRow());
 
         nameColumn.setCellValueFactory((value) -> {
             return new ReadOnlyObjectWrapper<>(value.getValue().getName());
@@ -75,6 +73,7 @@ public class CollectionsEditor extends BorderPane {
                 removeEntries();
             }
         });
+
 
     }
 
@@ -121,10 +120,10 @@ public class CollectionsEditor extends BorderPane {
        connectData();
     }
 
-    private static class CollectionsEditCell extends EditCell<SongCollection, SongCollection> {
+    private static class CollectionsEditRow extends EditRow<SongCollection> {
 
         @Override
-        public void handle(ActionEvent actionEvent) {
+        public void edit() {
             SongCollection coll = getItem();
 
             if(!coll.getStation().hasSaveLocation()) {
@@ -138,6 +137,9 @@ public class CollectionsEditor extends BorderPane {
             stage.showAndWait();
             getTableView().refresh();
         }
+    }
+
+    private static class CollectionsEditCell extends TriggerRowEditCell<SongCollection, SongCollection> {
 
         @Override
         public void updateItem(SongCollection item, boolean empty) {

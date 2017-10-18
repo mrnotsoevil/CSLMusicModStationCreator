@@ -52,10 +52,19 @@ public final class ControlsHelper {
         return stage;
     }
 
-    public static <S> Callback<TableView<S>,TableRow<S>> dragDropReorderRowFactory(TableView<S> tableView) {
+    public static <S> Callback<TableView<S>,TableRow<S>> dragDropReorderRowFactory(TableView<S> tableView, TableRow<S> base) {
 
         return tv -> {
-            TableRow<S> row = new TableRow<>();
+
+            TableRow<S> inst = null;
+
+            try {
+                inst = base.getClass().newInstance();
+            } catch (Exception e) {
+                throw new IllegalArgumentException(e);
+            }
+
+            final TableRow<S> row = inst;
 
             row.setOnDragDetected(event -> {
                 if (! row.isEmpty()) {

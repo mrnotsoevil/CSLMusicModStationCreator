@@ -2,6 +2,8 @@ package cslmusicmod.stationeditor.controls;
 
 import cslmusicmod.stationeditor.controls.helpers.ControlsHelper;
 import cslmusicmod.stationeditor.controls.helpers.EditCell;
+import cslmusicmod.stationeditor.controls.helpers.EditRow;
+import cslmusicmod.stationeditor.controls.helpers.TriggerRowEditCell;
 import cslmusicmod.stationeditor.model.*;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
@@ -43,9 +45,6 @@ public class ContextsEditor extends BorderPane {
     private void initialize() {
         content.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
-        Callback<TableColumn<ContextEntry, ContextEntry>, TableCell<ContextEntry, ContextEntry>> editCellFactory
-                = (TableColumn<ContextEntry, ContextEntry> p) -> new EditTableCell();
-
         contentPriorityColumn.setSortable(false);
         contentPriorityColumn.setCellValueFactory(value -> new ReadOnlyObjectWrapper<>(value.getValue().getStation().getContexts().indexOf(value.getValue()) + 1));
 
@@ -59,8 +58,8 @@ public class ContextsEditor extends BorderPane {
             return new ReadOnlyObjectWrapper<>(value.getValue());
         });
         editColumn.setSortable(false);
-        editColumn.setCellFactory(editCellFactory);
-        content.setRowFactory(ControlsHelper.dragDropReorderRowFactory(content));
+        editColumn.setCellFactory(value -> new TriggerRowEditCell<>());
+        content.setRowFactory(ControlsHelper.dragDropReorderRowFactory(content, new EditTableRow()));
 
         content.setOnKeyPressed(keyEvent -> {
             if(keyEvent.getCode() == KeyCode.DELETE) {
@@ -118,16 +117,10 @@ public class ContextsEditor extends BorderPane {
         }
     }
 
-    private static class EditTableCell extends EditCell<ContextEntry, ContextEntry> {
-
-        private Button editButton;
-
-        public EditTableCell() {
-
-        }
+    public static class EditTableRow extends EditRow<ContextEntry> {
 
         @Override
-        public void handle(ActionEvent actionEvent) {
+        public void edit() {
             ContextEntryEditor dlg = new ContextEntryEditor();
             Stage stage = ControlsHelper.createModalStageFor(this, dlg, "Edit context");
             dlg.setContextEntry(getItem());

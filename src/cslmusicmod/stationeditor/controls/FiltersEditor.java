@@ -1,8 +1,6 @@
 package cslmusicmod.stationeditor.controls;
 
-import cslmusicmod.stationeditor.controls.helpers.ControlsHelper;
-import cslmusicmod.stationeditor.controls.helpers.DialogHelper;
-import cslmusicmod.stationeditor.controls.helpers.EditCell;
+import cslmusicmod.stationeditor.controls.helpers.*;
 import cslmusicmod.stationeditor.model.*;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
@@ -43,9 +41,7 @@ public class FiltersEditor extends BorderPane {
     @FXML
     private void initialize() {
         content.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
-        Callback<TableColumn<ContextCondition, ContextCondition>, TableCell<ContextCondition, ContextCondition>> editCellFactory
-                = (TableColumn<ContextCondition, ContextCondition> p) -> new EditTableCell();
+        content.setRowFactory(value -> new EditTableRow());
 
         nameColumn.setCellValueFactory((value) -> {
             return new ReadOnlyObjectWrapper<>(station.getFilterName(value.getValue()));
@@ -57,7 +53,7 @@ public class FiltersEditor extends BorderPane {
             return new ReadOnlyObjectWrapper<>(value.getValue());
         });
         editColumn.setSortable(false);
-        editColumn.setCellFactory(editCellFactory);
+        editColumn.setCellFactory(value -> new TriggerRowEditCell<>());
     }
 
     private void connectData() {
@@ -127,15 +123,11 @@ public class FiltersEditor extends BorderPane {
         connectData();
     }
 
-    private static class EditTableCell extends EditCell<ContextCondition, ContextCondition> {
+    private static class EditTableRow extends EditRow<ContextCondition> {
 
-
-        public EditTableCell() {
-
-        }
 
         @Override
-        public void handle(ActionEvent actionEvent) {
+        public void edit() {
             if(getItem() instanceof DisasterContextCondition) {
                 DisasterContextConditionEditor editor = new DisasterContextConditionEditor();
                 Stage stage = ControlsHelper.createModalStageFor(this, editor, "Edit condition");

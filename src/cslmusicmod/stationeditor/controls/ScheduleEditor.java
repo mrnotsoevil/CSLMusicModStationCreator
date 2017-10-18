@@ -2,6 +2,8 @@ package cslmusicmod.stationeditor.controls;
 
 import cslmusicmod.stationeditor.controls.helpers.ControlsHelper;
 import cslmusicmod.stationeditor.controls.helpers.EditCell;
+import cslmusicmod.stationeditor.controls.helpers.EditRow;
+import cslmusicmod.stationeditor.controls.helpers.TriggerRowEditCell;
 import cslmusicmod.stationeditor.model.*;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
@@ -71,11 +73,11 @@ public class ScheduleEditor extends BorderPane {
             return new ReadOnlyObjectWrapper<>(new IntRange(value.getValue().getMin(), value.getValue().getMax()));
         });
 
-        editColumn.setCellFactory(value -> new ScheduleEntryEditCell());
+        editColumn.setCellFactory(value -> new TriggerRowEditCell<>());
         editColumn.setCellValueFactory(value -> new ReadOnlyObjectWrapper<>(value.getValue()));
 
 
-        content.setRowFactory(ControlsHelper.dragDropReorderRowFactory(content));
+        content.setRowFactory(ControlsHelper.dragDropReorderRowFactory(content, new ScheduleEntryEditRow()));
         content.setOnKeyPressed(keyEvent -> {
             if(keyEvent.getCode() == KeyCode.DELETE) {
                 removeEntries();
@@ -131,10 +133,10 @@ public class ScheduleEditor extends BorderPane {
         }
     }
 
-    private static class ScheduleEntryEditCell extends EditCell<ScheduleEntry, ScheduleEntry> {
+    public static class ScheduleEntryEditRow extends EditRow<ScheduleEntry> {
 
         @Override
-        public void handle(ActionEvent actionEvent) {
+        public void edit() {
             ScheduleEntryEditor editor = new ScheduleEntryEditor();
             Stage stage = ControlsHelper.createModalStageFor(this, editor, "Edit schedule entry");
             editor.setEntry(getItem());
