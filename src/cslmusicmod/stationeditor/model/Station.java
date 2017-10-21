@@ -87,8 +87,15 @@ public class Station implements Validatable {
         }
     }
 
+    public boolean canRemoveCollection(SongCollection coll) {
+        return contexts.stream().allMatch(context -> {
+            return !context.getCollections().contains(coll.getName());
+        });
+    }
+
     public void removeCollection(SongCollection coll) {
-        collections.remove(coll.getName());
+        if(canRemoveCollection(coll))
+            collections.remove(coll.getName());
     }
 
     public List<ScheduleEntry> getSchedule() {

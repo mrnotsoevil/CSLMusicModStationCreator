@@ -116,6 +116,14 @@ public class CollectionsEditor extends BorderPane {
 
     @FXML
     private void removeEntries() {
+
+        for(SongCollection coll :  content.getSelectionModel().getSelectedItems()) {
+            if(!station.canRemoveCollection(coll)) {
+                DialogHelper.showErrorAlert("Delete collection", "The collection " + coll.getName() + " is being used! Cannot delete it!");
+                return;
+            }
+        }
+
        content.getSelectionModel().getSelectedItems().stream().forEach(x -> station.removeCollection(x));
        connectData();
     }
