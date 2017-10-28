@@ -200,6 +200,8 @@ public class MainWindow {
                 w.write(stationSerializer.toJson(station));
                 station.setFilename(path.getAbsolutePath());
                 station.setDirectory(path.getParent());
+                thumbnailEditor.setStation(station);
+
             } catch (IOException e) {
                 DialogHelper.showExceptionError("Save station", "Error while saving!", e);
                 return false;
