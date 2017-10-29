@@ -59,6 +59,7 @@ public class FiltersEditor extends BorderPane {
     private void connectData() {
         ObservableList<ContextCondition> data = FXCollections.observableArrayList(station.getFilters().values());
         content.setItems(data);
+        content.refresh();
     }
 
     public Station getStation() {

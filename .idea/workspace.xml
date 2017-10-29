@@ -8,11 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fb3251aa-2d0f-4882-b0b6-f4ded0caa33d" name="Default" comment="* Changed links">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/App.java" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/App.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/CollectionsEditor.java" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/CollectionsEditor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/model/Station.java" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/model/Station.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/FiltersEditor.java" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/FiltersEditor.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,72 +20,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Station.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/model/Station.java">
+      <file leaf-file-name="MainWindow.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/MainWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+            <state relative-caret-position="545">
+              <caret line="195" column="0" lean-forward="false" selection-start-line="195" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
+              <folding>
+                <marker date="1509300517207" expanded="false" signature="7320:7331" ph=" { " />
+                <marker date="1509300517207" expanded="false" signature="7347:7353" ph=" }" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ContextsEditor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ContextsEditor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-493">
+              <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SongCollection.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/model/SongCollection.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="717">
-              <caret line="64" column="5" lean-forward="false" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ContextCondition.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/model/ContextCondition.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="38" lean-forward="false" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FiltersEditor.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FiltersEditor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/FiltersEditor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="113" column="148" lean-forward="true" selection-start-line="113" selection-start-column="15" selection-end-line="113" selection-end-column="148" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ContextEntry.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/model/ContextEntry.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CollectionsEditor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/CollectionsEditor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="121" column="89" lean-forward="true" selection-start-line="121" selection-start-column="89" selection-end-line="121" selection-end-column="89" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/App.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="21" column="53" lean-forward="false" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
-              <folding />
+            <state relative-caret-position="1541">
+              <caret line="128" column="0" lean-forward="true" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
+              <folding>
+                <marker date="1509300708463" expanded="true" signature="1357:1406" ph="{...}" />
+                <marker date="1509300708463" expanded="true" signature="3803:4202" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -168,13 +130,13 @@
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/helpers/ControlsHelper.java" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ScheduleEditor.java" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ContextsEditor.java" />
-        <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/FiltersEditor.java" />
-        <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/MainWindow.java" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/model/SongCollection.java" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/model/ContextCondition.java" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/model/Station.java" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/CollectionsEditor.java" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/App.java" />
+        <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/MainWindow.java" />
+        <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/FiltersEditor.java" />
       </list>
     </option>
   </component>
@@ -205,12 +167,49 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="CSLMusicModStationEditor" type="b2602c69:ProjectViewProjectNode" />
               <item name="CSLMusicModStationEditor" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="CSLMusicModStationEditor" type="58d84e3e:PackageViewProjectNode" />
+              <item name="CSLMusicModStationEditor" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="CSLMusicModStationEditor" type="58d84e3e:PackageViewProjectNode" />
+              <item name="CSLMusicModStationEditor" type="616d4139:PackageViewModuleNode" />
+              <item name="cslmusicmod.stationeditor" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="CSLMusicModStationEditor" type="58d84e3e:PackageViewProjectNode" />
+              <item name="CSLMusicModStationEditor" type="616d4139:PackageViewModuleNode" />
+              <item name="cslmusicmod.stationeditor.controls" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="CSLMusicModStationEditor" type="58d84e3e:PackageViewProjectNode" />
+              <item name="CSLMusicModStationEditor" type="616d4139:PackageViewModuleNode" />
+              <item name="cslmusicmod.stationeditor.helpers" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="CSLMusicModStationEditor" type="58d84e3e:PackageViewProjectNode" />
+              <item name="CSLMusicModStationEditor" type="616d4139:PackageViewModuleNode" />
+              <item name="cslmusicmod.stationeditor.model" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="CSLMusicModStationEditor" type="58d84e3e:PackageViewProjectNode" />
+              <item name="CSLMusicModStationEditor" type="616d4139:PackageViewModuleNode" />
+              <item name="cslmusicmod.stationeditor.model.adapters" type="1f31426a:PackageElementNode" />
             </path>
           </expand>
           <select />
@@ -238,48 +237,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="CSLMusicModStationEditor" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSLMusicModStationEditor" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="CSLMusicModStationEditor" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSLMusicModStationEditor" type="616d4139:PackageViewModuleNode" />
-              <item name="cslmusicmod.stationeditor" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="CSLMusicModStationEditor" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSLMusicModStationEditor" type="616d4139:PackageViewModuleNode" />
-              <item name="cslmusicmod.stationeditor.controls" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="CSLMusicModStationEditor" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSLMusicModStationEditor" type="616d4139:PackageViewModuleNode" />
-              <item name="cslmusicmod.stationeditor.controls.helpers" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="CSLMusicModStationEditor" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSLMusicModStationEditor" type="616d4139:PackageViewModuleNode" />
-              <item name="cslmusicmod.stationeditor.helpers" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="CSLMusicModStationEditor" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSLMusicModStationEditor" type="616d4139:PackageViewModuleNode" />
-              <item name="cslmusicmod.stationeditor.model" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="CSLMusicModStationEditor" type="58d84e3e:PackageViewProjectNode" />
-              <item name="CSLMusicModStationEditor" type="616d4139:PackageViewModuleNode" />
-              <item name="cslmusicmod.stationeditor.model.adapters" type="1f31426a:PackageElementNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -291,7 +248,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="SearchEverywhereHistoryKey" value="sc&#9;FILE&#9;file:///home/ruman/git/CSLMusicModStationEditor/src/cslmusicmod/stationeditor/controls/ScheduleEditor.java&#10;contexte&#9;FILE&#9;file:///home/ruman/git/CSLMusicModStationEditor/src/cslmusicmod/stationeditor/controls/ContextEntryEditor.java&#10;sta&#9;FILE&#9;file:///home/ruman/git/CSLMusicModStationEditor/src/cslmusicmod/stationeditor/model/Station.java&#10;dia&#9;FILE&#9;file:///home/ruman/git/CSLMusicModStationEditor/src/cslmusicmod/stationeditor/controls/helpers/DialogHelper.java&#10;main&#9;PSI&#9;JAVA://cslmusicmod.stationeditor.MainWindow&#10;controls&#9;FILE&#9;file:///home/ruman/git/CSLMusicModStationEditor/src/cslmusicmod/stationeditor/controls/helpers/ControlsHelper.java&#10;contr&#9;FILE&#9;file:///home/ruman/git/CSLMusicModStationEditor/src/cslmusicmod/stationeditor/controls/helpers/ControlsHelper.java&#10;stationad&#9;FILE&#9;file:///home/ruman/git/CSLMusicModStationEditor/src/cslmusicmod/stationeditor/model/adapters/StationAdapter.java" />
-    <property name="last_opened_file_path" value="$USER_HOME$/tmp/cslmusicmod-station-editor" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Ice_and_Fire" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="405" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -392,6 +349,9 @@
       <workItem from="1508356574765" duration="3911000" />
       <workItem from="1508523404681" duration="81000" />
       <workItem from="1508607657430" duration="753000" />
+      <workItem from="1508878163702" duration="54000" />
+      <workItem from="1509218513805" duration="869000" />
+      <workItem from="1509300486211" duration="240000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1507324548682</created>
@@ -698,7 +658,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="172489000" />
+    <option name="totallyTimeSpent" value="173656000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="565" y="0" width="1930" height="1055" extended-state="6" />
@@ -709,17 +669,17 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22572039" sideWeight="0.54702705" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23105656" sideWeight="0.53405404" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22572039" sideWeight="0.45297298" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23105656" sideWeight="0.46594596" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39891893" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39891893" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32864866" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -800,20 +760,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///usr/lib/jvm/java-8-openjdk/jre/lib/ext/jfxrt.jar!/javafx/application/Application.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/VanillaCollections.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/model/VanillaCollections.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
@@ -829,7 +775,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="55" column="12" lean-forward="true" selection-start-line="49" selection-start-column="3" selection-end-line="55" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -910,7 +855,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="347">
           <caret line="23" column="41" lean-forward="false" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -921,13 +865,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/model/adapters/StationAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ScheduleEntryEditor.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
@@ -935,7 +872,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="91">
           <caret line="22" column="22" lean-forward="true" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -968,7 +904,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="533">
           <caret line="97" column="48" lean-forward="true" selection-start-line="97" selection-start-column="48" selection-end-line="97" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -983,14 +918,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="18" column="55" lean-forward="true" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ConjunctionEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="46" column="11" lean-forward="false" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1009,7 +936,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="918">
           <caret line="54" column="25" lean-forward="false" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1020,7 +946,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="42" column="58" lean-forward="false" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1031,7 +956,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="524">
           <caret line="33" column="26" lean-forward="true" selection-start-line="31" selection-start-column="16" selection-end-line="33" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1060,7 +984,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1785">
           <caret line="142" column="55" lean-forward="false" selection-start-line="142" selection-start-column="55" selection-end-line="142" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1075,7 +998,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="53" column="22" lean-forward="false" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1083,7 +1005,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1098,7 +1019,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="5" column="57" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1106,7 +1026,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1114,7 +1033,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="833">
           <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1122,23 +1040,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1938">
           <caret line="138" column="28" lean-forward="false" selection-start-line="138" selection-start-column="28" selection-end-line="138" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ContextsEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="68" column="5" lean-forward="false" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/MainWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="275" column="71" lean-forward="true" selection-start-line="275" selection-start-column="71" selection-end-line="275" selection-end-column="71" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1146,7 +1047,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="241">
           <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1154,31 +1054,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="717">
           <caret line="64" column="5" lean-forward="false" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/FiltersEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="113" column="148" lean-forward="true" selection-start-line="113" selection-start-column="15" selection-end-line="113" selection-end-column="148" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/model/ContextCondition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="38" lean-forward="false" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/model/Station.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1186,7 +1061,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="121" column="89" lean-forward="true" selection-start-line="121" selection-start-column="89" selection-end-line="121" selection-end-column="89" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1194,7 +1068,88 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="21" column="53" lean-forward="false" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/model/Station.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1411">
+          <caret line="112" column="45" lean-forward="false" selection-start-line="112" selection-start-column="45" selection-end-line="112" selection-end-column="45" />
+          <folding>
+            <element signature="e#3739#3740#0" expanded="true" />
+            <element signature="e#5910#5911#0" expanded="true" />
+            <element signature="e#5944#5945#0" expanded="true" />
+            <marker date="1508610493490" expanded="true" signature="5843:5873" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/model/ContextCondition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="26" column="5" lean-forward="false" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/model/Conjunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="36" column="5" lean-forward="false" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ConjunctionEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="53" column="43" lean-forward="false" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
+          <folding>
+            <marker date="1508610493490" expanded="true" signature="1901:1935" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/model/adapters/StationAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="55" column="85" lean-forward="false" selection-start-line="55" selection-start-column="85" selection-end-line="55" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ContextConditionEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="35" column="9" lean-forward="true" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/MainWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="195" column="0" lean-forward="false" selection-start-line="195" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
+          <folding>
+            <marker date="1509300517207" expanded="false" signature="7320:7331" ph=" { " />
+            <marker date="1509300517207" expanded="false" signature="7347:7353" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ContextsEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-493">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/FiltersEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1541">
+          <caret line="128" column="0" lean-forward="true" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
+          <folding>
+            <marker date="1509300708463" expanded="true" signature="1357:1406" ph="{...}" />
+            <marker date="1509300708463" expanded="true" signature="3803:4202" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
