@@ -19,7 +19,7 @@ import java.util.Optional;
 
 public class App extends Application {
 
-    public static final String APP_VERSION = "1.0.2.1";
+    public static final String APP_VERSION = "1.0.2.2";
 
     private Stage mainStage;
 
