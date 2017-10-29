@@ -6,9 +6,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fb3251aa-2d0f-4882-b0b6-f4ded0caa33d" name="Default" comment="* Changed links">
+    <list default="true" id="fb3251aa-2d0f-4882-b0b6-f4ded0caa33d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/FiltersEditor.java" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/FiltersEditor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/CollectionsEditor.java" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/CollectionsEditor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ContextsEditor.java" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ContextsEditor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ScheduleEditor.java" afterPath="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ScheduleEditor.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,18 +38,38 @@
       <file leaf-file-name="ContextsEditor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ContextsEditor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-493">
-              <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state relative-caret-position="239">
+              <caret line="73" column="34" lean-forward="true" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FiltersEditor.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ScheduleEditor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ScheduleEditor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="91" column="26" lean-forward="false" selection-start-line="91" selection-start-column="26" selection-end-line="91" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CollectionsEditor.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/CollectionsEditor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="82" column="26" lean-forward="false" selection-start-line="82" selection-start-column="26" selection-end-line="82" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FiltersEditor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/FiltersEditor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1541">
-              <caret line="128" column="0" lean-forward="true" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
+            <state relative-caret-position="130">
+              <caret line="58" column="28" lean-forward="false" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="28" />
               <folding>
                 <marker date="1509300708463" expanded="true" signature="1357:1406" ph="{...}" />
                 <marker date="1509300708463" expanded="true" signature="3803:4202" ph="{...}" />
@@ -73,6 +95,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>edit</find>
+      <find>connectData</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -128,15 +151,15 @@
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/helpers/TriggerRowEditCell.java" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/helpers/EditRow.java" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/helpers/ControlsHelper.java" />
-        <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ScheduleEditor.java" />
-        <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ContextsEditor.java" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/model/SongCollection.java" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/model/ContextCondition.java" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/model/Station.java" />
-        <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/CollectionsEditor.java" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/App.java" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/MainWindow.java" />
         <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/FiltersEditor.java" />
+        <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ContextsEditor.java" />
+        <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ScheduleEditor.java" />
+        <option value="$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/CollectionsEditor.java" />
       </list>
     </option>
   </component>
@@ -351,7 +374,7 @@
       <workItem from="1508607657430" duration="753000" />
       <workItem from="1508878163702" duration="54000" />
       <workItem from="1509218513805" duration="869000" />
-      <workItem from="1509300486211" duration="240000" />
+      <workItem from="1509300486211" duration="364000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1507324548682</created>
@@ -654,11 +677,18 @@
       <option name="project" value="LOCAL" />
       <updated>1508361975984</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="* Maybe fixed filters editor not refreshing?">
+      <created>1509300748502</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1509300748502</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="173656000" />
+    <option name="totallyTimeSpent" value="173780000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="565" y="0" width="1930" height="1055" extended-state="6" />
@@ -673,9 +703,10 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23105656" sideWeight="0.53405404" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23105656" sideWeight="0.5322581" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23105656" sideWeight="0.46594596" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23105656" sideWeight="0.46774194" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -686,7 +717,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -697,7 +727,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="+ Loading of stations from file" />
     <MESSAGE value="+ Started work on handling collections" />
     <MESSAGE value="+ Saving" />
     <MESSAGE value="+ Adding vanilla collections from GUI" />
@@ -722,7 +751,8 @@
     <MESSAGE value="* updated release info" />
     <MESSAGE value="+ Double click on entries to edit" />
     <MESSAGE value="* Changed links" />
-    <option name="LAST_COMMIT_MESSAGE" value="* Changed links" />
+    <MESSAGE value="* Maybe fixed filters editor not refreshing?" />
+    <option name="LAST_COMMIT_MESSAGE" value="* Maybe fixed filters editor not refreshing?" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1036,13 +1066,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ScheduleEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1938">
-          <caret line="138" column="28" lean-forward="false" selection-start-line="138" selection-start-column="28" selection-end-line="138" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/model/ContextEntry.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="241">
@@ -1054,13 +1077,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="717">
           <caret line="64" column="5" lean-forward="false" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/CollectionsEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="121" column="89" lean-forward="true" selection-start-line="121" selection-start-column="89" selection-end-line="121" selection-end-column="89" />
         </state>
       </provider>
     </entry>
@@ -1134,22 +1150,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ContextsEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-493">
-          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/FiltersEditor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1541">
-          <caret line="128" column="0" lean-forward="true" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
+        <state relative-caret-position="130">
+          <caret line="58" column="28" lean-forward="false" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="28" />
           <folding>
             <marker date="1509300708463" expanded="true" signature="1357:1406" ph="{...}" />
             <marker date="1509300708463" expanded="true" signature="3803:4202" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ContextsEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="73" column="34" lean-forward="true" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/ScheduleEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="91" column="26" lean-forward="false" selection-start-line="91" selection-start-column="26" selection-end-line="91" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cslmusicmod/stationeditor/controls/CollectionsEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="82" column="26" lean-forward="false" selection-start-line="82" selection-start-column="26" selection-end-line="82" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>

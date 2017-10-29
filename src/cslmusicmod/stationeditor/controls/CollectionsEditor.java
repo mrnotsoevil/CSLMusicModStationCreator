@@ -80,6 +80,7 @@ public class CollectionsEditor extends BorderPane {
     private void connectData() {
         ObservableList<SongCollection> data = FXCollections.observableArrayList(station.getCollections().values());
         content.setItems(data);
+        content.refresh();
     }
 
     public Station getStation() {

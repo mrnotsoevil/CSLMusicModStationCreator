@@ -72,6 +72,7 @@ public class ContextsEditor extends BorderPane {
         ObservableList<ContextEntry> data = FXCollections.observableArrayList(station.getContexts());
         content.setItems(data);
         station.setContexts(data);
+        content.refresh();
     }
 
     public Station getStation() {

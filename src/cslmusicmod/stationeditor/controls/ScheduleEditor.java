@@ -89,6 +89,7 @@ public class ScheduleEditor extends BorderPane {
         ObservableList<ScheduleEntry> data = FXCollections.observableArrayList(station.getSchedule());
         content.setItems(data);
         station.setSchedule(data);
+        content.refresh();
     }
 
     public Station getStation() {
